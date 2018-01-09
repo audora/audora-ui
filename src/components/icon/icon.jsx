@@ -8,10 +8,12 @@ const Icon = ({
   className,
   color,
   name,
+  onClick,
   reversed,
   size,
 }) => (
   <span
+    onClick={onClick}
     className={cn(
       "icon",
       name === "loader" && "icon--loader",
@@ -35,11 +37,13 @@ Icon.propTypes = {
     "large",
     "xlarge",
   ]),
+  onClick: PropTypes.object,
 }
 
 Icon.defaultProps = {
   className: '',
   color: '',
+  onClick: () => 0,
   reversed: false,
   size: 'medium',
 }
