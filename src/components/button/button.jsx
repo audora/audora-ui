@@ -28,8 +28,12 @@ const Button = ({
 	onClick,
 	style,
 	type,
+	href,
+	target,
 }) => (
 	<button
+		href={(type === "link" && href) && href}
+		target={(href && target) && target}
 		className={cn(
 			"button",
 			(loading && (type !== 'link' || !disabled)) && 'button--loading',
@@ -65,7 +69,15 @@ Button.propTypes = {
 	 */
 	className: PropTypes.string,
 	/**
-	 * O estilo básico para aplicar ao botão.
+	 * Fornece um URL para os botões serem usados como um link.
+	 */
+	href: PropTypes.string,
+	/**
+	 * Fornece um URL para os botões serem usados como um link.
+	 */
+	target: PropTypes.string,
+	/**
+	 * Passe o target para um link dentro do componente, se href for fornecido.
 	 */
 	type: PropTypes.oneOf([
 		'primary',
@@ -90,6 +102,8 @@ Button.propTypes = {
 Button.defaultProps = {
 	type: 'default',
 	className: '',
+	href: '',
+	target: '',
 	content: "Button",
 	disabled: false,
 	loading: false,
