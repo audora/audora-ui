@@ -37,7 +37,7 @@ Icon.propTypes = {
     "large",
     "xlarge",
   ]),
-  onClick: PropTypes.object,
+  onClick: PropTypes.func,
 }
 
 Icon.defaultProps = {
