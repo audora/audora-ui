@@ -4,8 +4,36 @@
 .icon {
   height: 24px;
   width: 24px;
-  color: contrast($background-color);
+  color: $icon-color;
   display: inline-block;
   fill: $icon-fill;
   line-height: 1;
+}
+
+.icon--loader {
+  animation: rotation 3s infinite linear;
+}
+
+.icon--small {
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.icon--large {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.icon--xlarge {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.icon--reversed {
+  color: contrast($icon-color) !important;
+}
+
+@keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to   {-webkit-transform: rotate(359deg);}
 }

@@ -1,13 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-
 import './button.scss';
+
+import Icon from '../icon';
+
+const renderLoading = () => (
+	<span style={{ display: 'flex', alignItems: 'center' }}>
+		<Icon name="loader" size="small" />
+		<span className="ml-10">Carregando...</span>
+	</span>
+);
+
+const renderIcon = (icon, content, type) => (
+	<span style={{ display: 'flex', alignItems: 'center' }}>
+		<Icon name={icon} reversed={type === "primary"} size="small" />
+		<span className="ml-10">{content}</span>
+	</span>
+);
 
 const Button = ({
 	className,
 	content,
 	disabled,
+	icon,
 	loading,
 	onClick,
 	style,
@@ -17,6 +33,7 @@ const Button = ({
 		className={cn(
 			"button",
 			(loading && (type !== 'link' || !disabled)) && 'button--loading',
+			(loading || !!icon) && 'button--icon',
 			disabled && 'button--disabled',
 			type === 'primary' && 'button--primary',
 			type === 'link' && "button--link",
@@ -26,7 +43,12 @@ const Button = ({
 		style={style}
 		onClick={onClick}
 	>
-		{content}
+		{loading
+			? renderLoading()
+			: !!icon
+				? renderIcon(icon, content, type)
+				: content
+		}
 	</button>
 );
 

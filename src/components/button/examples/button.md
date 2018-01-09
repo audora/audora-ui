@@ -1,5 +1,5 @@
 
-Os botões são classificados por importância de cima para baixo.
+Os botões são classificados por importância de cima para baixo. (Primary > Default > Link)
 
 ### Primary
 Para chamar a atenção para uma ação em um formulário, ou destacar a chamada mais forte para a ação em uma página. Os botões primários só devem aparecer uma vez por tela (não incluindo o cabeçalho da aplicação ou em um modal). Tenha em mente que nem todas as telas precisam de um botão primário.
@@ -41,4 +41,10 @@ Use quando estiver esperando o resultado de uma ação. Use apenas com os tipos 
 
 ```jsx
 <Button content="Loading" loading />
+```
+
+### Icon
+
+```jsx
+<Button content="Icon" icon="music" type="primary" />
 ```
