@@ -32,7 +32,7 @@ const Button = ({
 	target,
 }) => (
 	<button
-		href={(type === "link" && href) && href}
+		href={(type === "link" && href) ? href : ''}
 		target={(href && target) && target}
 		className={cn(
 			"button",

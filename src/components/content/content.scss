@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+.content--width {
+  max-width: 1200px;
+}
+.content--column {
+  flex-direction: column;
+}
+.content--padding {
+  padding: 10px;
+}
+.content--loading {
+  justify-content: center;
+  align-items: center;
+}
