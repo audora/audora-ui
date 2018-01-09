@@ -1,0 +1,11 @@
+@import "../../css/variables.scss";
+@import "../../css/body.scss";
+
+.icon {
+  height: 24px;
+  width: 24px;
+  color: contrast($background-color);
+  display: inline-block;
+  fill: $icon-fill;
+  line-height: 1;
+}

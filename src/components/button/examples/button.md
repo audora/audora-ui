@@ -23,7 +23,7 @@ Use links para ações secundárias, ações destrutivas, como "Cancelar", ou pa
 ```
 
 ### Subtle
-Use subtle para ações secundárias, ações destrutivas, como "Cancelar" ou "Fechar".
+Use botão sutil para ações secundárias, ações destrutivas, como "Cancelar" ou "Fechar".
 
 ```jsx
 <Button content="Subtle" type="subtle" />
