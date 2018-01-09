@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import isEmpty from 'lodash/fp/isEmpty';
+
 import './button.scss';
 
 import Icon from '../icon';
@@ -8,16 +10,21 @@ import Icon from '../icon';
 const renderLoading = () => (
 	<span style={{ display: 'flex', alignItems: 'center' }}>
 		<Icon name="loader" size="small" />
-		<span className="ml-10">Carregando...</span>
+		<span className="ml-10">Carregando</span>
 	</span>
 );
 
-const renderIcon = (icon, content, type) => (
-	<span style={{ display: 'flex', alignItems: 'center' }}>
-		<Icon name={icon} reversed={type === "primary"} size="small" />
-		<span className="ml-10">{content}</span>
-	</span>
-);
+const renderIcon = (icon, content, type) => isEmpty(content)
+	? (
+		<span style={{ display: 'flex', alignItems: 'center' }}>
+			<Icon name={icon} reversed={type === "primary"} size="small" />
+		</span>
+	) :	(
+		<span style={{ display: 'flex', alignItems: 'center' }}>
+			<Icon name={icon} reversed={type === "primary"} size="small" />
+			<span className="ml-10">{content}</span>
+		</span>
+	);
 
 const Button = ({
 	className,
@@ -32,12 +39,13 @@ const Button = ({
 	target,
 }) => (
 	<button
-		href={(type === "link" && href) ? href : ''}
+		href={(type === "link" && href) ? href : '#'}
 		target={(href && target) && target}
 		className={cn(
 			"button",
 			(loading && (type !== 'link' || !disabled)) && 'button--loading',
 			(loading || !!icon) && 'button--icon',
+			(isEmpty(content) && !isEmpty(icon)) && 'button--icon-o',
 			disabled && 'button--disabled',
 			type === 'primary' && 'button--primary',
 			type === 'link' && "button--link",
@@ -104,7 +112,7 @@ Button.defaultProps = {
 	className: '',
 	href: '',
 	target: '',
-	content: "Button",
+	content: '',
 	disabled: false,
 	loading: false,
 	onClick: () => 0,

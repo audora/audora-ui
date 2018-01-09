@@ -30,6 +30,10 @@
 	background-color: darken($button-color, 10%) !important;
 }
 
+.button--icon-o {
+  padding: .25rem .50rem !important;
+}
+
 .button--primary {
 	background-color: $primary-color !important;
 	color: contrast($primary-color) !important;

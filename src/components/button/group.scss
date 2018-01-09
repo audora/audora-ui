@@ -1,0 +1,7 @@
+.button-group button {
+  margin-right: 5px;
+}
+
+.button-group button:last-child {
+  margin-right: 0 !important;
+}
