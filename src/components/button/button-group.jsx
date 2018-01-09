@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Content from '../content';
 
-import './group.scss';
+import './button-group.scss';
 
 const ButtonGroup = ({
   children

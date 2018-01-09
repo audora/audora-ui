@@ -70,7 +70,13 @@ Content.propTypes = {
   /**
    * Alinha os filhos na *horizontal* quando o prop **column** não está definido e alinha na *vertical* quando o prop **column** está definido.
    */
-  justifyContent: PropTypes.string,
+  justifyContent: PropTypes.oneOf([
+    "flex-start",
+    "flex-end",
+    "center",
+    "space-between",
+    "space-around",
+  ]),
   /**
    * Adiciona um Loader ao content substituindo o filho.
    */

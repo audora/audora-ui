@@ -21,6 +21,7 @@
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.8",
+    "file-loader": "^1.1.6",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.2.0",
     "postcss-loader": "^2.0.10",
