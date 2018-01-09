@@ -1,5 +1,8 @@
-$font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$border-radius: 3px;
+$primary-color: #0f65ef;
 
-$color: 'green';
-$borderRadius: 3px;
+$button-color: #f1f2f4;
+
+@function contrast($color) {
+  @return if(lightness($color) < 51, #FFF, rgba(#000, .70));
+}

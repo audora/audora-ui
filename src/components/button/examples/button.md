@@ -1,39 +1,37 @@
-Basic button:
+
+Os botões são classificados por importância de cima para baixo.
+
+### Primary
+Para chamar a atenção para uma ação em um formulário, ou destacar a chamada mais forte para a ação em uma página. Os botões primários só devem aparecer uma vez por tela (não incluindo o cabeçalho da aplicação ou em um modal). Tenha em mente que nem todas as telas precisam de um botão primário.
 
 ```jsx
-<Button>Push Me</Button>
+<Button content="Primary" type="primary" />
 ```
 
-Big pink button:
+### Default
+O botão padrão para a maioria dos casos de uso.
 
 ```jsx
-<Button size="large" color="deeppink">
-  Lick Me
-</Button>
+<Button content="Default" />
 ```
 
-And you _can_ **use** `any` [Markdown](http://daringfireball.net/projects/markdown/) here.
-
-Fenced code blocks with `js`, `jsx` or `javascript` languages are rendered as an interactive playgrounds:
+### Link
+Use links para ações secundárias, ações destrutivas, como "Cancelar", ou para desencorajar o uso. Os links devem ser abertos na janela atual, a menos que o usuário possa perder informações, p.ex. Ao preencher um formulário ou o destino é um site externo.
 
 ```jsx
-<Button>Push Me</Button>
+<Button content="Link" type="link" />
 ```
 
-You can disable an editor by passing a `noeditor` modifier (` ```js noeditor `):
+### Disabled
+Use quando outra ação tiver que ser completada antes que o botão seja utilizável, como alterar um valor de campo ou aguardar uma resposta do sistema. Use apenas com os tipos de botão **primary** e **default**.
 
-```jsx noeditor
-<Button>Push Me</Button>
+```jsx
+<Button content="Disabled" disabled />
 ```
 
-To render an example as highlighted source code add a `static` modifier (` ```js static `):
+### Loading
+Use quando estiver esperando o resultado de uma ação. Use apenas com os tipos de botão **primary** e **default**.
 
-```js static
-import React from 'react';
-```
-
-Fenced blocks with other languages are rendered as highlighted code:
-
-```html
-<h1>Hello world</h1>
+```jsx
+<Button content="Loading" loading />
 ```

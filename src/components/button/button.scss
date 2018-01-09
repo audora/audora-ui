@@ -1,22 +1,71 @@
 @import "../../css/variables.scss";
+@import "../../css/body.scss";
 
 .button {
-  cursor: pointer                             !important;
-  background-image: none                      !important;
-  border: 1px solid transparent               !important;
-  white-space: nowrap                         !important;
+	transition: all .2s !important;
+  background-color: $button-color !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  border-radius: $border-radius !important;
+  border: 1px solid transparent !important;
+  color: contrast($button-color) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: inherit !important;
+  font-size: .9rem !important;
+  line-height: 1.5rem !important;
+  padding: .25rem 1rem !important;
+  text-align: center !important;
+  text-decoration: none !important;
   user-select: none;
-  font-family: inherit                        !important;
-  padding: .5rem .875rem                      !important;
-  font-size: 1rem                             !important;
-  line-height: 1.5rem                         !important;
-  border-radius: $borderRadius                !important;
-  text-decoration: none                       !important;
-  display: flex                               !important;
-  text-align: center                          !important;
-  background-color: #0f65ef                 !important;
-  color: #fff                               !important;
-  border-color: #0f65ef                     !important;
-  border: 1px solid transparent               !important;
-	transition: all .1s                         !important;
+	white-space: nowrap !important;
+	outline: none !important;
+}
+
+.button:not(.button--primary):active,
+.button:not(.button--primary):focus {
+	border-color: darken($button-color, 20%) !important;
+}
+
+.button:hover {
+	background-color: darken($button-color, 10%) !important;
+}
+
+.button--primary {
+	background-color: $primary-color !important;
+	color: contrast($primary-color) !important;
+
+	&:active {
+		border-color: darken($primary-color, 20%) !important;
+	}
+	&:focus {
+		border-color: darken($primary-color, 20%) !important;
+	}
+	&:hover {
+		background-color: darken($primary-color, 10%) !important;
+	}
+}
+
+.button--link {
+	background-color: transparent !important;
+	color: $primary-color !important;
+  padding: .25rem 0.5rem !important;
+	
+	&:hover {
+		background-color: transparent !important;
+		text-decoration: underline !important;
+	}
+}
+
+.button--disabled {
+	opacity: 0.50 !important;
+	pointer-events: none !important;
+  cursor: default !important;
+}
+
+.button--loading {
+  background-color: $button-color !important;
+  color: contrast($button-color) !important;
+	pointer-events: none !important;
+	cursor: default !important;
 }
