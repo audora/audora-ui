@@ -1,0 +1,30 @@
+{
+  "name": "ui-kit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "doc": "styleguidist server",
+    "doc:build": "styleguidist build"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.4",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.8",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.2.0",
+    "postcss-loader": "^2.0.10",
+    "react-styleguidist": "^6.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  }
+}
