@@ -22,6 +22,13 @@ Use links para ações secundárias, ações destrutivas, como "Cancelar", ou pa
 <Button content="Link" type="link" />
 ```
 
+### Subtle
+Use subtle para ações secundárias, ações destrutivas, como "Cancelar" ou "Fechar".
+
+```jsx
+<Button content="Subtle" type="subtle" />
+```
+
 ### Disabled
 Use quando outra ação tiver que ser completada antes que o botão seja utilizável, como alterar um valor de campo ou aguardar uma resposta do sistema. Use apenas com os tipos de botão **primary** e **default**.
 

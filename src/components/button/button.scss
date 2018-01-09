@@ -7,7 +7,7 @@
   background-image: none !important;
   border-color: transparent !important;
   border-radius: $border-radius !important;
-  border: 1px solid transparent !important;
+  border: 2px solid transparent !important;
   color: contrast($button-color) !important;
   cursor: pointer !important;
   display: inline-block !important;
@@ -22,9 +22,8 @@
 	outline: none !important;
 }
 
-.button:not(.button--primary):active,
-.button:not(.button--primary):focus {
-	border-color: darken($button-color, 20%) !important;
+.button:not(.button--primary):not(.button--link):not(.button--subtle):active {
+	background-color: darken($button-color, 15%) !important;
 }
 
 .button:hover {
@@ -35,14 +34,11 @@
 	background-color: $primary-color !important;
 	color: contrast($primary-color) !important;
 
-	&:active {
-		border-color: darken($primary-color, 20%) !important;
-	}
-	&:focus {
-		border-color: darken($primary-color, 20%) !important;
-	}
 	&:hover {
 		background-color: darken($primary-color, 10%) !important;
+	}
+	&:active {
+		background-color: darken($primary-color, 15%) !important;
 	}
 }
 
@@ -54,6 +50,22 @@
 	&:hover {
 		background-color: transparent !important;
 		text-decoration: underline !important;
+	}
+	&:focus {
+		background-color: transparent !important;
+		text-decoration: underline !important;
+	}
+}
+
+.button--subtle {
+	background-color: transparent !important;
+	
+	&:hover {
+		background-color: $button-color !important;
+	}
+	&:active {
+		background-color: lighten($primary-color, 40%) !important;
+		color: $primary-color !important;
 	}
 }
 

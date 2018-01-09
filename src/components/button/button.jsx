@@ -20,6 +20,7 @@ const Button = ({
 			disabled && 'button--disabled',
 			type === 'primary' && 'button--primary',
 			type === 'link' && "button--link",
+			type === 'subtle' && "button--subtle",
 			className
 		)}
 		style={style}
@@ -47,6 +48,7 @@ Button.propTypes = {
 	type: PropTypes.oneOf([
 		'primary',
 		'default',
+		'subtle',
 		'link'
 	]),
 	/**
