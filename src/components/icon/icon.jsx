@@ -32,6 +32,7 @@ Icon.propTypes = {
   color: PropTypes.string,
   reversed: PropTypes.bool,
   size: PropTypes.oneOf([
+    "xsmall",
     "small",
     "medium",
     "large",
