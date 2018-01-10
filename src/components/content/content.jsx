@@ -13,6 +13,7 @@ const Content = ({
   column,
   flex,
   full,
+  overflow,
   justifyContent,
   loading,
   padding,
@@ -27,7 +28,12 @@ const Content = ({
       loading && "content--loading",
       className,
     )}
-    style={merge(style, { alignItems, justifyContent, flex })}
+    style={merge(style, {
+      alignItems,
+      flex,
+      justifyContent,
+      overflow,
+    })}
   >
     {loading
       ? (<Icon name="loader" />)
@@ -82,9 +88,13 @@ Content.propTypes = {
    */
   loading: PropTypes.bool,
   /**
-   * Define um padding de 10px;
+   * Define um padding de 10px.
    */
   padding: PropTypes.bool,
+  /**
+   * Define um overflow para o Content.
+   */
+  overflow: PropTypes.string,
   /**
    * Adiciona estilo ao Content.
    */
@@ -95,11 +105,12 @@ Content.defaultProps = {
   alignItems: '',
   className: '',
   column: false,
-  padding: false,
   flex: null,
   full: false,
   justifyContent: '',
   loading: false,
+  overflow: null,
+  padding: false,
   style: {},
 };
 
