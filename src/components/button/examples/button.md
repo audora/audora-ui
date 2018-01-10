@@ -49,6 +49,5 @@ Use quando estiver esperando o resultado de uma ação. Use apenas com os tipos 
 <div style={{ display: 'flex' }}>
   <Button content="Icon" icon="music" type="primary" />
   <Button icon="anchor" type="primary" className="ml-10" />
-  <Button content="anchor" type="primary" className="ml-10" />
 </div>
 ```

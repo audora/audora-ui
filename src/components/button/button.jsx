@@ -22,7 +22,7 @@ const renderIcon = (icon, content, type) => isEmpty(content)
 	) :	(
 		<span style={{ display: 'flex', alignItems: 'center' }}>
 			<Icon name={icon} reversed={type === "primary"} size="small" />
-			<span className="ml-10">{content}</span>
+			<span className="ml-15">{content}</span>
 		</span>
 	);
 
