@@ -1,16 +1,25 @@
-const path = require('path')
+const path = require('path');
 module.exports = {
   getExampleFilename(componentPath) {
-    let parts = componentPath.split('/')
-    var componentName = parts[parts.length - 1]
-    return componentPath.replace(`/${componentName}`, `/docs/${componentName.replace('.js', '')}.md`)
+    const parts = componentPath.split('/');
+    const componentName = parts[parts.length - 1];
+    return componentPath.replace(
+      `/${componentName}`,
+      `/docs/${componentName.replace('.js', '')}.md`
+    );
+  },
+  getComponentPathLine: componentPath => {
+    let name = path.basename(componentPath, '.js');
+
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    name = name.replace(/[-][a-zA-Z]/g, match =>
+      match.split('')[1].toUpperCase()
+    );
+
+    return `import { ${name} } from "aui";`;
   },
   highlightTheme: 'pastel-on-dark',
-  ignore: [
-    '**/*/*Styles.js',
-    '**/*.spec.js',
-    '**/*/*hexValues.js'
-  ],
+  ignore: ['**/*/*Styles.js', '**/*.spec.js', '**/*/*hexValues.js'],
   sections: [
     {
       name: 'Colors',
@@ -79,17 +88,11 @@ module.exports = {
       baseBackground: '#fff',
       errorBackground: '#E6003D',
       codeBackground: '#fff',
-      sidebarBackground: '#fff',
+      sidebarBackground: '#fff'
     },
     fontFamily: {
-      base: [
-        'Nunito',
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        'sans-serif'
-      ]
+      base: ['Nunito', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
     }
   },
   title: 'Aui'
-}
+};

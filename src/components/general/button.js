@@ -5,6 +5,7 @@ import withTheme from '../../styles/themer/withTheme';
 import { themePropTypes } from '../../styles/themer/utils';
 import { spacing } from '../../styles';
 import { lighten } from '../../utils';
+import Icon from './icon';
 
 const baseStyles = {
   border: 'none',
@@ -15,6 +16,7 @@ const baseStyles = {
   userSelect: 'none',
   verticalAlign: 'middle',
   alignItems: 'center',
+  position: 'relative',
   backgroundImage: 'none',
   borderRadius: 4,
   display: 'inline-flex',
@@ -35,7 +37,7 @@ const sizeStyles = {
     textTransform: 'uppercase'
   },
   small: {
-    ...spacing.PADDING_X_SM,
+    ...spacing.PADDING_X_XS,
     fontSize: 12,
     height: 28
   },
@@ -103,16 +105,30 @@ const getAuiStyles = ({ colors }) => ({
       textDecoration: 'underline'
     }
   },
+  icon: {
+    ...spacing.PADDING_X_XS
+  },
   disabled: {
     opacity: 0.5,
     pointerEvents: 'none',
     cursor: 'default'
   },
   loading: {
-    backgroundColor: colors.default,
-    color: '#555',
+    color: '#333',
     pointerEvents: 'none',
     cursor: 'default'
+  },
+  loadingContent: {
+    backgroundColor: colors.default,
+    borderRadius: 4,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -128,6 +144,7 @@ const Button = props => {
       sizeStyles[props.size],
       typeStyles[props.type],
       props.disabled && typeStyles.disabled,
+      props.icon && !props.content && typeStyles.icon,
       props.loading && props.type !== 'link' && typeStyles.loading,
       props.full && sizeStyles.full,
       props.style
@@ -147,13 +164,27 @@ const Button = props => {
   }
 
   if (props.icon && !props.content) {
-    return <ElementType {...finalProps}>i</ElementType>;
+    return (
+      <ElementType {...finalProps}>
+        {props.loading && (
+          <span style={[typeStyles.loadingContent]}>
+            <Icon name="loader" size="small" />
+          </span>
+        )}
+        <Icon name={props.icon} size="small" />
+      </ElementType>
+    );
   }
 
   if (props.icon && props.content && props.iconPosition === 'left') {
     return (
       <ElementType {...finalProps}>
-        i
+        {props.loading && (
+          <span style={[typeStyles.loadingContent]}>
+            <Icon name="loader" size="small" />
+          </span>
+        )}
+        <Icon name={props.icon} size="small" />
         <span style={{ ...spacing.MARGIN_RIGHT_XS }} />
         {props.content}
       </ElementType>
@@ -163,16 +194,26 @@ const Button = props => {
   if (props.icon && props.content && props.iconPosition === 'right') {
     return (
       <ElementType {...finalProps}>
+        {props.loading && (
+          <span style={[typeStyles.loadingContent]}>
+            <Icon name="loader" size="small" />
+          </span>
+        )}
         {props.content}
         <span style={{ ...spacing.MARGIN_LEFT_XS }} />
-        i
+        <Icon name={props.icon} size="small" />
       </ElementType>
     );
   }
 
   return (
     <ElementType {...finalProps}>
-      {props.loading ? 'carregando' : props.content}
+      {props.loading && (
+        <span style={[typeStyles.loadingContent]}>
+          <Icon name="loader" size="small" />
+        </span>
+      )}
+      {props.content}
     </ElementType>
   );
 };

@@ -1,5 +1,6 @@
 import colors from './styles/colors';
 import Button from './components/general/button';
+import Icon from './components/general/icon';
 import globalTheme from './styles/globalTheme';
 import normalize from './styles/normalize';
 import responsive from './styles/responsive';
@@ -23,5 +24,6 @@ export {
   responsive,
   spacing,
   // components
-  Button
+  Button,
+  Icon
 };

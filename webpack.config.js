@@ -13,10 +13,9 @@ module.exports = {
         test: /\.js$/
       },
       {
-        exclude: /node_modules/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/
-      }
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ]
   },
   entry: {

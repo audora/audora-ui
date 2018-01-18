@@ -1,22 +1,21 @@
 # Design
 
-- [ ] Border
-- [ ] BorderRadius
+- [x] BorderRadius
 - [ ] BoxShadow
-- [ ] Colors
-- [x] Content
+- [x] Colors
+- [ ] Content
 - [ ] ContentEmpty
 - [ ] Typography
 
 # Components
 
-- [x] Avatar
+- [ ] Avatar
 - [ ] AvatarGroup
 - [ ] Badge
 - [ ] Blanket
 - [ ] Breadcrumbs
 - [x] Button
-- [x] ButtonGroup
+- [ ] ButtonGroup
 - [ ] Calendar
 - [ ] Card
 - [ ] Checkbox
