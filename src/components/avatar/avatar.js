@@ -4,7 +4,6 @@ import cn from 'classnames';
 import isEmpty from 'lodash/fp/isEmpty';
 
 import imgDefault from './default.png';
-import './avatar.scss';
 
 const Avatar = ({
   onClick,

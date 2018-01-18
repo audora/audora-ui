@@ -23,7 +23,7 @@ Use em metadados
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="xsmall" name="João" />
-  <Avatar size="xsmall" className="ml-10" square name="João" />
+  <Avatar size="xsmall" className="ml-1" square name="João" />
 </div>
 ```
 
@@ -33,7 +33,7 @@ User avatares em áreas pequenas, como campos de texto de 40px. Para os avatares
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="small" name="João" />
-  <Avatar size="small" className="ml-10" square name="João" />
+  <Avatar size="small" className="ml-1" square name="João" />
 </div>
 ```
 
@@ -43,7 +43,7 @@ Use avatares em fluxos de atividades ou comentários e avatares **square** em ta
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="medium" name="João" />
-  <Avatar size="medium" className="ml-10" square name="João" />
+  <Avatar size="medium" className="ml-1" square name="João" />
 </div>
 ```
 
@@ -53,7 +53,7 @@ Para títulos de páginas principais, como as configurações de conta de um usu
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="large" name="João" />
-  <Avatar size="large" className="ml-10" square name="João" />
+  <Avatar size="large" className="ml-1" square name="João" />
 </div>
 ```
 
@@ -63,6 +63,6 @@ Use em posições proeminentes na página, como em perfis de usuários.
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="xlarge" name="João" />
-  <Avatar size="xlarge" className="ml-10" square name="João" />
+  <Avatar size="xlarge" className="ml-1" square name="João" />
 </div>
 ```

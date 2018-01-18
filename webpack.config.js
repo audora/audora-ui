@@ -1,10 +1,36 @@
+const webpack = require("webpack");
 module.exports = {
   module: {
-    rules: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
-      { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"] },
-      { test: /\.svg$/, loader: 'svg-inline-loader' },
-      { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]' },      
-    ]
-  }
+   loaders: [
+     {
+       exclude: /node_modules/,
+       loader: 'file-loader?name=[name].[ext]',
+       test: /\.(jpe?g|png|gif)$/i
+      },
+     {
+       exclude: /node_modules/,
+       loaders: ['babel-loader'],
+       test: /\.js$/
+      },
+     {
+       exclude: /node_modules/,
+       loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+       test: /\.svg(\?v=\d+\.\d+\.\d+)?$/
+      }
+   ]
+  },
+  entry: {
+    main: "./src/index.js"
+  },
+  output: {
+    library: 'Snacks',
+    libraryTarget: 'umd'
+  },
+  externals: {
+    'react': 'react',
+    'react-dom': 'react-dom',
+    'radium': 'radium',
+    'prop-types': 'prop-types'
+  },
+  devtool: "cheap-module-eval-source-map"
 }

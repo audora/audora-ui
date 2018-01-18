@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-
-import './icon.scss';
 
 const Icon = ({
   className,
@@ -14,13 +11,13 @@ const Icon = ({
 }) => (
   <span
     onClick={onClick}
-    className={cn(
-      "icon",
-      name === "loader" && "icon--loader",
-      reversed && "icon--reversed",
-      size !== "medium" && `icon--${size}`,
-      className
-    )}
+    // className={cn(
+    //   "icon",
+    //   name === "loader" && "icon--loader",
+    //   reversed && "icon--reversed",
+    //   size !== "medium" && `icon--${size}`,
+    //   className
+    // )}
     dangerouslySetInnerHTML={{ __html: require(`./feather/${name}.svg`) }}
     style={{ color }}
   />

@@ -1,0 +1,31 @@
+export default {
+  /**
+   * SYSTEM
+   */
+  PRIMARY: '#1FB6FF',
+  SUCCESS: '#13CE66',
+  DANGER: '#FF4949',
+  WARNING: '#FFC82C',
+  /**
+   * BRANDS
+   */
+  AUDORA: '#1565C0',
+  AUDORA_LIGHT: '#217EE7',
+  AUDORA_DARK: '#104D92',
+  
+  GREEN: '#348448',
+  GREEN_LIGHT: '#42A95C',
+  GREEN_DARK: '#265F34',
+
+  RED: '#B41C2C',
+  RED_LIGHT: '#DD2639',
+  RED_DARK: '#881521',
+
+  NAVY: '#04345C',
+  NAVY_LIGHT: '#06508D',
+  NAVY_DARK: '#032644',
+
+  GREY: '#CACBCD',
+  GREY_LIGHT: '#E0E1E2',
+  GREY_DARK: '#BABBBC'
+}

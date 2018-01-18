@@ -4,8 +4,6 @@ import merge from 'lodash/fp/merge';
 import cn from 'classnames';
 import Icon from '../icon';
 
-import './content.scss';
-
 const Content = ({
   alignItems,
   children,
@@ -85,6 +83,8 @@ Content.propTypes = {
   ]),
   /**
    * Adiciona um Loader ao content substituindo o filho.
+   * 
+   * **TODO**: validar se é o ideal subistituir o filho ou renderizar o loader sobre o filho.
    */
   loading: PropTypes.bool,
   /**
@@ -102,12 +102,12 @@ Content.propTypes = {
 };
 
 Content.defaultProps = {
-  alignItems: '',
+  alignItems: 'stretch',
   className: '',
   column: false,
   flex: null,
   full: false,
-  justifyContent: '',
+  justifyContent: 'flex-start',
   loading: false,
   overflow: null,
   padding: false,

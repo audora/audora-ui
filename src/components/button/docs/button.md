@@ -16,7 +16,7 @@ O botão padrão para a maioria dos casos de uso.
 ```
 
 ### Link
-Use links para ações secundárias, ações destrutivas, como "Cancelar", ou para desencorajar o uso. Os links devem ser abertos na janela atual, a menos que o usuário possa perder informações, p.ex. Ao preencher um formulário ou o destino é um site externo.
+Use links para ações secundárias, ações destrutivas ou para desencorajar o uso. Os links devem ser abertos na janela atual, a menos que o usuário possa perder informações, p.ex. Ao preencher um formulário ou o destino é um site externo.
 
 ```jsx
 <Button content="Link" type="link" />
@@ -44,10 +44,22 @@ Use quando estiver esperando o resultado de uma ação. Use apenas com os tipos 
 ```
 
 ### Icon
+Usa apenas o Icon quando uma ação é muito obvia e usa Icon com Content quando quer auxiliar ao que se trata a ação.
+```jsx
+<div style={{ display: 'flex' }}>
+  <Button content="Icon Left" icon="music" type="primary" />
+  <Button content="Icon Right" iconPosition="right" icon="music" type="primary" style={{ marginLeft: 10 }} />
+  <Button icon="anchor" type="primary" style={{ marginLeft: 10 }} />
+</div>
+```
+
+### Sizes
 
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Icon" icon="music" type="primary" />
-  <Button icon="anchor" type="primary" className="ml-10" />
+  <Button content="Tiny" size="tiny" style={{ marginRight: 10 }} />
+  <Button content="Small" size="small" style={{ marginRight: 10 }} />
+  <Button content="Medium" style={{ marginRight: 10 }} />
+  <Button content="Large" size="large" />
 </div>
 ```
