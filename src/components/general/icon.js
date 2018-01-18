@@ -38,42 +38,50 @@ const rotationKeyframes = Radium.keyframes({
   to: { transform: 'rotate(359deg)' }
 });
 
-const loaderStyle = {
+const spinStyle = {
   animationName: rotationKeyframes,
   animationDuration: '3s',
   animationTimingFunction: 'linear',
   animationIterationCount: 'infinite'
 };
 
-const Icon = ({ color, name, onClick, size, style }) => (
+const Icon = ({ color, name, size, style, spin }) => (
   <span
-    onClick={onClick}
     dangerouslySetInnerHTML={{
       __html: require(`../../icons/feather/${name}.svg`)
     }}
-    style={[
-      baseStyles,
-      sizeStyles[size],
-      { color },
-      name === 'loader' && loaderStyle,
-      style
-    ]}
+    style={[baseStyles, sizeStyles[size], { color }, spin && spinStyle, style]}
   />
 );
 
 Icon.propTypes = {
-  style: PropTypes.object,
-  name: PropTypes.string.isRequired,
+  /**
+   * Cor do Icon.
+   */
   color: PropTypes.string,
+  /**
+   * Nome do icon usado no `feathericons`.
+   */
+  name: PropTypes.string.isRequired,
+  /**
+   * Tamanho do Icon.
+   */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-  onClick: PropTypes.func
+  /**
+   * Rotaciona o icon com animação.
+   */
+  spin: PropTypes.bool,
+  /**
+   * Estilo para o icon.
+   */
+  style: PropTypes.object
 };
 
 Icon.defaultProps = {
-  style: {},
   color: '',
-  onClick: () => 0,
-  size: 'medium'
+  size: 'medium',
+  spin: false,
+  style: {}
 };
 
 export default withTheme(Radium(Icon));

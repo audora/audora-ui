@@ -4,9 +4,13 @@ Icons do [feathericons@4.5.0](https://feathericons.com/)
 <Icon name="box" />
 ```
 
-### Loader
+### Spin
 ```jsx
-<Icon name="loader" />
+<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
+  <Icon name="loader" spin />
+  <Icon name="box" spin style={{ marginLeft: 10 }} />
+  <Icon name="music" spin style={{ marginLeft: 10 }} />
+</div>
 ```
 
 ### Size

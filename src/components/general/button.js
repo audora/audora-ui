@@ -168,7 +168,7 @@ const Button = props => {
       <ElementType {...finalProps}>
         {props.loading && (
           <span style={[typeStyles.loadingContent]}>
-            <Icon name="loader" size="small" />
+            <Icon name="loader" size="small" spin />
           </span>
         )}
         <Icon name={props.icon} size="small" />
@@ -181,7 +181,7 @@ const Button = props => {
       <ElementType {...finalProps}>
         {props.loading && (
           <span style={[typeStyles.loadingContent]}>
-            <Icon name="loader" size="small" />
+            <Icon name="loader" size="small" spin />
           </span>
         )}
         <Icon name={props.icon} size="small" />
@@ -196,7 +196,7 @@ const Button = props => {
       <ElementType {...finalProps}>
         {props.loading && (
           <span style={[typeStyles.loadingContent]}>
-            <Icon name="loader" size="small" />
+            <Icon name="loader" size="small" spin />
           </span>
         )}
         {props.content}
@@ -210,7 +210,7 @@ const Button = props => {
     <ElementType {...finalProps}>
       {props.loading && (
         <span style={[typeStyles.loadingContent]}>
-          <Icon name="loader" size="small" />
+          <Icon name="loader" size="small" spin />
         </span>
       )}
       {props.content}
