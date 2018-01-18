@@ -1,11 +1,10 @@
-import React, { Component }       from 'react'
-import PropTypes                  from 'prop-types'
-import Radium, { Style }          from 'radium'
-import { normalize, globalTheme } from './index'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Radium, { Style } from 'radium';
+import { normalize, globalTheme } from './index';
 
-const getFonts = (assetsUrl) => {
-  return (
-    `@font-face{
+const getFonts = assetsUrl => {
+  return `@font-face{
       font-family:Nunito;
       src:url('${assetsUrl}/Nunito/Nunito-Light.ttf') format("truetype");
       font-weight:300;
@@ -34,37 +33,40 @@ const getFonts = (assetsUrl) => {
       src:url('${assetsUrl}/Nunito/Nunito-Black.ttf') format("truetype");
       font-weight:900;
       font-style:normal
-    }`
-  )
-}
+    }`;
+};
 
-let fontLoaded = false
+let fontLoaded = false;
 
-const writeFonts = (assetsUrl) => {
+const writeFonts = assetsUrl => {
   // if on server, just return
-  if (typeof window === 'undefined') { return }
+  if (typeof window === 'undefined') {
+    return;
+  }
 
-  const style = document.createElement('style')
-  style.setAttribute('type', 'text/css')
-  style.innerHTML = getFonts(assetsUrl)
-  document.head.appendChild(style)
-}
+  const style = document.createElement('style');
+  style.setAttribute('type', 'text/css');
+  style.innerHTML = getFonts(assetsUrl);
+  document.head.appendChild(style);
+};
 
 class Styles extends Component {
   static propTypes = {
     assetsUrl: PropTypes.string.isRequired
-  }
+  };
 
   componentWillMount() {
-    if (fontLoaded) { return }
+    if (fontLoaded) {
+      return;
+    }
 
-    writeFonts(this.props.assetsUrl)
-    fontLoaded = true
+    writeFonts(this.props.assetsUrl);
+    fontLoaded = true;
   }
 
   render() {
-    return <Style rules={Object.assign({}, normalize, globalTheme)} />
+    return <Style rules={Object.assign({}, normalize, globalTheme)} />;
   }
 }
 
-export default Radium(Styles)
+export default Radium(Styles);

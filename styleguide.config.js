@@ -1,9 +1,9 @@
-const path = require('path');
+const path = require('path')
 module.exports = {
   getExampleFilename(componentPath) {
-    var parts = componentPath.split('/');
-    var componentName = parts[parts.length - 1];
-    return componentPath.replace(`/${componentName}`, `/docs/${componentName.replace('.js', '')}.md`);
+    let parts = componentPath.split('/')
+    var componentName = parts[parts.length - 1]
+    return componentPath.replace(`/${componentName}`, `/docs/${componentName.replace('.js', '')}.md`)
   },
   highlightTheme: 'pastel-on-dark',
   ignore: [
@@ -39,8 +39,8 @@ module.exports = {
       content: 'docs/components.md',
       sections: [
         {
-          name: 'Buttons',
-          components: 'src/components/button/[a-z]*.js'
+          name: 'General',
+          components: 'src/components/general/[a-z]*.js'
         }
       ]
     }
@@ -91,5 +91,5 @@ module.exports = {
       ]
     }
   },
-  title: "Aui"
+  title: 'Aui'
 }

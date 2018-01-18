@@ -15,41 +15,39 @@ const Content = ({
   justifyContent,
   loading,
   padding,
-  style,
+  style
 }) => (
   <div
     className={cn(
-      "content",
-      !full ? "content--width" : '',
-      column && "content--column",
-      padding && "content--padding",
-      loading && "content--loading",
-      className,
+      'content',
+      !full ? 'content--width' : '',
+      column && 'content--column',
+      padding && 'content--padding',
+      loading && 'content--loading',
+      className
     )}
     style={merge(style, {
       alignItems,
       flex,
       justifyContent,
-      overflow,
+      overflow
     })}
   >
-    {loading
-      ? (<Icon name="loader" />)
-      : children
-    }
+    {loading ? <Icon name="loader" /> : children}
   </div>
 );
 
 Content.propTypes = {
   /**
-   * Alinha os filhos na *vertical* quando o prop **column** não está definido e alinha na *horizontal* quando o prop **column** está definido.
+   * Alinha os filhos na *vertical* quando o prop **column** não está definido e
+   * alinha na *horizontal* quando o prop **column** está definido.
    */
   alignItems: PropTypes.oneOf([
-    "flex-start",
-    "flex-end",
-    "center",
-    "baseline",
-    "stretch",
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+    'stretch'
   ]),
   /**
    * Renderiza um elemento.
@@ -72,19 +70,21 @@ Content.propTypes = {
    */
   full: PropTypes.bool,
   /**
-   * Alinha os filhos na *horizontal* quando o prop **column** não está definido e alinha na *vertical* quando o prop **column** está definido.
+   * Alinha os filhos na *horizontal* quando o prop **column** não está definido
+   * e alinha na *vertical* quando o prop **column** está definido.
    */
   justifyContent: PropTypes.oneOf([
-    "flex-start",
-    "flex-end",
-    "center",
-    "space-between",
-    "space-around",
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around'
   ]),
   /**
    * Adiciona um Loader ao content substituindo o filho.
-   * 
-   * **TODO**: validar se é o ideal subistituir o filho ou renderizar o loader sobre o filho.
+   *
+   * **TODO**: validar se é o ideal subistituir o filho ou renderizar o loader
+   * sobre o filho.
    */
   loading: PropTypes.bool,
   /**
@@ -98,7 +98,7 @@ Content.propTypes = {
   /**
    * Adiciona estilo ao Content.
    */
-  style: PropTypes.object,
+  style: PropTypes.object
 };
 
 Content.defaultProps = {
@@ -111,7 +111,7 @@ Content.defaultProps = {
   loading: false,
   overflow: null,
   padding: false,
-  style: {},
+  style: {}
 };
 
 export default Content;

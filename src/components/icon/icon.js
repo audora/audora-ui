@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Icon = ({
-  className,
-  color,
-  name,
-  onClick,
-  reversed,
-  size,
-}) => (
+const Icon = ({ className, color, name, onClick, reversed, size }) => (
   <span
     onClick={onClick}
     // className={cn(
@@ -28,22 +21,16 @@ Icon.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   reversed: PropTypes.bool,
-  size: PropTypes.oneOf([
-    "xsmall",
-    "small",
-    "medium",
-    "large",
-    "xlarge",
-  ]),
-  onClick: PropTypes.func,
-}
+  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']),
+  onClick: PropTypes.func
+};
 
 Icon.defaultProps = {
   className: '',
   color: '',
   onClick: () => 0,
   reversed: false,
-  size: 'medium',
-}
+  size: 'medium'
+};
 
 export default Icon;

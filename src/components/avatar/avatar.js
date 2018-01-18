@@ -5,37 +5,29 @@ import isEmpty from 'lodash/fp/isEmpty';
 
 import imgDefault from './default.png';
 
-const Avatar = ({
-  onClick,
-  className,
-  size,
-  img,
-  square,
-  name,
-}) => (
+const Avatar = ({ onClick, className, size, img, square, name }) => (
   <div
     onClick={onClick}
     className={cn(
-      "avatar",
-      size !== "medium" && `avatar--${size}`,
-      square && "avatar--square",
+      'avatar',
+      size !== 'medium' && `avatar--${size}`,
+      square && 'avatar--square',
       className
     )}
-    title={name || "Avatar"}
+    title={name || 'Avatar'}
   >
-    {isEmpty(img)
-      ? name.substr(0, 2).toUpperCase()
-      : (
-        <span
-          className="avatar-img"
-          style={!isEmpty(img) ? {
-            backgroundImage: `url(${img})`
-          } : {
-            backgroundImage: `url(${imgDefault})`
-          }}
-        />
-      )
-    }
+    {isEmpty(img) ? (
+      name.substr(0, 2).toUpperCase()
+    ) : (
+      <span
+        className="avatar-img"
+        style={
+          !isEmpty(img)
+            ? { backgroundImage: `url(${img})` }
+            : { backgroundImage: `url(${imgDefault})` }
+        }
+      />
+    )}
   </div>
 );
 
@@ -49,28 +41,22 @@ Avatar.propTypes = {
    */
   img: PropTypes.string,
   /**
-	 * Adicionar uma classe ao avatar.
+   * Adicionar uma classe ao avatar.
    */
   className: PropTypes.string,
-	/**
-	 * Handler para ser chamado quando o botão for clicado.
-	 */
+  /**
+   * Handler para ser chamado quando o botão for clicado.
+   */
   onClick: PropTypes.func,
   /**
    * Define o avatar como quadrado.
    */
   square: PropTypes.bool,
-	/**
-	 * Define os tamanhos dos avatares.
-	 */
-  size: PropTypes.oneOf([
-    "xsmall",
-    "small",
-    "medium",
-    "large",
-    "xlarge",
-  ]),
-}
+  /**
+   * Define os tamanhos dos avatares.
+   */
+  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge'])
+};
 
 Avatar.defaultProps = {
   name: '',
@@ -78,7 +64,7 @@ Avatar.defaultProps = {
   className: '',
   square: false,
   onClick: () => 0,
-  size: 'medium',
-}
+  size: 'medium'
+};
 
 export default Avatar;

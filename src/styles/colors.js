@@ -12,7 +12,7 @@ export default {
   AUDORA: '#1565C0',
   AUDORA_LIGHT: '#217EE7',
   AUDORA_DARK: '#104D92',
-  
+
   GREEN: '#348448',
   GREEN_LIGHT: '#42A95C',
   GREEN_DARK: '#265F34',
@@ -28,4 +28,4 @@ export default {
   GREY: '#CACBCD',
   GREY_LIGHT: '#E0E1E2',
   GREY_DARK: '#BABBBC'
-}
+};

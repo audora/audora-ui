@@ -29,4 +29,4 @@ export default {
   Z_INDEX9: {
     zIndex: 900
   }
-}
+};

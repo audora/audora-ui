@@ -1,20 +1,20 @@
 export default {
-  'html': {
-    fontSize:'16px'
+  html: {
+    fontSize: '16px'
   },
   'html, body': {
     height: '100%',
     mozOsxFontSmoothing: 'grayscale',
     WebkitFontSmoothing: 'antialiased'
   },
-  'body': {
+  body: {
     background: '#f1f1f1',
-    fontFamily: `Nunito,'Helvetica Neue',Helvetica,Arial,sans-serif`,
+    fontFamily: 'Nunito,"Helvetica Neue",Helvetica,Arial,sans-serif',
     color: '#393939',
     padding: '0px',
     fontSize: '14px'
   },
-  'a': {
+  a: {
     textDecoration: 'none',
     backgroundColor: 'transparent',
 
@@ -23,4 +23,4 @@ export default {
       textDecoration: 'underline'
     }
   }
-}
+};

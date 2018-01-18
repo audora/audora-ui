@@ -1,26 +1,48 @@
 {
-  "name": "ui-kit",
+  "name": "aui",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/aui.js",
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "scripts": {
-    "start": "styleguidist server",
-    "build": "styleguidist build"
+    "build": "webpack --progress --config webpack.config.js src/index.js dist/aui.js",
+    "start": "webpack --progress --watch --config webpack.config.js src/index.js dist/aui.js",
+    "prettier": "prettier --write \"src/**/*.js\"",
+    "precommit": "lint-staged",
+    "lint": "esw -c .eslintrc.json src --ext .js,.jsx --ignore-path .eslintignore --color",
+    "doc": "styleguidist server",
+    "doc:build": "styleguidist build",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "radium": "^0.21.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-watch": "^3.1.3",
     "file-loader": "^1.1.6",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.10.2",
     "react-styleguidist": "^6.1.0",
     "tinycolor2": "^1.4.1",
     "underscore": "^1.8.3",

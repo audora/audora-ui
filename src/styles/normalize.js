@@ -1,10 +1,10 @@
 export default {
-  'html' : {
+  html: {
     fontFamily: 'sans-serif',
     msTextSizeAdjust: '100%',
     webkitTextSizeAdjust: '100%'
   },
-  'body' : {
+  body: {
     margin: 0,
     boxSizing: 'border-box'
   },
@@ -22,7 +22,7 @@ export default {
   '[hidden], template': {
     display: 'none'
   },
-  'a' : {
+  a: {
     backgroundColor: 'transparent'
   },
   'a:active, a:hover': {
@@ -34,18 +34,18 @@ export default {
   'b, strong': {
     fontWeight: 'bold'
   },
-  'dfn' : {
+  dfn: {
     fontStyle: 'italic'
   },
-  'h1' : {
+  h1: {
     fontSize: '2em',
     margin: '0.67em 0'
   },
-  'mark' : {
+  mark: {
     background: '#ff0',
     color: '#000'
   },
-  'small' : {
+  small: {
     fontSize: '80%'
   },
   'sub, sup': {
@@ -54,26 +54,26 @@ export default {
     position: 'relative',
     verticalAlign: 'baseline'
   },
-  'sup' : {
+  sup: {
     top: '-0.5em'
   },
-  'sub' : {
+  sub: {
     bottom: '-0.25em'
   },
-  'img' : {
+  img: {
     border: 0
   },
   'svg:not(:root)': {
     overflow: 'hidden'
   },
-  'figure' : {
+  figure: {
     margin: '1em 40px'
   },
-  'hr' : {
+  hr: {
     boxSizing: 'content-box',
     height: 0
   },
-  'pre' : {
+  pre: {
     overflow: 'auto'
   },
   'code, kbd, pre, samp': {
@@ -85,7 +85,7 @@ export default {
     font: 'inherit',
     margin: 0
   },
-  'button' : {
+  button: {
     overflow: 'visible'
   },
   'button, select': {
@@ -102,7 +102,7 @@ export default {
     border: 0,
     padding: 0
   },
-  'input' : {
+  input: {
     lineHeight: 'normal'
   },
   'input[type="checkbox"], input[type="radio"]': {
@@ -119,26 +119,26 @@ export default {
   'input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration': {
     webkitAppearance: 'none'
   },
-  'fieldset' : {
+  fieldset: {
     border: '1px solid #c0c0c0',
     margin: '0 2px',
     padding: '0.35em 0.625em 0.75em'
   },
-  'legend' : {
+  legend: {
     border: 0,
     padding: 0
   },
-  'textarea' : {
+  textarea: {
     overflow: 'auto'
   },
-  'optgroup' : {
+  optgroup: {
     fontWeight: 'bold'
   },
-  'table' : {
+  table: {
     borderCollapse: 'collapse',
     borderSpacing: 0
   },
   'td, th': {
     padding: 0
   }
-}
+};
