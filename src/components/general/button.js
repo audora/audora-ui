@@ -264,7 +264,7 @@ Button.propTypes = {
    */
   full: PropTypes.bool,
   /**
-   * Estilos do componente.
+   * Substituição opticional de estilo.
    */
   style: PropTypes.object,
   /**

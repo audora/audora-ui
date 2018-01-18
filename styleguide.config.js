@@ -50,6 +50,10 @@ module.exports = {
         {
           name: 'General',
           components: 'src/components/general/[a-z]*.js'
+        },
+        {
+          name: 'Layout',
+          components: 'src/components/layout/[a-z]*.js'
         }
       ]
     }

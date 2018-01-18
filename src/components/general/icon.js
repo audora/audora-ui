@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Radium from 'radium';
-import withTheme from '../../styles/themer/withTheme';
-import { themePropTypes } from '../../styles/themer/utils';
 
 const baseStyles = {
   color: '#333',
@@ -72,7 +70,7 @@ Icon.propTypes = {
    */
   spin: PropTypes.bool,
   /**
-   * Estilo para o icon.
+   * Substituição opticional de estilo.
    */
   style: PropTypes.object
 };
@@ -84,4 +82,4 @@ Icon.defaultProps = {
   style: {}
 };
 
-export default withTheme(Radium(Icon));
+export default Radium(Icon);
