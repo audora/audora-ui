@@ -4,7 +4,7 @@ const DIRECTIONS_X = ['LEFT', 'RIGHT'];
 const DIRECTIONS_Y = ['TOP', 'BOTTOM'];
 
 export const sizes = {
-  MD: 3,
+  MD: 4,
   LG: 10,
   XL: 20
 };

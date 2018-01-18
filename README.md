@@ -3,7 +3,7 @@
 - [x] BorderRadius
 - [ ] BoxShadow
 - [x] Colors
-- [ ] Content
+- [x] Layout
 - [ ] ContentEmpty
 - [ ] Typography
 

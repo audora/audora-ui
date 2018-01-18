@@ -54,6 +54,10 @@ module.exports = {
         {
           name: 'Layout',
           components: 'src/components/layout/[a-z]*.js'
+        },
+        {
+          name: 'Data Display',
+          components: 'src/components/dataDisplay/[a-z]*.js'
         }
       ]
     }

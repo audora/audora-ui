@@ -3,8 +3,8 @@ import Radium from 'radium';
 import PropTypes from 'prop-types';
 import withTheme from '../../styles/themer/withTheme';
 import { themePropTypes } from '../../styles/themer/utils';
-import { spacing } from '../../styles';
-import { lighten } from '../../utils';
+import { spacing, borderRadius } from '../../styles';
+import { lighten, colorContrast } from '../../utils';
 import Icon from './icon';
 
 const baseStyles = {
@@ -18,7 +18,7 @@ const baseStyles = {
   alignItems: 'center',
   position: 'relative',
   backgroundImage: 'none',
-  borderRadius: 4,
+  ...borderRadius.BORDER_RADIUS_MD,
   display: 'inline-flex',
   touchAction: 'manipulation',
   WebkitFontSmoothing: 'antialiased',
@@ -120,7 +120,7 @@ const getAuiStyles = ({ colors }) => ({
   },
   loadingContent: {
     backgroundColor: colors.default,
-    borderRadius: 4,
+    ...borderRadius.BORDER_RADIUS_MD,
     left: 0,
     right: 0,
     top: 0,
