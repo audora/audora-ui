@@ -9,7 +9,7 @@
 
 # Components
 
-- [ ] Avatar
+- [x] Avatar
 - [ ] AvatarGroup
 - [ ] Badge
 - [ ] Blanket

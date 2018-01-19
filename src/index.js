@@ -1,4 +1,5 @@
 import colors from './styles/colors';
+import Avatar from './components/dataDisplay/avatar';
 import Button from './components/general/button';
 import Icon from './components/general/icon';
 import globalTheme from './styles/globalTheme';
@@ -24,6 +25,7 @@ export {
   responsive,
   spacing,
   // components
+  Avatar,
   Button,
   Icon
 };
