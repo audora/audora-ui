@@ -1,7 +1,9 @@
 import colors from './styles/colors';
 import Avatar from './components/dataDisplay/avatar';
+import Badge from './components/dataDisplay/badge';
 import Button from './components/general/button';
 import ButtonGroup from './components/general/buttonGroup';
+import Modal from './components/feedback/modal';
 import Icon from './components/general/icon';
 import globalTheme from './styles/globalTheme';
 import normalize from './styles/normalize';
@@ -27,7 +29,9 @@ export {
   spacing,
   // components
   Avatar,
+  Badge,
   Button,
   ButtonGroup,
+  Modal,
   Icon
 };

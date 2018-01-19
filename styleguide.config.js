@@ -58,6 +58,10 @@ module.exports = {
         {
           name: 'Data Display',
           components: 'src/components/dataDisplay/[a-z]*.js'
+        },
+        {
+          name: 'Feedback',
+          components: 'src/components/feedback/[a-z]*.js'
         }
       ]
     }

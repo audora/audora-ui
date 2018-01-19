@@ -4,6 +4,7 @@ import colorRandom from './colorRandom';
 import darken from './darken';
 import detectFeature from './detectFeature';
 import lighten from './lighten';
+import Portal from './portal';
 
 export {
   capitalize,
@@ -11,5 +12,6 @@ export {
   colorRandom,
   darken,
   detectFeature,
-  lighten
+  lighten,
+  Portal
 };

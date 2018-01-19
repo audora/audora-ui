@@ -43,8 +43,9 @@ const spinStyle = {
   animationIterationCount: 'infinite'
 };
 
-const Icon = ({ color, name, size, style, spin }) => (
+const Icon = ({ color, name, size, style, spin, onClick }) => (
   <span
+    onClick={onClick}
     dangerouslySetInnerHTML={{
       __html: require(`../../icons/feather/${name}.svg`)
     }}
@@ -57,6 +58,10 @@ Icon.propTypes = {
    * Cor do Icon.
    */
   color: PropTypes.string,
+  /**
+   * Função onClick.
+   */
+  onClick: PropTypes.func,
   /**
    * Nome do icon usado no `feathericons`.
    */
@@ -79,7 +84,8 @@ Icon.defaultProps = {
   color: '',
   size: 'medium',
   spin: false,
-  style: {}
+  style: {},
+  onClick: () => 0
 };
 
 export default Radium(Icon);
