@@ -1,9 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import PropTypes from 'prop-types';
-import withTheme from '../../styles/themer/withTheme';
-import { themePropTypes } from '../../styles/themer/utils';
-import { spacing, borderRadius } from '../../styles';
+import { borderRadius } from '../../styles';
 import { colorRandom, colorContrast } from '../../utils';
 
 /**
@@ -132,4 +130,4 @@ Avatar.defaultProps = {
   size: 'medium'
 };
 
-export default withTheme(Radium(Avatar));
+export default Radium(Avatar);

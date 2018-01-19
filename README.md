@@ -11,11 +11,11 @@
 
 - [x] Avatar
 - [ ] AvatarGroup
-- [ ] Badge
+- [x] Badge
 - [ ] Blanket
 - [ ] Breadcrumbs
 - [x] Button
-- [ ] ButtonGroup
+- [x] ButtonGroup
 - [ ] Calendar
 - [ ] Card
 - [ ] Checkbox

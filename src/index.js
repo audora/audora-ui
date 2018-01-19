@@ -1,6 +1,7 @@
 import colors from './styles/colors';
 import Avatar from './components/dataDisplay/avatar';
 import Button from './components/general/button';
+import ButtonGroup from './components/general/buttonGroup';
 import Icon from './components/general/icon';
 import globalTheme from './styles/globalTheme';
 import normalize from './styles/normalize';
@@ -27,5 +28,6 @@ export {
   // components
   Avatar,
   Button,
+  ButtonGroup,
   Icon
 };
