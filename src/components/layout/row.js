@@ -160,14 +160,14 @@ const Row = props => {
 };
 
 Row.propTypes = {
-  /** Força linha com largura 100% -- Aui vai adicionar margem negativa */
+  /** Force row with width 100% -- Audora UI will add margin negative */
   forceFullPage: PropTypes.bool,
   /**
-   * Número máximo de colunas, esta linha deve crescer à medida que a largura
-   * da tela aumenta. Não pode exceder 14.
+   * Maximum number of columns, this line should grow as the width of the screen
+   * increases. Must not exceed 14.
    */
   maxColumns: PropTypes.number,
-  /** Substituição opticional de estilo. */
+  /** Props of theme provided by `Themer`. */
   style: PropTypes.object
 };
 

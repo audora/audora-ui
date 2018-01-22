@@ -16,7 +16,7 @@ module.exports = {
       match.split('')[1].toUpperCase()
     );
 
-    return `import { ${name} } from "aui";`;
+    return `import { ${name} } from "audora-ui";`;
   },
   highlightTheme: 'pastel-on-dark',
   ignore: ['**/*/*Styles.js', '**/*.spec.js', '**/*/*hexValues.js'],
@@ -106,5 +106,5 @@ module.exports = {
       base: ['Nunito', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
     }
   },
-  title: 'Aui'
+  title: 'Audora UI'
 };

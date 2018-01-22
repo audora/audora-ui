@@ -55,27 +55,27 @@ const Icon = ({ color, name, size, style, spin, onClick }) => (
 
 Icon.propTypes = {
   /**
-   * Cor do Icon.
+   * Color of icon.
    */
   color: PropTypes.string,
   /**
-   * Função onClick.
+   * Handler to be called when the button is clicked.
    */
   onClick: PropTypes.func,
   /**
-   * Nome do icon usado no `feathericons`.
+   * Name of icon used on `fathericons`.
    */
   name: PropTypes.string.isRequired,
   /**
-   * Tamanho do Icon.
+   * Icon size.
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /**
-   * Rotaciona o icon com animação.
+   * Rotates the icon with animation.
    */
   spin: PropTypes.bool,
   /**
-   * Substituição opticional de estilo.
+   * Props of theme provided by `Themer`.
    */
   style: PropTypes.object
 };

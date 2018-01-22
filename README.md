@@ -12,7 +12,6 @@
 - [x] Avatar
 - [ ] AvatarGroup
 - [x] Badge
-- [ ] Blanket
 - [ ] Breadcrumbs
 - [x] Button
 - [x] ButtonGroup

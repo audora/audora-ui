@@ -77,9 +77,9 @@ const Column = props => {
 
   if (props.sizes.xs) {
     console.warn(
-      'Suporte de tamanho xs passou para coluna!',
-      'Isso será ignorado. Todas as colunas no tamanho da tela xs são de largura total. ',
-      'Remova essa definição. Tamanhos aprovados: ',
+      'Support of size xs passed to column!',
+      'This will be ignored. All columns in the xs screen size are full width. ',
+      'Remove this setting. Approved sizes: ',
       props.sizes
     );
   }
@@ -93,8 +93,8 @@ const Column = props => {
 
 Column.propTypes = {
   /**
-   * objeto onde as chaves são ponto de interrupção e o valor é o número de
-   * colunas a serem atingidas nesse ponto de interrupção.
+   * Object where the keys are breakpoint and the value is the number of columns
+   * to be hit at that breakpoint.
    * */
   sizes: PropTypes.shape({
     xs: PropTypes.number, // nunca deve ser passado
@@ -104,7 +104,9 @@ Column.propTypes = {
     lg: PropTypes.number,
     xl: PropTypes.number
   }),
-  /** Substituição opticional de estilo. */
+  /**
+   * Props of theme provided by `Themer`.
+   */
   style: PropTypes.object
 };
 

@@ -1,9 +1,9 @@
-### Básico
+### Basic
 ```
   <Badge value={6} />
 ```
 
-### Valor Máximo
+### Maximum value
 ```
   <Badge value={666} max={99} />
 ```

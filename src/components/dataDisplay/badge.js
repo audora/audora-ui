@@ -49,29 +49,30 @@ const getValue = (value, max) => {
   return String(value);
 };
 
-const Badge = ({ value, max, type, auiTheme }) => {
-  const typeStyle = getTypeStyle(auiTheme);
+const Badge = ({ value, max, type, theme }) => {
+  const typeStyle = getTypeStyle(theme);
 
   return <div style={[baseStyle, typeStyle[type]]}>{getValue(value, max)}</div>;
 };
 
 Badge.propTypes = {
   /**
-   * O valor exibido dentro do Badge.
+   * The value displayed inside the Badge.
    */
   value: PropTypes.number,
   /**
-   * O valor máximo a ser exibido. Se o valor for 100 e o máximo for 50, será exibido **50+**.
+   * The maximum value to display. If the value is 200 and the maximum is 99,
+   * will appear **99+**.
    */
   max: PropTypes.number,
   /**
-   * tipo
+   * Type of Badge.
    */
   type: PropTypes.oneOf(['default', 'inverted', 'primary', 'added', 'removed']),
   /**
-   * Atributos do tema Aui fornecidos por `Themer`
+   * Props of theme provided by `Themer`.
    */
-  auiTheme: themePropTypes
+  theme: themePropTypes
 };
 
 Badge.defaultProps = {

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Portal } from '../../utils';
 import { zIndex, borderRadius, spacing } from '../../styles';
 import Icon from '../general/icon';
+import Button from '../general/button';
+import ButtonGroup from '../general/buttonGroup';
 
 const modalContainerStyle = {
   position: 'fixed',
@@ -76,11 +78,34 @@ const contentStyle = {
   ...spacing.PADDING_XS
 };
 
+const btnCloseStyle = {
+  cursor: 'pointer',
+  color: '#333',
+
+  ':hover': {
+    color: '#666'
+  }
+};
+
+const renderFooter = ({ footer }) => {
+  if (onCancel) {
+    return (
+      <ButtonGroup>
+        <Button content="Fechar" type="subtle" onClick={onCancel} />
+        <Button content="Okay" type="primary" />
+      </ButtonGroup>
+    );
+  }
+
+  return <div style={footerStyle}>{footer}</div>;
+};
+
 const Modal = ({
   bordded,
-  children,
+  content,
   footer,
   onClose,
+  onCancel,
   scrollBehaviorset,
   title,
   visible,
@@ -90,31 +115,45 @@ const Modal = ({
     document.body.style.overflow = 'hidden';
 
     return (
-      <Portal>
-        <div style={modalContainerStyle}>
-          <div
-            style={[maskStyle, scrollBehaviorset === 'outside' && scrollStyle]}
-            onClick={onClose}
-          />
-          <div
-            style={[modalStyle, withStyle[width], bordded && borderRadiusStyle]}
-          >
-            <div style={headerStyle}>
-              {title}
-              <Icon name="x" size="medium" onClick={onClose} />
-            </div>
+      <Portal
+        content={
+          <div style={modalContainerStyle}>
             <div
               style={[
-                contentStyle,
-                scrollBehaviorset === 'inside' && scrollStyle
+                maskStyle,
+                scrollBehaviorset === 'outside' && scrollStyle
+              ]}
+              onClick={onClose}
+            />
+            <div
+              style={[
+                modalStyle,
+                withStyle[width],
+                bordded && borderRadiusStyle
               ]}
             >
-              {children}
+              <div style={headerStyle}>
+                {title}
+                <Icon
+                  name="x"
+                  size="medium"
+                  onClick={onClose}
+                  style={btnCloseStyle}
+                />
+              </div>
+              <div
+                style={[
+                  contentStyle,
+                  scrollBehaviorset === 'inside' && scrollStyle
+                ]}
+              >
+                {content}
+              </div>
+              {footer && renderFooter(footer, onCancel)}
             </div>
-            <div style={footerStyle}>{footer && 'footer'}</div>
           </div>
-        </div>
-      </Portal>
+        }
+      />
     );
   }
 
@@ -126,7 +165,7 @@ Modal.propTypes = {
   /**
    * Conteudo do Modal.
    */
-  children: PropTypes.node,
+  content: PropTypes.node,
   /**
    * O rodapé do Modal.
    */
@@ -161,6 +200,7 @@ Modal.propTypes = {
 Modal.defaultProps = {
   bordded: true,
   onClose: () => 0,
+  onCancel: () => 0,
   scrollBehaviorset: 'inside',
   title: '',
   visible: false,

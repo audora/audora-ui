@@ -28,7 +28,7 @@ Use em metadados
 ```
 
 ### Small
-User avatares em áreas pequenas, como campos de texto de 40px. Para os avatares **square**, use em coisas como menus de exclusão.
+User avatars in small areas such as 40px text fields. For **square** avatars, use on things like drop-down menus.
 
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
@@ -38,8 +38,7 @@ User avatares em áreas pequenas, como campos de texto de 40px. Para os avatares
 ```
 
 ### Medium
-Use avatares em fluxos de atividades ou comentários e avatares **square** em tabelas.
-
+Use avatars in activity streams or comments and avatars **square** in tables.
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="medium" name="João" />
@@ -48,8 +47,7 @@ Use avatares em fluxos de atividades ou comentários e avatares **square** em ta
 ```
 
 ### Large
-Para títulos de páginas principais, como as configurações de conta de um usuário. 
-
+For major page titles, such as a user's account settings.
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="large" name="João" />
@@ -58,8 +56,7 @@ Para títulos de páginas principais, como as configurações de conta de um usu
 ```
 
 ### Huge
-Use em posições proeminentes na página, como em perfis de usuários.
-
+Use in prominent positions on the page, as in user profiles.
 ```jsx
 <div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
   <Avatar size="huge" name="João" />

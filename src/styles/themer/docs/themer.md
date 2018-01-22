@@ -1,23 +1,23 @@
-O Themer permite que você configure e obtenha o tema atual usado por Aui. Ele é usado pelos componentes Aui internamente, mas pode ser usado para componentes externos.
+Themer allows you to configure and get the current theme used by Audora UI. It is used by the Audora UI components internally, but can be used for external components.
 
-Para obter um valor do Themer:
+To get a Themer value:
 ```js static
-import themer from 'aui'
+import themer from 'audora-ui'
 
 themer.get('colors', 'primary')
 ```
 
-Para definir um valor no Themer:
+To set a value in Themer:
 ```js static
-import themer from 'aui'
+import themer from 'audora-ui'
 
 themer.set('colors', 'primary', '#000')
 themer.get('colors', 'primary')
 ```
 
-Para definir toda a configuração Themer:
+To set the entire Themer setting:
 ```js static
-import themer from 'aui'
+import themer from 'audora-ui'
 
 themer.themeConfig = {
   colors: {
@@ -33,9 +33,9 @@ themer.get('colors', 'primary')
 themer.get('colors', 'successs')
 ```
 
-Para pegar a configuração completa do Themer:
+To get the full configuration of Themer:
 ```js static
-import themer from 'aui'
+import themer from 'audora-ui'
 
 themer.themeConfig
 ```

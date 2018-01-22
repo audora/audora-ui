@@ -1,11 +1,11 @@
 {
-  "name": "aui",
-  "version": "1.0.0",
-  "main": "dist/aui.js",
+  "name": "audora-ui",
+  "version": "0.0.1",
+  "main": "dist/audora-ui.js",
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "scripts": {
-    "build": "webpack --progress --config webpack.config.js src/index.js dist/aui.js",
-    "start": "webpack --progress --watch --config webpack.config.js src/index.js dist/aui.js",
+    "build": "webpack --progress --config webpack.config.js src/index.js dist/audora-ui.js",
+    "start": "webpack --progress --watch --config webpack.config.js src/index.js dist/audora-ui.js",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged",
     "lint": "esw -c .eslintrc.json src --ext .js,.jsx --ignore-path .eslintignore --color",

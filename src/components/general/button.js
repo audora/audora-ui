@@ -57,7 +57,7 @@ const sizeStyles = {
   }
 };
 
-const getAuiStyles = ({ colors }) => ({
+const getTypeStyles = ({ colors }) => ({
   primary: {
     backgroundColor: colors.primary,
     color: '#fff',
@@ -133,7 +133,7 @@ const getAuiStyles = ({ colors }) => ({
 });
 
 const Button = props => {
-  const typeStyles = getAuiStyles(props.auiTheme);
+  const typeStyles = getTypeStyles(props.theme);
   const ElementType = props.href ? 'a' : 'button';
 
   const finalProps = {
@@ -167,7 +167,7 @@ const Button = props => {
     return (
       <ElementType {...finalProps}>
         {props.loading && (
-          <span style={[typeStyles.loadingContent]}>
+          <span style={typeStyles.loadingContent}>
             <Icon name="loader" size="small" spin />
           </span>
         )}
@@ -180,7 +180,7 @@ const Button = props => {
     return (
       <ElementType {...finalProps}>
         {props.loading && (
-          <span style={[typeStyles.loadingContent]}>
+          <span style={typeStyles.loadingContent}>
             <Icon name="loader" size="small" spin />
           </span>
         )}
@@ -195,7 +195,7 @@ const Button = props => {
     return (
       <ElementType {...finalProps}>
         {props.loading && (
-          <span style={[typeStyles.loadingContent]}>
+          <span style={typeStyles.loadingContent}>
             <Icon name="loader" size="small" spin />
           </span>
         )}
@@ -209,7 +209,7 @@ const Button = props => {
   return (
     <ElementType {...finalProps}>
       {props.loading && (
-        <span style={[typeStyles.loadingContent]}>
+        <span style={typeStyles.loadingContent}>
           <Icon name="loader" size="small" spin />
         </span>
       )}
@@ -220,57 +220,57 @@ const Button = props => {
 
 Button.propTypes = {
   /**
-   * Texto a ser renderizado.
+   * Text to be rendered.
    */
   content: PropTypes.string,
   /**
-   * Fornece um URL para os botões serem usados como um link.
+   * Provide a URL to the buttons when with the `link` type.
    */
   href: PropTypes.string,
   /**
-   * Passe o target para um link dentro do componente, se href for fornecido.
+   * Pass the target to a link within the component, if href is provided.
    */
   target: PropTypes.string,
   /**
-   * Adiciona um icone ao botão.
+   * Adds an icon to the button.
    */
   icon: PropTypes.string,
   /**
-   * Escolhe o lado do icone.
+   * Chooce the side of the icon.
    */
   iconPosition: PropTypes.oneOf(['left', 'right']),
   /**
-   * Tipo de botão.
+   * Type of button.
    */
   type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link']),
   /**
-   * Define o botão como desabilitado.
+   * Button desiabled.
    */
   loading: PropTypes.bool,
   /**
-   * Define o botão como carregando.
+   * Button loading.
    */
   disabled: PropTypes.bool,
   /**
-   * Handler para ser chamado quando o botão for clicado.
+   * Handler to be called when the button is clicked.
    */
   onClick: PropTypes.func,
   /**
-   * Tamanho do botão.
+   * Sizes of buttons.
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /**
-   * Largue 100%.
+   * Width 100%.
    */
   full: PropTypes.bool,
   /**
-   * Substituição opticional de estilo.
+   * Optitional style replacement.
    */
   style: PropTypes.object,
   /**
-   * Atributos do tema Aui fornecidos por `Themer`
+   * Props of theme provided by `Themer`.
    */
-  auiTheme: themePropTypes
+  theme: themePropTypes
 };
 
 Button.defaultProps = {

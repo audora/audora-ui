@@ -1,4 +1,4 @@
-Exemplo de `Column` sem um `Grid` ou `Row`:
+Example of `Column` without a` Grid` or `Row`:
 
     columnStyles = { backgroundColor: '#1565C0', border: '1px solid white', textAlign: 'center' };
     <div>

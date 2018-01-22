@@ -1,4 +1,4 @@
-Cores disponíveis:
+Available colors:
 ```jsx
 const colors = require('../src/styles/colors').default;
 const wrapperStyles = {

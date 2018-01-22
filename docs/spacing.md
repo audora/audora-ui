@@ -1,38 +1,38 @@
-O módulo `spacing` exporta valores que podem ser usados para padding, margin, e positioning (top, left, bottom, right). O uso de valores predefinidos de espaçamento nos ajuda a manter as coisas visualmente consistentes.
+The `spacing` module exports values that can be used for padding, margin, and positioning (top, left, bottom, right). Using predefined spacing values helps us keep things visually consistent.
 
-Os valores de pixel são uma estratégia base-8 como definida pelo sistema de design.
+Pixel values are a base-8 strategy as defined by the design system.
 ### Sizes
-| propriedade | valor em Px  |
-|-------------|--------------|
-| XS          | 8px          |
-| SM          | 16px         |
-| MD          | 24px         |
-| LG          | 32px         |
-| XL          | 48px         |
-| HUGE        | 64px         |
+| props | Px value |
+|-------|----------|
+| XS    | 8px      |
+| SM    | 16px     |
+| MD    | 24px     |
+| LG    | 32px     |
+| XL    | 48px     |
+| HUGE  | 64px     |
 
-### Exemplo:
+### Example:
 
 ```js static
-import { spacing } from 'aui'
+import { spacing } from 'audora-ui'
 
-// se voce precisar referenciar o valor do pixel diretamente
+// if you need to reference the pixel value directly
 spacing.SM //=> 16
 
 const styles = {
-  // Padding/margin para todos os lados
+  // Padding/margin for all sides
   ...spacing.PADDING_SM,               // => { padding: 16 }
   ...spacing.MARGIN_SM,                // => { margin: 16 }
 
-  // Padding/margin em uma direcao
+  // Padding/margin in one direction
   ...spacing.PADDING_LEFT_MD,          // => { paddingLeft: 24 }
   ...spacing.MARGIN_TOP_MD,            // => { marginLeft: 24 }
 
-  // Padding/margin em uma dimensão
+  // Padding/margin in one dimension
   ...spacing.PADDING_Y_XL              // => { paddingTop: 48, paddingBottom: 48 }
   ...spacing.MARGIN_X_LG,              // => { marginLeft: 32, marginRight: 32 }
 
-  // Posicionamento
+  // Position
   ...spacing.LEFT_XS                   // => { left: 8 }
   ...spacing.RIGHT_SM,                 // => { right: 16 }
 }

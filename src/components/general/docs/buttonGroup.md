@@ -1,6 +1,5 @@
-O `ButtonGroup` permite agrupar botões e gerenciá-los. Isso garante que os botões tenham o espaçamento correto.
-
-```
+ButtonGroup allows you to group buttons and manage them. This ensures that the buttons have the correct spacing.
+```js
 <ButtonGroup>
   <Button content="Default" />
   <Button content="Default" />

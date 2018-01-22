@@ -20,7 +20,7 @@ const ButtonGroup = ({ children, type }) => (
 
       return (
         <div style={idx !== 0 ? buttonStyle : {}} key={idx}>
-          {cloneElement(child, { type })}
+          {cloneElement(child, { type: child.props.type || type })}
         </div>
       );
     })}
@@ -29,11 +29,11 @@ const ButtonGroup = ({ children, type }) => (
 
 ButtonGroup.propTypes = {
   /**
-   * Botões para renderizar.
+   * Buttons to render.
    */
   children: PropTypes.node.isRequired,
   /**
-   * Tipo dos botões.
+   * Button types.
    */
   type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link'])
 };

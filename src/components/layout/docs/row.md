@@ -1,4 +1,4 @@
-Grid exemplo:
+Grid example:
 
     rowStyles = { marginBottom: '20px' };
     columnStyles = { backgroundColor: '#1565C0', border: '1px solid white', textAlign: 'center' };

@@ -1,16 +1,16 @@
-O hight order `withTheme` é a melhor maneira de usar os temas Aui nos seus próprios componentes React. Ele rastreia atualizações para a configuração do seu tema e re-renderiza seus componentes conforme necessário. Os atributos do tema são passados para seus componentes através de uma propriedade `auiTheme`. Usar isso ou o themer diretamente permite que você compartilhe um tema entre os componentes.
+Hight order `withTheme` is the best way to use Audora UI themes in your own React components. It tracks updates to your theme's configuration and re-renders its components as needed. Theme attributes are passed to their components through a `theme` property. Using this or themer directly allows you to share a theme between components.
 
-Se você quiser mudar o tema, você precisará importar `themer` e configurá-lo lá.
+If you want to change the theme, you need to import `themer` and configure it.
 
 ### decorator
 ```js static
   import React, { Component } from 'react'
-  import { withTheme } from 'aui'
+  import { withTheme } from 'audora-ui'
 
   @withTheme
   class MyComponent extends Component {
     render() {
-      <p style={{ color: this.props.auiTheme.color.action }}>
+      <p style={{ color: this.props.theme.color.primary }}>
         Hi!
       </p>
     }
@@ -21,11 +21,11 @@ Se você quiser mudar o tema, você precisará importar `themer` e configurá-lo
 
 ### functional
 ```js static
-import { withTheme } from 'aui'
+import { withTheme } from 'audora-ui'
 
 const MyComponent = props => {
   return (
-    <p style={{ color: props.auiTheme.color.action }}>
+    <p style={{ color: props.theme.color.action }}>
       Hi!
     </p>
   )

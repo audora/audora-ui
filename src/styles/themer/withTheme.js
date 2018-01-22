@@ -7,7 +7,7 @@ function withTheme(InnerComponent) {
     static displayName = `withTheme(${InnerComponent.displayName})`;
 
     static propTypes = {
-      auiTheme: themePropTypes
+      theme: themePropTypes
     };
 
     componentDidMount() {
@@ -23,7 +23,7 @@ function withTheme(InnerComponent) {
     };
 
     render() {
-      return <InnerComponent {...this.props} auiTheme={themer.themeConfig} />;
+      return <InnerComponent {...this.props} theme={themer.themeConfig} />;
     }
   }
 

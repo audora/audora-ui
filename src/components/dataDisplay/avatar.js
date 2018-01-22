@@ -5,10 +5,10 @@ import { borderRadius } from '../../styles';
 import { colorRandom, colorContrast } from '../../utils';
 
 /**
- * TODO: Adicionar tooltip
+ * TODO: add with tooltip
  */
 
-const getAuiStyles = () => {
+const getBaseStyle = () => {
   const backgroundColor = colorRandom();
 
   return {
@@ -61,7 +61,7 @@ const typeStyle = {
 };
 
 const Avatar = ({ onClick, style, size, img, square, name }) => {
-  const baseStyle = getAuiStyles();
+  const baseStyle = getBaseStyle();
 
   return (
     <div
@@ -96,27 +96,27 @@ const Avatar = ({ onClick, style, size, img, square, name }) => {
 
 Avatar.propTypes = {
   /**
-   * Titulo do elemento.
+   * Title to avatar.
    */
   name: PropTypes.string,
   /**
-   * URL da imagem do avatar.
+   * URL of image.
    */
   img: PropTypes.string,
   /**
-   * Substituição opticional de estilo.
+   * Optitional style replacement.
    */
   style: PropTypes.object,
   /**
-   * Handler para ser chamado quando o botão for clicado.
+   * Handler to be called when the button is clicked.
    */
   onClick: PropTypes.func,
   /**
-   * Define o avatar como quadrado.
+   * Sets the avatar as square.
    */
   square: PropTypes.bool,
   /**
-   * Define os tamanhos dos avatares.
+   * Avatar size.
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'huge'])
 };

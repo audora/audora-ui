@@ -1,50 +1,44 @@
 
-Os botões são classificados por importância de cima para baixo. (Primary > Default > Link)
+Buttons are ranked by top-down importance. (Primary> Default> Link)
 
 ### Primary
-Para chamar a atenção para uma ação em um formulário, ou destacar a chamada mais forte para a ação em uma página. Os botões primários só devem aparecer uma vez por tela (não incluindo o cabeçalho da aplicação ou em um modal). Tenha em mente que nem todas as telas precisam de um botão primário.
-
+To call attention to an action on a form, or highlight the strongest call to action on a page. The primary buttons should only appear once per screen (not including the application header or in a modal). Keep in mind that not all screens need a primary button.
 ```jsx
 <Button content="Primary" type="primary" />
 ```
 
 ### Default
-O botão padrão para a maioria dos casos de uso.
-
+The default button for most use cases.
 ```jsx
 <Button content="Default" />
 ```
 
 ### Link
-Use links para ações secundárias, ações destrutivas ou para desencorajar o uso. Os links devem ser abertos na janela atual, a menos que o usuário possa perder informações, p.ex. Ao preencher um formulário ou o destino é um site externo.
-
+Use links to secondary actions, destructive actions or to discourage use. The links must be opened in the current window, unless the user can lose information, eg When filling out a form or the destination is an external site.
 ```jsx
 <Button content="Link" type="link" />
 ```
 
 ### Subtle
-Use botão sutil para ações secundárias, ações destrutivas, como "Cancelar" ou "Fechar".
-
+Use subtle button for secondary actions, destructive actions such as "Cancel" or "Close".
 ```jsx
 <Button content="Subtle" type="subtle" />
 ```
 
 ### Disabled
-Use quando outra ação tiver que ser completada antes que o botão seja utilizável, como alterar um valor de campo ou aguardar uma resposta do sistema. Use apenas com os tipos de botão **primary** e **default**.
-
+Use when another action has to be completed before the button is usable, such as changing a field value or waiting for a system response. Use only with the **primary** and **default** button types.
 ```jsx
 <Button content="Disabled" disabled />
 ```
 
 ### Loading
-Use quando estiver esperando o resultado de uma ação. Use apenas com os tipos de botão **primary** e **default**.
-
+Use when waiting for the result of an action. Use only with the **primary** and **default** button types.
 ```jsx
 <Button content="Loading" loading />
 ```
 
 ### Icon
-Usa apenas o Icon quando uma ação é muito obvia e usa Icon com Content quando quer auxiliar ao que se trata a ação.
+Use only the Icon when an action is very obvious and use Icon with Content when you want to help what the action is about.
 ```jsx
 <div style={{ display: 'flex' }}>
   <Button content="Icon Left" icon="music" type="primary" />

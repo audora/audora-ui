@@ -7,15 +7,16 @@ initialState = { visible: false }
     content="Open"
   />
   <Modal
-    title="Basic Modal"
     visible={state.visible}
     onClose={() => setState({ visible: false })}
-  >
-    <Button
-      type="primary"
-      onClick={() => setState({ visible: false })}
-      content="Close"
-    />
-  </Modal>
+    title="Basic Modal"
+    content={(
+      <Button
+        type="primary"
+        onClick={() => setState({ visible: false })}
+        content="Close"
+      />
+    )}
+  />
 </div>
 ```

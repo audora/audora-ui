@@ -36,7 +36,9 @@ const Grid = props => {
 };
 
 Grid.propTypes = {
-  /** Substituição opticional de estilo. */
+  /**
+   * Props of theme provided by `Themer`.
+   */
   style: PropTypes.object
 };
 
