@@ -11,7 +11,7 @@ const buttonStyle = {
   ...spacing.MARGIN_LEFT_XS
 };
 
-const ButtonGroup = ({ children, type }) => (
+const ButtonGroup = ({ children, type, size }) => (
   <div style={baseStyle}>
     {Children.map(children, (child, idx) => {
       if (child === null || child === false) {
@@ -20,7 +20,10 @@ const ButtonGroup = ({ children, type }) => (
 
       return (
         <div style={idx !== 0 ? buttonStyle : {}} key={idx}>
-          {cloneElement(child, { type: child.props.type || type })}
+          {cloneElement(child, {
+            type: child.props.type || type,
+            size: child.props.size || size
+          })}
         </div>
       );
     })}
@@ -35,7 +38,11 @@ ButtonGroup.propTypes = {
   /**
    * Button types.
    */
-  type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link'])
+  type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link']),
+  /**
+   * Buton sizes.
+   */
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large'])
 };
 
 ButtonGroup.defaultProps = {

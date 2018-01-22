@@ -17,23 +17,24 @@ const modalContainerStyle = {
 };
 
 const maskStyle = {
+  ...zIndex.Z_INDEX8,
+  backgroundColor: 'rgba(0, 0, 0, 0.65)',
+  bottom: 0,
+  height: '100%',
+  left: 0,
   overflow: 'hidden',
   position: 'fixed',
-  top: 0,
   right: 0,
-  left: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.65)',
-  height: '100%',
-  ...zIndex.Z_INDEX8
+  top: 0
 };
 
 const modalStyle = {
+  ...zIndex.Z_INDEX9,
   backgroundColor: '#fff',
-  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
   margin: '0 auto',
-  top: '100px',
-  ...zIndex.Z_INDEX9
+  position: 'relative'
 };
 
 const withStyle = {
@@ -67,15 +68,21 @@ const headerStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  borderBottom: '1px solid #ccc'
+  borderBottom: '1px solid #e2e2e2'
 };
 
 const footerStyle = {
   ...spacing.PADDING_XS,
-  borderTop: '1px solid #ccc'
+  alignItems: 'center',
+  borderTop: '1px solid #e2e2e2',
+  display: 'flex',
+  justifyContent: 'space-between'
 };
 const contentStyle = {
-  ...spacing.PADDING_XS
+  ...spacing.PADDING_XS,
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1
 };
 
 const btnCloseStyle = {
@@ -87,27 +94,22 @@ const btnCloseStyle = {
   }
 };
 
-const renderFooter = ({ footer }) => {
-  if (onCancel) {
-    return (
-      <ButtonGroup>
-        <Button content="Fechar" type="subtle" onClick={onCancel} />
-        <Button content="Okay" type="primary" />
-      </ButtonGroup>
-    );
-  }
-
-  return <div style={footerStyle}>{footer}</div>;
-};
-
 const Modal = ({
   bordded,
-  content,
+  cancelText,
+  children,
+  closable,
+  confirmLoading,
   footer,
-  onClose,
+  footerContent,
+  fullscreen,
+  height,
+  okText,
   onCancel,
+  onOk,
   scrollBehaviorset,
   title,
+  top,
   visible,
   width
 }) => {
@@ -123,23 +125,27 @@ const Modal = ({
                 maskStyle,
                 scrollBehaviorset === 'outside' && scrollStyle
               ]}
-              onClick={onClose}
+              onClick={onCancel}
             />
             <div
               style={[
                 modalStyle,
-                withStyle[width],
-                bordded && borderRadiusStyle
+                withStyle[fullscreen ? 'full' : width],
+                { top: fullscreen ? 0 : top },
+                { height: fullscreen ? '100%' : height },
+                bordded && !fullscreen && borderRadiusStyle
               ]}
             >
               <div style={headerStyle}>
                 {title}
-                <Icon
-                  name="x"
-                  size="medium"
-                  onClick={onClose}
-                  style={btnCloseStyle}
-                />
+                {closable && (
+                  <Icon
+                    name="x"
+                    size="small"
+                    onClick={onCancel}
+                    style={btnCloseStyle}
+                  />
+                )}
               </div>
               <div
                 style={[
@@ -147,9 +153,30 @@ const Modal = ({
                   scrollBehaviorset === 'inside' && scrollStyle
                 ]}
               >
-                {content}
+                {children}
               </div>
-              {footer && renderFooter(footer, onCancel)}
+              {footer === null ? (
+                <div />
+              ) : footer ? (
+                <div style={footerStyle}>{footer}</div>
+              ) : (
+                <div style={footerStyle}>
+                  <div>{footerContent}</div>
+                  <ButtonGroup>
+                    <Button
+                      content={cancelText}
+                      type="subtle"
+                      onClick={onCancel}
+                    />
+                    <Button
+                      content={okText}
+                      type="primary"
+                      onClick={onOk}
+                      loading={confirmLoading}
+                    />
+                  </ButtonGroup>
+                </div>
+              )}
             </div>
           </div>
         }
@@ -163,46 +190,89 @@ const Modal = ({
 
 Modal.propTypes = {
   /**
-   * Conteudo do Modal.
+   * Modal content.
    */
-  content: PropTypes.node,
+  children: PropTypes.node,
   /**
-   * O rodapé do Modal.
+   * Whether a close (x) button is visible on top right of the modal dialog or not.
+   */
+  closable: PropTypes.bool,
+  /**
+   * Footer content with default buttons.
+   */
+  footerContent: PropTypes.node,
+  /**
+   * Footer content, set as `footer={null}` when you don't need default buttons.
    */
   footer: PropTypes.node,
   /**
-   * Função que será chamada para iniciar a transição de saída.
+   * Function that will be called to start the exit transition.
    */
-  onClose: PropTypes.func,
+  onCancel: PropTypes.func,
   /**
-   * Define uma borda no corpo do modal.
+   * Margin top.
+   */
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Height modal.
+   */
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Specify a function that will be called when the user clicks the OK button.
+   */
+  onOk: PropTypes.func,
+  /**
+   * Set a border radius on modal.
    */
   bordded: PropTypes.bool,
   /**
-   * O título do Modal; renderiza no header.
+   * Modal with height and width 100%.
+   */
+  fullscreen: PropTypes.bool,
+  /**
+   * Modal title; render on header.
    */
   title: PropTypes.string,
   /**
-   * Define se o modal está visível ou não.
+   * Whether to apply loading visual effect for OK button or not.
+   */
+  confirmLoading: PropTypes.bool,
+  /**
+   * Text of the OK button.
+   */
+  okText: PropTypes.string,
+  /**
+   * Text of the Cancel button.
+   */
+  cancelText: PropTypes.string,
+  /**
+   * Defines whether the modal is visible or not.
    */
   visible: PropTypes.bool,
   /**
-   * Largura do modal.
+   * Modal width.
    */
   width: PropTypes.oneOf(['small', 'medium', 'large', 'huge', 'full']),
   /**
-   * Onde o comportamento de rolagem deve ser originado. Quando "inside" só
-   * ocorre no corpo modal. Quando "outside", todo o modal irá rolar dentro da mask.
+   * Where the scrolling behavior should be. When "inside" occurs only in the
+   * modal body. When "outside", all modal will scroll inside the mask.
    */
   scrollBehaviorset: PropTypes.oneOf(['inside', 'outside'])
 };
 
 Modal.defaultProps = {
   bordded: true,
-  onClose: () => 0,
+  cancelText: 'Cancel',
+  closable: true,
+  confirmLoading: false,
+  height: '',
+  okText: 'OK',
   onCancel: () => 0,
+  onOk: () => 0,
+  fullscreen: false,
   scrollBehaviorset: 'inside',
   title: '',
+  top: 100,
   visible: false,
   width: 'medium'
 };
