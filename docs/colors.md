@@ -23,9 +23,9 @@ const colorSwatchStyles = {
   height: '150px'
 };
 
-const colorsSwatches = Object.keys(colors).map(name => {
+const colorsSwatches = Object.keys(colors).map((name, idx) => {
   return (
-    <li style={colorWrapStyles}>
+    <li style={colorWrapStyles} key={idx}>
       <div
         style={Object.assign({},
           colorSwatchStyles,

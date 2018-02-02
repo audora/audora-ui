@@ -1,7 +1,7 @@
 # Design
 
 - [x] BorderRadius
-- [ ] BoxShadow
+- [x] BoxShadow
 - [x] Colors
 - [x] Layout
 - [ ] ContentEmpty
@@ -26,7 +26,7 @@
 - [ ] Label
 - [ ] Logo
 - [ ] Message
-- [ ] Modal
+- [x] Modal
 - [ ] Notification
 - [ ] PageHeader
 - [ ] Popover

@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-const Portal = ({ content, query }) =>
-  ReactDOM.createPortal(content, document.querySelector(query));
+const Portal = ({ render, query }) =>
+  ReactDOM.createPortal(render, document.querySelector(query));
 
 Portal.propTypes = {
-  content: PropTypes.node.isRequired,
+  render: PropTypes.node.isRequired,
   query: PropTypes.string
 };
 

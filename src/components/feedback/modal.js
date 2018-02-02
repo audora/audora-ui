@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Radium from 'radium';
 import PropTypes from 'prop-types';
 import { Portal } from '../../utils';
@@ -64,7 +64,7 @@ const borderRadiusStyle = {
 };
 
 const headerStyle = {
-  ...spacing.PADDING_XS,
+  ...spacing.PADDING_SM,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -94,6 +94,14 @@ const btnCloseStyle = {
   }
 };
 
+const getTopStyle = (top, fullscreen) => {
+  if (fullscreen && top === 100) {
+    return { top: 0 };
+  }
+
+  return { top };
+};
+
 const Modal = ({
   bordded,
   cancelText,
@@ -116,22 +124,24 @@ const Modal = ({
   if (visible) {
     document.body.style.overflow = 'hidden';
 
+    const topStyle = getTopStyle(top, fullscreen);
+
     return (
       <Portal
-        content={
+        render={
           <div style={modalContainerStyle}>
             <div
               style={[
                 maskStyle,
                 scrollBehaviorset === 'outside' && scrollStyle
               ]}
-              onClick={onCancel}
+              onClick={closable && onCancel}
             />
             <div
               style={[
                 modalStyle,
                 withStyle[fullscreen ? 'full' : width],
-                { top: fullscreen ? 0 : top },
+                topStyle,
                 { height: fullscreen ? '100%' : height },
                 bordded && !fullscreen && borderRadiusStyle
               ]}

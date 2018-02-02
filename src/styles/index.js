@@ -1,4 +1,5 @@
 import borderRadius from './borderRadius';
+import boxShadow from './boxShadow';
 import colors from './colors';
 import globalTheme from './globalTheme';
 import normalize from './normalize';
@@ -8,6 +9,7 @@ import zIndex from './zIndex';
 
 export {
   borderRadius,
+  boxShadow,
   colors,
   globalTheme,
   normalize,
