@@ -1,222 +1,229 @@
 import React from 'react';
-import Radium from 'radium';
 import PropTypes from 'prop-types';
-import withTheme from '../../styles/themer/withTheme';
-import { themePropTypes } from '../../styles/themer/utils';
-import { spacing, borderRadius } from '../../styles';
-import { lighten, colorContrast } from '../../utils';
+import styled, { css } from 'styled-components';
+import { config } from '../../theme';
+import { lighten } from '../../utils';
 import Icon from './icon';
 
-const baseStyles = {
-  border: 'none',
-  cursor: 'pointer',
-  fontWeight: 'bold',
-  MozOsxFontSmoothing: 'grayscale',
-  transition: 'background-color .1s',
-  userSelect: 'none',
-  verticalAlign: 'middle',
-  alignItems: 'center',
-  position: 'relative',
-  backgroundImage: 'none',
-  ...borderRadius.BORDER_RADIUS_MD,
-  display: 'inline-flex',
-  touchAction: 'manipulation',
-  WebkitFontSmoothing: 'antialiased',
-  whiteSpace: 'nowrap',
+const ButtonComponent = styled.button`
+  align-items: center;
+  border-radius: ${({ theme: { btn } }) => btn.borderRadius};
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: ${({ theme: { btn } }) => btn.fontWeight};
+  transition: background-color .1s;
+  position: relative;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 
-  ':focus': {
-    outline: 'none'
+  &:focus {
+    outline: none;
   }
-};
 
-const sizeStyles = {
-  tiny: {
-    ...spacing.PADDING_X_XS,
-    height: 24,
-    fontSize: 11,
-    textTransform: 'uppercase'
-  },
-  small: {
-    ...spacing.PADDING_X_XS,
-    fontSize: 12,
-    height: 28
-  },
-  medium: {
-    ...spacing.PADDING_X_SM,
-    fontSize: 14,
-    height: 36
-  },
-  large: {
-    ...spacing.PADDING_X_MD,
-    fontSize: 16,
-    height: 42
-  },
-  full: {
-    width: '100%',
-    justifyContent: 'center'
-  }
-};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: default;
+    `}
 
-const getTypeStyles = ({ colors }) => ({
-  primary: {
-    backgroundColor: colors.primary,
-    color: '#fff',
+  ${({ full }) =>
+    full &&
+    css`
+      width: 100%;
+      justify-content: center;
+    `}
 
-    ':hover': {
-      backgroundColor: colors.primaryHover
-    },
-    ':active': {
-      backgroundColor: colors.primaryActive
-    }
-  },
-  default: {
-    backgroundColor: colors.default,
-    color: '#555',
+  /**
+   * TYPES
+   */
 
-    ':hover': {
-      backgroundColor: colors.defaultHover
-    },
-    ':active': {
-      backgroundColor: colors.defaultActive
-    }
-  },
-  subtle: {
-    backgroundColor: 'transparent',
-    color: '#555',
+  ${({ type }) =>
+    type === 'primary' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.primary.bg};
+      color: ${({ theme: { btn } }) => btn.primary.color};
 
-    ':hover': {
-      backgroundColor: colors.default
-    },
-    ':active': {
-      backgroundColor: lighten(colors.primary, 40),
-      color: colors.primary
-    }
-  },
-  link: {
-    backgroundColor: 'transparent',
-    color: colors.primary,
-    ...spacing.PADDING_X_XS,
-    height: 24,
+      &:focus {
+        background-color: ${({ theme: { btn } }) =>
+          lighten(btn.primary.bg, 10)};
+      }
+      &:hover {
+        background-color: ${({ theme: { btn } }) =>
+          lighten(btn.primary.bg, 10)};
+      }
+      &:active {
+        background-color: ${({ theme: { btn } }) => btn.primary.bg};
+      }
+    `}
 
-    ':hover': {
-      textDecoration: 'underline'
-    },
-    ':focus': {
-      textDecoration: 'underline'
-    }
-  },
-  icon: {
-    ...spacing.PADDING_X_XS
-  },
-  disabled: {
-    opacity: 0.5,
-    pointerEvents: 'none',
-    cursor: 'default'
-  },
-  loading: {
-    color: '#333',
-    pointerEvents: 'none',
-    cursor: 'default'
-  },
-  loadingContent: {
-    backgroundColor: colors.default,
-    ...borderRadius.BORDER_RADIUS_MD,
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    position: 'absolute',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+  ${({ type }) =>
+    type === 'default' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.default.bg};
+      color: ${({ theme: { btn } }) => btn.default.color};
 
-const Button = props => {
-  const typeStyles = getTypeStyles(props.theme);
-  const ElementType = props.href ? 'a' : 'button';
+      &:focus {
+        background-color: ${({ theme: { btn } }) => lighten(btn.default.bg, 3)};
+      }
+      &:hover {
+        background-color: ${({ theme: { btn } }) => lighten(btn.default.bg, 3)};
+      }
+      &:active {
+        background-color: ${({ theme: { btn } }) => btn.default.bg};
+      }
+    `}
 
-  const finalProps = {
-    href: props.href ? props.href : '#',
-    target: props.href && props.target && props.target,
-    style: [
-      baseStyles,
-      sizeStyles[props.size],
-      typeStyles[props.type],
-      props.disabled && typeStyles.disabled,
-      props.icon && !props.content && typeStyles.icon,
-      props.loading && props.type !== 'link' && typeStyles.loading,
-      props.full && sizeStyles.full,
-      props.style
-    ],
-    onClick: e => {
-      if (props.disabled || props.loading) {
+  ${({ type }) =>
+    type === 'subtle' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.subtle.bg};
+      color: ${({ theme: { btn } }) => btn.subtle.color};
+
+      &:hover {
+        background-color: ${({ theme: { btn } }) => btn.default.bg};
+      }
+      &:active {
+        background-color: ${({ theme: { btn } }) =>
+          lighten(btn.primary.bg, 40)};
+        color: ${({ theme: { btn } }) => btn.primary.bg};
+      }
+    `}
+
+  /**
+   * SIZES
+   */
+
+  ${({ size }) =>
+    size === 'tiny' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.fontSize.sm};
+      height: ${({ theme: { btn } }) => btn.height.xs};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
+      text-transform: uppercase;
+    `}
+
+  ${({ size }) =>
+    size === 'small' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.fontSize.sm};
+      height: ${({ theme: { btn } }) => btn.height.sm};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
+    `}
+  
+  ${({ size }) =>
+    size === 'medium' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.fontSize.base};
+      height: ${({ theme: { btn } }) => btn.height.md};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
+    `}
+  
+  ${({ size }) =>
+    size === 'large' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.fontSize.lg};
+      height: ${({ theme: { btn } }) => btn.height.lg};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.md};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.md};
+    `}
+`;
+
+ButtonComponent.defaultProps = { theme: config };
+
+const IconLoading = styled(Icon)`
+  color: ${({ theme: { btn } }) => btn.icon.color};
+  
+  ${({ type }) =>
+    type === 'primary' &&
+    css`
+      color: ${({ theme: { btn } }) => btn.icon.primary};
+    `}
+
+  ${({ content }) =>
+    !content &&
+    css`
+      margin-left: -5px;
+      margin-right: -5px;
+    `}
+
+  ${({ position, content }) =>
+    position === 'left' &&
+    content &&
+    css`
+      margin-left: -5px;
+      margin-right: ${({ theme: { btn } }) => btn.icon.margin};
+    `}
+
+  ${({ position, content }) =>
+    position === 'right' &&
+    content &&
+    css`
+      margin-right: -5px;
+      margin-left: ${({ theme: { btn } }) => btn.icon.margin};
+    `}
+`;
+
+IconLoading.defaultProps = { theme: config };
+
+const Button = ({
+  content,
+  icon,
+  iconPosition,
+  loading,
+  onClick,
+  size,
+  type,
+  ...props
+}) => (
+  <ButtonComponent
+    {...props}
+    type={type}
+    size={size}
+    onClick={e => {
+      if (props.disabled) {
         e.preventDefault();
         return;
       }
 
-      props.onClick(e, props);
-    }
-  };
-
-  if (props.href) {
-    finalProps.href = props.href;
-  }
-
-  if (props.icon && !props.content) {
-    return (
-      <ElementType {...finalProps}>
-        {props.loading && (
-          <span style={typeStyles.loadingContent}>
-            <Icon name="loader" size="small" spin />
-          </span>
-        )}
-        <Icon name={props.icon} size="small" />
-      </ElementType>
-    );
-  }
-
-  if (props.icon && props.content && props.iconPosition === 'left') {
-    return (
-      <ElementType {...finalProps}>
-        {props.loading && (
-          <span style={typeStyles.loadingContent}>
-            <Icon name="loader" size="small" spin />
-          </span>
-        )}
-        <Icon name={props.icon} size="small" />
-        <span style={{ ...spacing.MARGIN_RIGHT_XS }} />
-        {props.content}
-      </ElementType>
-    );
-  }
-
-  if (props.icon && props.content && props.iconPosition === 'right') {
-    return (
-      <ElementType {...finalProps}>
-        {props.loading && (
-          <span style={typeStyles.loadingContent}>
-            <Icon name="loader" size="small" spin />
-          </span>
-        )}
-        {props.content}
-        <span style={{ ...spacing.MARGIN_LEFT_XS }} />
-        <Icon name={props.icon} size="small" />
-      </ElementType>
-    );
-  }
-
-  return (
-    <ElementType {...finalProps}>
-      {props.loading && (
-        <span style={typeStyles.loadingContent}>
-          <Icon name="loader" size="small" spin />
-        </span>
+      onClick(e, props);
+    }}
+  >
+    {(icon || loading) &&
+      iconPosition === 'left' && (
+        <IconLoading
+          content={content}
+          name={loading ? 'loader' : icon}
+          position="left"
+          size={
+            size === 'medium' ? 'small' : size === 'large' ? 'medium' : size
+          }
+          spin={loading}
+          type={type}
+        />
       )}
-      {props.content}
-    </ElementType>
-  );
-};
+    {content}
+    {icon &&
+      iconPosition === 'right' && (
+        <IconLoading
+          content={content}
+          name={icon}
+          position="right"
+          size={
+            size === 'medium' ? 'small' : size === 'large' ? 'medium' : size
+          }
+          type={type}
+        />
+      )}
+  </ButtonComponent>
+);
 
 Button.propTypes = {
   /**
@@ -224,13 +231,13 @@ Button.propTypes = {
    */
   content: PropTypes.string,
   /**
-   * Provide a URL to the buttons when with the `link` type.
+   * Button disable.
    */
-  href: PropTypes.string,
+  disabled: PropTypes.bool,
   /**
-   * Pass the target to a link within the component, if href is provided.
+   * Width 100%.
    */
-  target: PropTypes.string,
+  full: PropTypes.bool,
   /**
    * Adds an icon to the button.
    */
@@ -240,17 +247,9 @@ Button.propTypes = {
    */
   iconPosition: PropTypes.oneOf(['left', 'right']),
   /**
-   * Type of button.
-   */
-  type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link']),
-  /**
-   * Button desiabled.
-   */
-  loading: PropTypes.bool,
-  /**
    * Button loading.
    */
-  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
   /**
    * Handler to be called when the button is clicked.
    */
@@ -260,32 +259,26 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /**
-   * Width 100%.
-   */
-  full: PropTypes.bool,
-  /**
    * Optitional style replacement.
    */
   style: PropTypes.object,
   /**
-   * Props of theme provided by `Themer`.
+   * Type of button.
    */
-  theme: themePropTypes
+  type: PropTypes.oneOf(['primary', 'default', 'subtle'])
 };
 
 Button.defaultProps = {
   content: '',
   disabled: false,
   full: false,
-  href: '',
   icon: '',
   iconPosition: 'left',
   loading: false,
   onClick: () => 0,
   size: 'medium',
   style: {},
-  target: '',
   type: 'default'
 };
 
-export default withTheme(Radium(Button));
+export default Button;

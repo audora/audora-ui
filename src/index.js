@@ -11,6 +11,7 @@ import responsive from './styles/responsive';
 import setStyles from './styles/setStyles';
 import spacing from './styles/spacing';
 import zIndex from './styles/zIndex';
+import Theme from './theme';
 import themer from './styles/themer/index';
 import withTheme from './styles/themer/withTheme';
 
@@ -22,6 +23,7 @@ export {
   globalTheme,
   normalize,
   setStyles,
+  Theme,
   themer,
   withTheme,
   // grid system

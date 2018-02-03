@@ -13,12 +13,6 @@ The default button for most use cases.
 <Button content="Default" />
 ```
 
-### Link
-Use links to secondary actions, destructive actions or to discourage use. The links must be opened in the current window, unless the user can lose information, eg When filling out a form or the destination is an external site.
-```jsx
-<Button content="Link" type="link" />
-```
-
 ### Subtle
 Use subtle button for secondary actions, destructive actions such as "Cancel" or "Close".
 ```jsx

@@ -21,28 +21,28 @@ module.exports = {
   highlightTheme: 'pastel-on-dark',
   ignore: ['**/*/*Styles.js', '**/*.spec.js', '**/*/*hexValues.js'],
   sections: [
-    {
-      name: 'Colors',
-      content: 'docs/colors.md'
-    },
-    {
-      name: 'Spacing',
-      content: 'docs/spacing.md'
-    },
-    {
-      name: 'Themes',
-      content: 'docs/themes.md',
-      sections: [
-        {
-          name: 'Themer',
-          content: 'src/styles/themer/docs/themer.md'
-        },
-        {
-          name: 'withTheme HOC',
-          content: 'src/styles/themer/docs/withTheme.md'
-        }
-      ]
-    },
+    // {
+    //   name: 'Colors',
+    //   content: 'docs/colors.md'
+    // },
+    // {
+    //   name: 'Spacing',
+    //   content: 'docs/spacing.md'
+    // },
+    // {
+    //   name: 'Themes',
+    //   content: 'docs/themes.md',
+    //   sections: [
+    //     {
+    //       name: 'Themer',
+    //       content: 'src/styles/themer/docs/themer.md'
+    //     },
+    //     {
+    //       name: 'withTheme HOC',
+    //       content: 'src/styles/themer/docs/withTheme.md'
+    //     }
+    //   ]
+    // },
     {
       name: 'Components',
       content: 'docs/components.md',
@@ -51,18 +51,18 @@ module.exports = {
           name: 'General',
           components: 'src/components/general/[a-z]*.js'
         },
-        {
-          name: 'Layout',
-          components: 'src/components/layout/[a-z]*.js'
-        },
-        {
-          name: 'Data Display',
-          components: 'src/components/dataDisplay/[a-z]*.js'
-        },
-        {
-          name: 'Feedback',
-          components: 'src/components/feedback/[a-z]*.js'
-        }
+        // {
+        //   name: 'Layout',
+        //   components: 'src/components/layout/[a-z]*.js'
+        // },
+        // {
+        //   name: 'Data Display',
+        //   components: 'src/components/dataDisplay/[a-z]*.js'
+        // },
+        // {
+        //   name: 'Feedback',
+        //   components: 'src/components/feedback/[a-z]*.js'
+        // }
       ]
     }
   ],
@@ -86,25 +86,25 @@ module.exports = {
     Wrapper: path.join(__dirname, 'lib/styleguide/wrapper')
   },
   styleguideDir: path.join(__dirname, 'docs'),
-  theme: {
-    color: {
-      base: '#333',
-      light: '#999',
-      lightest: '#ccc',
-      link: '#1f9aff',
-      linkHover: '#1e7ece',
-      border: '#BDBDBD',
-      name: '#FF467E',
-      type: '#5FCA44',
-      error: '#fff',
-      baseBackground: '#fff',
-      errorBackground: '#E6003D',
-      codeBackground: '#fff',
-      sidebarBackground: '#fff'
-    },
-    fontFamily: {
-      base: ['Nunito', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
-    }
-  },
+  // theme: {
+  //   color: {
+  //     base: '#333',
+  //     light: '#999',
+  //     lightest: '#ccc',
+  //     link: '#1f9aff',
+  //     linkHover: '#1e7ece',
+  //     border: '#BDBDBD',
+  //     name: '#FF467E',
+  //     type: '#5FCA44',
+  //     error: '#fff',
+  //     baseBackground: '#fff',
+  //     errorBackground: '#E6003D',
+  //     codeBackground: '#fff',
+  //     sidebarBackground: '#fff'
+  //   },
+  //   fontFamily: {
+  //     base: ['Nunito', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
+  //   }
+  // },
   title: 'Audora UI'
 };
