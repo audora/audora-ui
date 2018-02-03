@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { config } from '../../theme';
+import { config } from '../theme';
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
@@ -13,43 +13,33 @@ const IconComponent = styled.span`
   display: inline-block;
   line-height: 1;
 
-  ${({ spin }) =>
-    spin &&
-    css`
-      animation: ${rotate360} 3s linear infinite;
-    `}
+  ${({ spin }) => spin && css`
+    animation: ${rotate360} 3s linear infinite;
+  `}
 
   /**
    * SIZES
    */
 
-  ${({ size }) =>
-    size === 'tiny' &&
-    css`
-      height: ${({ theme: { icon } }) => icon.size.xs};
-      width: ${({ theme: { icon } }) => icon.size.xs};
-    `}
+  ${({ size }) => size === 'tiny' && css`
+    height: ${({ theme: { icon } }) => icon.size.xs};
+    width: ${({ theme: { icon } }) => icon.size.xs};
+  `}
 
-  ${({ size }) =>
-    size === 'small' &&
-    css`
-      height: ${({ theme: { icon } }) => icon.size.sm};
-      width: ${({ theme: { icon } }) => icon.size.sm};
-    `}
+  ${({ size }) => size === 'small' && css`
+    height: ${({ theme: { icon } }) => icon.size.sm};
+    width: ${({ theme: { icon } }) => icon.size.sm};
+  `}
   
-  ${({ size }) =>
-    size === 'medium' &&
-    css`
-      height: ${({ theme: { icon } }) => icon.size.md};
-      width: ${({ theme: { icon } }) => icon.size.md};
-    `}
-  
-  ${({ size }) =>
-    size === 'large' &&
-    css`
-      height: ${({ theme: { icon } }) => icon.size.lg};
-      width: ${({ theme: { icon } }) => icon.size.lg};
-    `}
+  ${({ size }) => size === 'medium' && css`
+    height: ${({ theme: { icon } }) => icon.size.md};
+    width: ${({ theme: { icon } }) => icon.size.md};
+  `}
+
+  ${({ size }) => size === 'large' && css`
+    height: ${({ theme: { icon } }) => icon.size.lg};
+    width: ${({ theme: { icon } }) => icon.size.lg};
+  `}
 `;
 
 IconComponent.defaultProps = { theme: config };
@@ -58,7 +48,7 @@ const Icon = ({ name, color, style, ...props }) => (
   <IconComponent
     {...props}
     dangerouslySetInnerHTML={{
-      __html: require(`../../icons/feather/${name}.svg`)
+      __html: require(`../icons/feather/${name}.svg`)
     }}
     style={[style, { color }]}
   />

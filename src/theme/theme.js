@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider, injectGlobal } from 'styled-components';
-import merge from 'lodash/fp/merge';
 import configTheme from './config';
 
 injectGlobal`
@@ -18,7 +17,7 @@ injectGlobal`
 `;
 
 const Theme = ({ children, config }) => (
-  <ThemeProvider theme={merge(configTheme, config)}>{children}</ThemeProvider>
+  <ThemeProvider theme={Object.assign({}, configTheme, config)}>{children}</ThemeProvider>
 );
 
 Theme.propTypes = {
