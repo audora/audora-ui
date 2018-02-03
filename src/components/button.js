@@ -78,6 +78,10 @@ const ButtonComponent = styled.button`
     &:active {
       background-color: ${({ theme: { btn } }) => lighten(btn.primary.bg, 40)};
       color: ${({ theme: { btn } }) => btn.primary.bg};
+      
+      svg {
+        color: ${({ theme: { btn } }) => btn.primary.bg};      
+      }
     }
   `}
 
@@ -117,7 +121,7 @@ const ButtonComponent = styled.button`
 
 ButtonComponent.defaultProps = { theme: config };
 
-const IconLoading = styled(Icon)`
+const ButtonIcon = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.icon.color};
   
   ${({ type }) => type === 'primary' && css`
@@ -140,7 +144,7 @@ const IconLoading = styled(Icon)`
   `}
 `;
 
-IconLoading.defaultProps = { theme: config };
+ButtonIcon.defaultProps = { theme: config };
 
 const Button = ({
   content,
@@ -165,28 +169,26 @@ const Button = ({
       onClick(e, props);
     }}
   >
-    {(icon || loading) &&
-      iconPosition === 'left' && (
-        <IconLoading
-          content={content}
-          name={loading ? 'loader' : icon}
-          position="left"
-          size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
-          spin={loading}
-          type={type}
-        />
-      )}
+    {((icon || loading) && iconPosition === 'left') && (
+      <ButtonIcon
+        content={content}
+        name={loading ? 'loader' : icon}
+        position="left"
+        size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
+        spin={loading}
+        type={type}
+      />
+    )}
     {content}
-    {icon &&
-      iconPosition === 'right' && (
-        <IconLoading
-          content={content}
-          name={icon}
-          position="right"
-          size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
-          type={type}
-        />
-      )}
+    {(icon && iconPosition === 'right') && (
+      <ButtonIcon
+        content={content}
+        name={icon}
+        position="right"
+        size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
+        type={type}
+      />
+    )}
   </ButtonComponent>
 );
 
