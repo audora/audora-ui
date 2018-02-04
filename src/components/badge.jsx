@@ -55,7 +55,9 @@ const BadgeChildrenComponent = styled.div`
 
 BadgeChildrenComponent.defaultProps = { theme: config };
 
-const Badge = ({ value, max, children, ...props }) => {
+const Badge = ({
+  value, max, children, ...props
+}) => {
   if (children) {
     return (
       <BadgeChildrenComponent>
@@ -88,14 +90,14 @@ Badge.propTypes = {
   /**
    * Type of Badge.
    */
-  type: PropTypes.oneOf(['default', 'inverted', 'primary', 'added', 'removed'])
+  type: PropTypes.oneOf(['default', 'inverted', 'primary', 'added', 'removed']),
 };
 
 Badge.defaultProps = {
   children: null,
   max: 99,
   type: 'default',
-  value: 0
+  value: 0,
 };
 
 export default Badge;
