@@ -32,9 +32,11 @@ const color = {
 };
 
 const fontSize = {
+  xs: '10px',
   sm: '12px',
   base: '14px',
-  lg: '16px'
+  lg: '16px',
+  xl: '18px'
 };
 
 export default {
@@ -44,36 +46,35 @@ export default {
   lineHeight: 1.5,
   transition: 'all .2s',
   btn: {
-    borderRadius: radius.md,
-    fontWeight: 400,
-    fontSize,
+    border: {
+      radius: radius.md
+    },
+    font: {
+      size: fontSize,
+      weight: 400
+    },
     height: {
       xs: '20px',
       sm: '24px',
       md: '32px',
       lg: '40px'
     },
-    icon: {
-      color: color.text,
+    color: {
+      default: color.text,
       primary: '#fff',
-      margin: spacing.xs
+      subtle: color.text,
+      icon: color.text,
+      iconPrimary: '#fff'
+    },
+    bg: {
+      default: '#eee',
+      primary: color.primary,
+      subtle: 'transparent'
     },
     spacing: {
       xs: spacing.xs,
       sm: spacing.sm,
       md: spacing.md
-    },
-    primary: {
-      bg: color.primary,
-      color: '#fff'
-    },
-    default: {
-      bg: '#eee',
-      color: color.text
-    },
-    subtle: {
-      bg: 'transparent',
-      color: color.text
     }
   },
   icon: {
@@ -83,6 +84,34 @@ export default {
       sm: '18px',
       md: '24px',
       lg: '32px'
+    }
+  },
+  avatar: {
+    bg: '#eee',
+    color: color.text,
+    border: {
+      radius: {
+        circle: '100%',
+        square: '20%'
+      }
+    },
+    font: {
+      size: fontSize,
+      weight: 400
+    },
+    height: {
+      xs: '18px',
+      sm: '24px',
+      md: '32px',
+      lg: '56px',
+      xl: '84px'
+    },
+    width: {
+      xs: '18px',
+      sm: '24px',
+      md: '32px',
+      lg: '56px',
+      xl: '84px'
     }
   }
 };

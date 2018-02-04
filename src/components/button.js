@@ -7,11 +7,11 @@ import Icon from './icon';
 
 const ButtonComponent = styled.button`
   align-items: center;
-  border-radius: ${({ theme: { btn } }) => btn.borderRadius};
+  border-radius: ${({ theme: { btn } }) => btn.border.radius};
   border: none;
   cursor: pointer;
   display: inline-flex;
-  font-weight: ${({ theme: { btn } }) => btn.fontWeight};
+  font-weight: ${({ theme: { btn } }) => btn.font.weight};
   transition: background-color .1s;
   position: relative;
   touch-action: manipulation;
@@ -25,9 +25,9 @@ const ButtonComponent = styled.button`
   &:hover {
     background-color: ${({ type, theme: { btn } }) => {
       switch (type) {
-        case 'primary': return lighten(btn.primary.bg, 0.15); break;
-        case 'subtle': return btn.default.bg; break;
-        default: return darken(btn.default.bg, 0.04); break;
+        case 'primary': return lighten(btn.bg.primary, 0.15); break;
+        case 'subtle': return btn.bg.default; break;
+        default: return darken(btn.bg.default, 0.04); break;
       }
     }};
   }
@@ -35,24 +35,24 @@ const ButtonComponent = styled.button`
     svg {
       color: ${({ type, theme: { btn } }) => {
         switch (type) {
-          case 'primary': return btn.primary.color; break;
-          case 'subtle': return btn.primary.bg; break;
-          default: return btn.primary.bg; break;
+          case 'primary': return btn.color.primary; break;
+          case 'subtle': return btn.bg.primary; break;
+          default: return btn.bg.primary; break;
         }
       }};  
     }
     color: ${({ type, theme: { btn } }) => {
       switch (type) {
-        case 'primary': return btn.primary.color; break;
-        case 'subtle': return btn.primary.bg; break;
-        default: return btn.primary.bg; break;
+        case 'primary': return btn.color.primary; break;
+        case 'subtle': return btn.bg.primary; break;
+        default: return btn.bg.primary; break;
       }
     }};
     background-color: ${({ type, theme: { btn } }) => {
       switch (type) {
-        case 'primary': return btn.primary.bg; break;
-        case 'subtle': return lighten(btn.primary.bg, 0.75); break;
-        default: return lighten(btn.primary.bg, 0.75); break;
+        case 'primary': return btn.bg.primary; break;
+        case 'subtle': return lighten(btn.bg.primary, 0.75); break;
+        default: return lighten(btn.bg.primary, 0.75); break;
       }
     }};
   }
@@ -73,18 +73,18 @@ const ButtonComponent = styled.button`
    */
 
   ${({ type }) => type === 'primary' && css`
-    background-color: ${({ theme: { btn } }) => btn.primary.bg};
-    color: ${({ theme: { btn } }) => btn.primary.color};
+    background-color: ${({ theme: { btn } }) => btn.bg.primary};
+    color: ${({ theme: { btn } }) => btn.color.primary};
   `}
 
   ${({ type }) => type === 'default' && css`
-    background-color: ${({ theme: { btn } }) => btn.default.bg};
-    color: ${({ theme: { btn } }) => btn.default.color};
+    background-color: ${({ theme: { btn } }) => btn.bg.default};
+    color: ${({ theme: { btn } }) => btn.color.default};
   `}
 
   ${({ type }) => type === 'subtle' && css`
-    background-color: ${({ theme: { btn } }) => btn.subtle.bg};
-    color: ${({ theme: { btn } }) => btn.subtle.color};
+    background-color: ${({ theme: { btn } }) => btn.bg.subtle};
+    color: ${({ theme: { btn } }) => btn.color.subtle};
   `}
 
   /**
@@ -92,7 +92,7 @@ const ButtonComponent = styled.button`
    */
 
   ${({ size }) => size === 'tiny' && css`
-    font-size: ${({ theme: { btn } }) => btn.fontSize.sm};
+    font-size: ${({ theme: { btn } }) => btn.font.size.sm};
     height: ${({ theme: { btn } }) => btn.height.xs};
     padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
     padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
@@ -100,21 +100,21 @@ const ButtonComponent = styled.button`
   `}
 
   ${({ size }) => size === 'small' && css`
-    font-size: ${({ theme: { btn } }) => btn.fontSize.sm};
+    font-size: ${({ theme: { btn } }) => btn.font.size.sm};
     height: ${({ theme: { btn } }) => btn.height.sm};
     padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
     padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
   
   ${({ size }) => size === 'medium' && css`
-    font-size: ${({ theme: { btn } }) => btn.fontSize.base};
+    font-size: ${({ theme: { btn } }) => btn.font.size.base};
     height: ${({ theme: { btn } }) => btn.height.md};
     padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
     padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
   `}
   
   ${({ size }) => size === 'large' && css`
-    font-size: ${({ theme: { btn } }) => btn.fontSize.lg};
+    font-size: ${({ theme: { btn } }) => btn.font.size.lg};
     height: ${({ theme: { btn } }) => btn.height.lg};
     padding-left: ${({ theme: { btn } }) => btn.spacing.md};
     padding-right: ${({ theme: { btn } }) => btn.spacing.md};
@@ -124,10 +124,10 @@ const ButtonComponent = styled.button`
 ButtonComponent.defaultProps = { theme: config };
 
 const ButtonIcon = styled(Icon)`
-  color: ${({ theme: { btn } }) => btn.icon.color};
+  color: ${({ theme: { btn } }) => btn.color.icon};
   
   ${({ type }) => type === 'primary' && css`
-    color: ${({ theme: { btn } }) => btn.icon.primary};
+    color: ${({ theme: { btn } }) => btn.color.iconPrimary};
   `}
 
   ${({ content }) => !content && css`
@@ -137,12 +137,12 @@ const ButtonIcon = styled(Icon)`
 
   ${({ position, content }) => position === 'left' && content && css`
     margin-left: -5px;
-    margin-right: ${({ theme: { btn } }) => btn.icon.margin};
+    margin-right: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
 
   ${({ position, content }) => position === 'right' && content && css`
     margin-right: -5px;
-    margin-left: ${({ theme: { btn } }) => btn.icon.margin};
+    margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
 `;
 
