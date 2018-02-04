@@ -113,5 +113,28 @@ export default {
       lg: '56px',
       xl: '84px'
     }
+  },
+  badge: {
+    bg: {
+      added: color.success,
+      default: '#ddd',
+      inverted: '#fff',
+      primary: color.primary,
+      removed: color.danger
+    },
+    color: {
+      added: '#fff',
+      default: color.text,
+      inverted: color.text,
+      primary: '#fff',
+      removed: '#fff'
+    },
+    border: {
+      color: color.border,
+      radius: radius.xl
+    },
+    font: {
+      size: fontSize.sm
+    }
   }
 };

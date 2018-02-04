@@ -75,9 +75,7 @@ const Avatar = ({ name, img, ...props }) => (
   <AvatarComponent {...props}>
     {!img
       ? name.substr(0, 1).toUpperCase()
-      : (
-        <AvatarImgComponent img={img} {...props} title={name} />
-      )
+      : (<AvatarImgComponent img={img} {...props} title={name} />)
     }
   </AvatarComponent>
 );
