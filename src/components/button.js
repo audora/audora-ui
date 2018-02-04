@@ -51,8 +51,8 @@ const ButtonComponent = styled.button`
     background-color: ${({ type, theme: { btn } }) => {
       switch (type) {
         case 'primary': return btn.bg.primary; break;
-        case 'subtle': return lighten(btn.bg.primary, 0.75); break;
-        default: return lighten(btn.bg.primary, 0.75); break;
+        case 'subtle': return lighten(btn.bg.primary, 0.5); break;
+        default: return lighten(btn.bg.primary, 0.5); break;
       }
     }};
   }
@@ -107,7 +107,7 @@ const ButtonComponent = styled.button`
   `}
   
   ${({ size }) => size === 'medium' && css`
-    font-size: ${({ theme: { btn } }) => btn.font.size.base};
+    font-size: ${({ theme: { btn } }) => btn.font.size.md};
     height: ${({ theme: { btn } }) => btn.height.md};
     padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
     padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
@@ -163,7 +163,7 @@ const Button = ({
     type={type}
     size={size}
     onClick={e => {
-      if (props.disabled) {
+      if (props.disabled || props.loading) {
         e.preventDefault();
         return;
       }

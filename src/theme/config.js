@@ -14,10 +14,10 @@ const spacing = {
 };
 
 const color = {
-  primary: '#217EE7',
-  success: '#13CE66',
-  danger: '#FF4949',
-  warning: '#FFC82C',
+  primary: '#409EFF',
+  success: '#67C23A',
+  danger: '#F56C6C',
+  warning: '#E6A23C',
   /* --------------- */
   bodyBackground: '#fff',
   border: 'rgba(0,0,0,0.1)',
@@ -34,7 +34,7 @@ const color = {
 const fontSize = {
   xs: '10px',
   sm: '12px',
-  base: '14px',
+  md: '14px',
   lg: '16px',
   xl: '18px'
 };

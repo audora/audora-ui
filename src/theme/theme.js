@@ -18,7 +18,7 @@ const Theme = ({ children, config }) => {
       background: ${theme.color.bodyBackground};
       color: ${theme.color.text};
       font-family: ${theme.fontFamily};
-      font-size: ${theme.fontSize.base};
+      font-size: ${theme.fontSize.md};
       line-height: ${theme.lineHeight};
       margin: 0px;
     }

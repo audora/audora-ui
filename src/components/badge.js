@@ -30,23 +30,52 @@ const BadgeComponent = styled.div`
   }};
   border-radius: ${({ theme: { badge } }) => badge.border.radius};
   display: inline-flex;
+  position: relative;
+  vertical-align: middle;
   font-size: ${({ theme: { badge } }) => badge.font.size};
   padding-left: 6px;
   padding-right: 6px;
-  padding-top: 1px;
 
   ${({ type, theme: { badge } }) => type === 'inverted' && css`
     border: 1px solid ${badge.border.color};
+  `}
+  ${({ hasChildren }) => hasChildren && css`
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: translateY(-50%) translateX(100%);
   `}
 `;
 
 BadgeComponent.defaultProps = { theme: config };
 
-const Badge = ({ value, max, ...props }) => (
-  <BadgeComponent {...props}>{getValue(value, max)}</BadgeComponent>
-);
+const BadgeChildrenComponent = styled.div`
+  position: relative;
+`;
+
+BadgeChildrenComponent.defaultProps = { theme: config };
+
+const Badge = ({ value, max, children, ...props }) => {
+  if (children) {
+    return (
+      <BadgeChildrenComponent>
+        {children}
+        <BadgeComponent {...props} hasChildren>
+          {getValue(value, max)}
+        </BadgeComponent>
+      </BadgeChildrenComponent>
+    );
+  }
+  return (
+    <BadgeComponent {...props}>{getValue(value, max)}</BadgeComponent>
+  );
+};
 
 Badge.propTypes = {
+  /**
+   * Children.
+   */
+  children: PropTypes.node,
   /**
    * The value displayed inside the Badge.
    */
@@ -63,6 +92,7 @@ Badge.propTypes = {
 };
 
 Badge.defaultProps = {
+  children: null,
   max: 99,
   type: 'default',
   value: 0

@@ -37,7 +37,7 @@ const AvatarComponent = styled.div`
   `}
   
   ${({ size }) => size === 'medium' && css`
-    font-size: ${({ theme: { avatar } }) => avatar.font.size.base};
+    font-size: ${({ theme: { avatar } }) => avatar.font.size.md};
     height: ${({ theme: { avatar } }) => avatar.height.md};
     width: ${({ theme: { avatar } }) => avatar.width.md};
   `}
