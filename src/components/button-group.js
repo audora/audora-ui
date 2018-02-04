@@ -8,42 +8,26 @@ const ButtonGroupComponent = styled.div`
   flex-direction: row;
 `;
 
-const ButtonGroup = ({ children, type, size, compressed }) => {
+const ButtonGroup = ({ children, compressed }) => {
   const buttonStyle = (style, idx) => {
     if (compressed) {
       if (idx === children.length - 1) {
-        return merge(
-          {
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0
-          },
-          style
-        );
+        return merge({
+          borderTopLeftRadius: 0,
+          borderBottomLeftRadius: 0
+        }, style);
       }
       if (idx === 0) {
-        return merge(
-          {
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0
-          },
-          style
-        );
+        return merge({
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0
+        }, style);
       }
 
-      return merge(
-        {
-          borderRadius: 0
-        },
-        style
-      );
+      return merge({ borderRadius: 0 }, style);
     }
     if (idx !== 0) {
-      return merge(
-        {
-          marginLeft: 10
-        },
-        style
-      );
+      return merge({ marginLeft: 10 }, style);
     }
 
     return style;
@@ -55,12 +39,10 @@ const ButtonGroup = ({ children, type, size, compressed }) => {
         if (child === null || child === false) {
           return child;
         }
-
+        console.log(child);
         return cloneElement(child, {
           key: idx,
-          style: buttonStyle(child.props.style, idx),
-          type: type || child.props.type,
-          size: size || child.props.size
+          style: buttonStyle(child.props.style, idx)
         });
       })}
     </ButtonGroupComponent>
@@ -75,21 +57,11 @@ ButtonGroup.propTypes = {
   /**
    * Mo margin between buttons.
    */
-  compressed: PropTypes.bool,
-  /**
-   * Buton sizes.
-   */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-  /**
-   * Button types.
-   */
-  type: PropTypes.oneOf(['primary', 'default', 'subtle', 'link'])
+  compressed: PropTypes.bool
 };
 
 ButtonGroup.defaultProps = {
-  compressed: false,
-  size: 'medium',
-  type: 'default'
+  compressed: false
 };
 
 export default ButtonGroup;
