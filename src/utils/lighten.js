@@ -1,8 +1,3 @@
-import tinycolor from 'tinycolor2';
-import _ from 'underscore';
+import Color from 'color';
 
-export default _.memoize((baseColor, amount) => {
-  return tinycolor(baseColor)
-    .lighten(amount)
-    .toHexString();
-});
+export default (base, amount) => Color(base).lighten(amount).hex();

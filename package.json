@@ -1,7 +1,10 @@
 {
   "name": "audora-ui",
   "version": "0.0.1",
-  "main": "dist/audora-ui.js",  
+  "main": "dist/audora-ui.js",
+  "files": [
+    "dist/"
+  ],
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress",
@@ -10,12 +13,12 @@
     "start": "npm run clean && cross-env NODE_ENV=development webpack --progress --watch"
   },
   "dependencies": {
+    "color": "^3.0.0",
+    "lodash.merge": "^4.6.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "styled-components": "^3.1.5",
-    "tinycolor2": "^1.4.1",
-    "underscore": "^1.8.3"
+    "styled-components": "^3.1.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

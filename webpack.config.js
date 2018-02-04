@@ -22,7 +22,7 @@ const plugins = PROD ? defaultPlugins.concat(prodPlugins) : defaultPlugins;
 module.exports = {
   module: {
     loaders: [
-      { exclude: /node_modules/, loaders: ['babel-loader'], test: /\.js$/ },
+      { exclude: /node_modules/, loaders: 'babel-loader', test: /\.js$/ },
       { exclude: /node_modules/, loader: 'svg-inline-loader', test: /\.svg$/ }
     ]
   },
@@ -40,9 +40,9 @@ module.exports = {
     'prop-types': 'prop-types',
     'react-dom': 'react-dom',
     'react': 'react',
+    'lodash.merge': 'lodash.merge',
     'styled-components': 'styled-components',
-    'tinycolor2': 'tinycolor2',
-    'underscore': 'underscore'
+    'color': 'color'
   },
   devtool: PROD ? 'cheap-hidden-source-map' : 'cheap-module-eval-source-map'
 }

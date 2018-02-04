@@ -1,16 +1,16 @@
 const radius = {
-  md: '4px', // mediun
-  lg: '10px', // large
-  xl: '20px' // extra large
+  md: '4px',
+  lg: '10px',
+  xl: '20px'
 };
 
 const spacing = {
-  xs: '8px', // extra small
-  sm: '16px', // small
-  md: '24px', // mediun
-  lg: '32px', // large
-  xl: '48px', // extra large
-  huge: '64px' // huge
+  xs: '8px',
+  sm: '16px',
+  md: '24px',
+  lg: '32px',
+  xl: '48px',
+  huge: '64px'
 };
 
 const color = {
@@ -18,10 +18,17 @@ const color = {
   success: '#13CE66',
   danger: '#FF4949',
   warning: '#FFC82C',
+  /* --------------- */
+  bodyBackground: '#fff',
   border: 'rgba(0,0,0,0.1)',
-  white: '#FFFFFF',
-  black: '#222222',
-  text: 'rgba(0, 0, 0, 0.60)'
+  /* --------------- */
+  heading: 'rgba(0, 0, 0, 0.85)',
+  text: 'rgba(0, 0, 0, 0.60)',
+  textSecondary: 'rgba(0, 0, 0, 0.45)',
+  /* --------------- */
+  headingDark: 'rgba(255, 255, 255, 1)',
+  textDark: 'rgba(255, 255, 255, 0.85)',
+  textSecondaryDark: 'rgba(255, 255, 255, 0.65)',
 };
 
 const fontSize = {
@@ -33,6 +40,8 @@ const fontSize = {
 export default {
   color,
   fontSize,
+  fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+  lineHeight: 1.5,
   transition: 'all .2s',
   btn: {
     borderRadius: radius.md,
@@ -59,7 +68,7 @@ export default {
       color: '#fff'
     },
     default: {
-      bg: '#ddd',
+      bg: '#eee',
       color: color.text
     },
     subtle: {

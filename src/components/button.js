@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { config } from '../theme';
-import { lighten } from '../utils';
+import { lighten, darken } from '../utils';
 import Icon from './icon';
 
 const ButtonComponent = styled.button`
@@ -21,6 +21,40 @@ const ButtonComponent = styled.button`
 
   &:focus {
     outline: none;
+  }
+  &:hover {
+    background-color: ${({ type, theme: { btn } }) => {
+      switch (type) {
+        case 'primary': return lighten(btn.primary.bg, 0.15); break;
+        case 'subtle': return btn.default.bg; break;
+        default: return darken(btn.default.bg, 0.04); break;
+      }
+    }};
+  }
+  &:active {
+    svg {
+      color: ${({ type, theme: { btn } }) => {
+        switch (type) {
+          case 'primary': return btn.primary.color; break;
+          case 'subtle': return btn.primary.bg; break;
+          default: return btn.primary.bg; break;
+        }
+      }};  
+    }
+    color: ${({ type, theme: { btn } }) => {
+      switch (type) {
+        case 'primary': return btn.primary.color; break;
+        case 'subtle': return btn.primary.bg; break;
+        default: return btn.primary.bg; break;
+      }
+    }};
+    background-color: ${({ type, theme: { btn } }) => {
+      switch (type) {
+        case 'primary': return btn.primary.bg; break;
+        case 'subtle': return lighten(btn.primary.bg, 0.75); break;
+        default: return lighten(btn.primary.bg, 0.75); break;
+      }
+    }};
   }
 
   ${({ disabled }) => disabled && css`
@@ -41,48 +75,16 @@ const ButtonComponent = styled.button`
   ${({ type }) => type === 'primary' && css`
     background-color: ${({ theme: { btn } }) => btn.primary.bg};
     color: ${({ theme: { btn } }) => btn.primary.color};
-
-    &:focus {
-      background-color: ${({ theme: { btn } }) => lighten(btn.primary.bg, 10)};
-    }
-    &:hover {
-      background-color: ${({ theme: { btn } }) => lighten(btn.primary.bg, 10)};
-    }
-    &:active {
-      background-color: ${({ theme: { btn } }) => btn.primary.bg};
-    }
   `}
 
   ${({ type }) => type === 'default' && css`
     background-color: ${({ theme: { btn } }) => btn.default.bg};
     color: ${({ theme: { btn } }) => btn.default.color};
-
-    &:focus {
-      background-color: ${({ theme: { btn } }) => lighten(btn.default.bg, 3)};
-    }
-    &:hover {
-      background-color: ${({ theme: { btn } }) => lighten(btn.default.bg, 3)};
-    }
-    &:active {
-      background-color: ${({ theme: { btn } }) => btn.default.bg};
-    }
   `}
 
   ${({ type }) => type === 'subtle' && css`
     background-color: ${({ theme: { btn } }) => btn.subtle.bg};
     color: ${({ theme: { btn } }) => btn.subtle.color};
-
-    &:hover {
-      background-color: ${({ theme: { btn } }) => btn.default.bg};
-    }
-    &:active {
-      background-color: ${({ theme: { btn } }) => lighten(btn.primary.bg, 40)};
-      color: ${({ theme: { btn } }) => btn.primary.bg};
-      
-      svg {
-        color: ${({ theme: { btn } }) => btn.primary.bg};      
-      }
-    }
   `}
 
   /**
@@ -169,7 +171,7 @@ const Button = ({
       onClick(e, props);
     }}
   >
-    {((icon || loading) && iconPosition === 'left') && (
+    {((icon && iconPosition === 'left') || loading) && (
       <ButtonIcon
         content={content}
         name={loading ? 'loader' : icon}
@@ -180,7 +182,7 @@ const Button = ({
       />
     )}
     {content}
-    {(icon && iconPosition === 'right') && (
+    {(icon && iconPosition === 'right' && !loading) && (
       <ButtonIcon
         content={content}
         name={icon}

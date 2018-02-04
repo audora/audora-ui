@@ -1,6 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import merge from 'lodash.merge';
 
 const ButtonGroupComponent = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const ButtonGroup = ({ children, type, size, compressed }) => {
   const buttonStyle = (style, idx) => {
     if (compressed) {
       if (idx === children.length - 1) {
-        return Object.assign({},
+        return merge(
           {
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0
@@ -20,7 +21,7 @@ const ButtonGroup = ({ children, type, size, compressed }) => {
         );
       }
       if (idx === 0) {
-        return Object.assign({},
+        return merge(
           {
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0
@@ -29,7 +30,7 @@ const ButtonGroup = ({ children, type, size, compressed }) => {
         );
       }
 
-      return Object.assign({},
+      return merge(
         {
           borderRadius: 0
         },
@@ -37,7 +38,7 @@ const ButtonGroup = ({ children, type, size, compressed }) => {
       );
     }
     if (idx !== 0) {
-      return Object.assign({},
+      return merge(
         {
           marginLeft: 10
         },
