@@ -30,7 +30,7 @@ const IconComponent = styled.span`
     height: ${({ theme: { icon } }) => icon.size.sm};
     width: ${({ theme: { icon } }) => icon.size.sm};
   `}
-  
+
   ${({ size }) => size === 'medium' && css`
     height: ${({ theme: { icon } }) => icon.size.md};
     width: ${({ theme: { icon } }) => icon.size.md};
@@ -44,11 +44,13 @@ const IconComponent = styled.span`
 
 IconComponent.defaultProps = { theme: config };
 
-const Icon = ({ name, color, style, ...props }) => (
+const Icon = ({
+  name, color, style, ...props
+}) => (
   <IconComponent
     {...props}
     dangerouslySetInnerHTML={{
-      __html: require(`../icons/feather/${name}.svg`)
+      __html: require(`../icons/feather/${name}.svg`),
     }}
     style={[style, { color }]}
   />
@@ -74,14 +76,14 @@ Icon.propTypes = {
   /**
    * Props of theme provided by `Themer`.
    */
-  style: PropTypes.object
+  style: PropTypes.object,
 };
 
 Icon.defaultProps = {
   color: '',
   size: 'medium',
   spin: false,
-  style: {}
+  style: {},
 };
 
 export default Icon;

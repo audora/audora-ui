@@ -11,8 +11,8 @@ const AvatarComponent = styled.div`
   align-items: center;
   background-color: ${({ theme: { avatar } }) => avatar.bg};
   border-radius: ${({ square, theme: { avatar } }) =>
-    square ? avatar.border.radius.square : avatar.border.radius.circle
-  };
+    (square ? avatar.border.radius.square : avatar.border.radius.circle)
+};
   color: ${({ theme: { avatar } }) => avatar.color};
   cursor: default;
   display: flex;
@@ -35,19 +35,19 @@ const AvatarComponent = styled.div`
     height: ${({ theme: { avatar } }) => avatar.height.sm};
     width: ${({ theme: { avatar } }) => avatar.width.sm};
   `}
-  
+
   ${({ size }) => size === 'medium' && css`
     font-size: ${({ theme: { avatar } }) => avatar.font.size.md};
     height: ${({ theme: { avatar } }) => avatar.height.md};
     width: ${({ theme: { avatar } }) => avatar.width.md};
   `}
-  
+
   ${({ size }) => size === 'large' && css`
     font-size: ${({ theme: { avatar } }) => avatar.font.size.lg};
     height: ${({ theme: { avatar } }) => avatar.height.lg};
     width: ${({ theme: { avatar } }) => avatar.width.lg};
   `}
-  
+
   ${({ size }) => size === 'huge' && css`
     font-size: ${({ theme: { avatar } }) => avatar.font.size.xl};
     height: ${({ theme: { avatar } }) => avatar.height.xl};
@@ -61,8 +61,8 @@ const AvatarImgComponent = styled.div`
   height: 100%;
   width: 100%;
   border-radius: ${({ square, theme: { avatar } }) =>
-    square ? avatar.border.radius.square : avatar.border.radius.circle
-  };
+    (square ? avatar.border.radius.square : avatar.border.radius.circle)
+};
   background-image: url(${({ img }) => img});
   background-position: center center;
   background-repeat: no-repeat;
@@ -100,7 +100,7 @@ Avatar.propTypes = {
   /**
    * Avatar size.
    */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'huge'])
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'huge']),
 };
 
 Avatar.defaultProps = {
@@ -108,7 +108,7 @@ Avatar.defaultProps = {
   img: '',
   style: {},
   square: false,
-  size: 'medium'
+  size: 'medium',
 };
 
 export default Avatar;

@@ -5,5 +5,5 @@ import Portal from './portal';
 export {
   darken,
   lighten,
-  Portal
+  Portal,
 };

@@ -1,17 +1,18 @@
-import React from 'react';
+/* global document */
+
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-const Portal = ({ render, query }) =>
-  ReactDOM.createPortal(render, document.querySelector(query));
+const Portal = ({ children, query }) =>
+  ReactDOM.createPortal(children, document.querySelector(query));
 
 Portal.propTypes = {
-  render: PropTypes.node.isRequired,
-  query: PropTypes.string
+  children: PropTypes.node.isRequired,
+  query: PropTypes.string,
 };
 
 Portal.defaultProps = {
-  query: 'body'
+  query: 'body',
 };
 
 export default Portal;

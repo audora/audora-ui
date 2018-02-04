@@ -24,37 +24,37 @@ const ButtonComponent = styled.button`
   }
   &:hover {
     background-color: ${({ type, theme: { btn } }) => {
-      switch (type) {
-        case 'primary': return lighten(btn.bg.primary, 0.15); break;
-        case 'subtle': return btn.bg.default; break;
-        default: return darken(btn.bg.default, 0.04); break;
-      }
-    }};
+    switch (type) {
+      case 'primary': return lighten(btn.bg.primary, 0.15); break;
+      case 'subtle': return btn.bg.default; break;
+      default: return darken(btn.bg.default, 0.04); break;
+    }
+  }};
   }
   &:active {
     svg {
       color: ${({ type, theme: { btn } }) => {
-        switch (type) {
-          case 'primary': return btn.color.primary; break;
-          case 'subtle': return btn.bg.primary; break;
-          default: return btn.bg.primary; break;
-        }
-      }};  
+    switch (type) {
+      case 'primary': return btn.color.primary; break;
+      case 'subtle': return btn.bg.primary; break;
+      default: return btn.bg.primary; break;
+    }
+  }};
     }
     color: ${({ type, theme: { btn } }) => {
-      switch (type) {
-        case 'primary': return btn.color.primary; break;
-        case 'subtle': return btn.bg.primary; break;
-        default: return btn.bg.primary; break;
-      }
-    }};
+    switch (type) {
+      case 'primary': return btn.color.primary; break;
+      case 'subtle': return btn.bg.primary; break;
+      default: return btn.bg.primary; break;
+    }
+  }};
     background-color: ${({ type, theme: { btn } }) => {
-      switch (type) {
-        case 'primary': return btn.bg.primary; break;
-        case 'subtle': return lighten(btn.bg.primary, 0.5); break;
-        default: return lighten(btn.bg.primary, 0.5); break;
-      }
-    }};
+    switch (type) {
+      case 'primary': return btn.bg.primary; break;
+      case 'subtle': return lighten(btn.bg.primary, 0.5); break;
+      default: return lighten(btn.bg.primary, 0.5); break;
+    }
+  }};
   }
 
   ${({ disabled }) => disabled && css`
@@ -105,14 +105,14 @@ const ButtonComponent = styled.button`
     padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
     padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
-  
+
   ${({ size }) => size === 'medium' && css`
     font-size: ${({ theme: { btn } }) => btn.font.size.md};
     height: ${({ theme: { btn } }) => btn.height.md};
     padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
     padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
   `}
-  
+
   ${({ size }) => size === 'large' && css`
     font-size: ${({ theme: { btn } }) => btn.font.size.lg};
     height: ${({ theme: { btn } }) => btn.height.lg};
@@ -125,7 +125,7 @@ ButtonComponent.defaultProps = { theme: config };
 
 const ButtonIcon = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
-  
+
   ${({ type }) => type === 'primary' && css`
     color: ${({ theme: { btn } }) => btn.color.iconPrimary};
   `}
@@ -148,6 +148,17 @@ const ButtonIcon = styled(Icon)`
 
 ButtonIcon.defaultProps = { theme: config };
 
+const sizeProp = (size) => {
+  if (size === 'medium') {
+    return 'small';
+  }
+  if (size === 'large') {
+    return 'medium';
+  }
+
+  return size;
+};
+
 const Button = ({
   content,
   icon,
@@ -162,8 +173,8 @@ const Button = ({
     {...props}
     type={type}
     size={size}
-    onClick={e => {
-      if (props.disabled || props.loading) {
+    onClick={(e) => {
+      if (props.disabled || loading) {
         e.preventDefault();
         return;
       }
@@ -176,7 +187,7 @@ const Button = ({
         content={content}
         name={loading ? 'loader' : icon}
         position="left"
-        size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
+        size={sizeProp(size)}
         spin={loading}
         type={type}
       />
@@ -187,7 +198,7 @@ const Button = ({
         content={content}
         name={icon}
         position="right"
-        size={size === 'medium' ? 'small' : size === 'large' ? 'medium' : size}
+        size={sizeProp(size)}
         type={type}
       />
     )}
@@ -234,7 +245,7 @@ Button.propTypes = {
   /**
    * Type of button.
    */
-  type: PropTypes.oneOf(['primary', 'default', 'subtle'])
+  type: PropTypes.oneOf(['primary', 'default', 'subtle']),
 };
 
 Button.defaultProps = {
@@ -247,7 +258,7 @@ Button.defaultProps = {
   onClick: () => 0,
   size: 'medium',
   style: {},
-  type: 'default'
+  type: 'default',
 };
 
 export default Button;

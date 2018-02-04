@@ -1,7 +1,7 @@
 const radius = {
   md: '4px',
   lg: '10px',
-  xl: '20px'
+  xl: '20px',
 };
 
 const spacing = {
@@ -10,7 +10,7 @@ const spacing = {
   md: '24px',
   lg: '32px',
   xl: '48px',
-  huge: '64px'
+  huge: '64px',
 };
 
 const color = {
@@ -36,7 +36,7 @@ const fontSize = {
   sm: '12px',
   md: '14px',
   lg: '16px',
-  xl: '18px'
+  xl: '18px',
 };
 
 export default {
@@ -47,35 +47,35 @@ export default {
   transition: 'all .2s',
   btn: {
     border: {
-      radius: radius.md
+      radius: radius.md,
     },
     font: {
       size: fontSize,
-      weight: 400
+      weight: 400,
     },
     height: {
       xs: '20px',
       sm: '24px',
       md: '32px',
-      lg: '40px'
+      lg: '40px',
     },
     color: {
       default: color.text,
       primary: '#fff',
       subtle: color.text,
       icon: color.text,
-      iconPrimary: '#fff'
+      iconPrimary: '#fff',
     },
     bg: {
       default: '#eee',
       primary: color.primary,
-      subtle: 'transparent'
+      subtle: 'transparent',
     },
     spacing: {
       xs: spacing.xs,
       sm: spacing.sm,
-      md: spacing.md
-    }
+      md: spacing.md,
+    },
   },
   icon: {
     color: color.text,
@@ -83,8 +83,8 @@ export default {
       xs: '14px',
       sm: '18px',
       md: '24px',
-      lg: '32px'
-    }
+      lg: '32px',
+    },
   },
   avatar: {
     bg: '#eee',
@@ -92,27 +92,27 @@ export default {
     border: {
       radius: {
         circle: '100%',
-        square: '20%'
-      }
+        square: '20%',
+      },
     },
     font: {
       size: fontSize,
-      weight: 400
+      weight: 400,
     },
     height: {
       xs: '18px',
       sm: '24px',
       md: '32px',
       lg: '56px',
-      xl: '84px'
+      xl: '84px',
     },
     width: {
       xs: '18px',
       sm: '24px',
       md: '32px',
       lg: '56px',
-      xl: '84px'
-    }
+      xl: '84px',
+    },
   },
   badge: {
     bg: {
@@ -120,21 +120,21 @@ export default {
       default: '#ddd',
       inverted: '#fff',
       primary: color.primary,
-      removed: color.danger
+      removed: color.danger,
     },
     color: {
       added: '#fff',
       default: color.text,
       inverted: color.text,
       primary: '#fff',
-      removed: '#fff'
+      removed: '#fff',
     },
     border: {
       color: color.border,
-      radius: radius.xl
+      radius: radius.xl,
     },
     font: {
-      size: fontSize.sm
-    }
-  }
+      size: fontSize.sm,
+    },
+  },
 };

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider, injectGlobal } from 'styled-components';
@@ -79,11 +81,11 @@ const Theme = ({ children, config }) => {
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,
-  config: PropTypes.object
+  config: PropTypes.object,
 };
 
 Theme.defaultProps = {
-  config: {}
+  config: {},
 };
 
 export default Theme;
