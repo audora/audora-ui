@@ -2,7 +2,9 @@
   "name": "audora-ui",
   "version": "0.0.1",
   "main": "dist/audora-ui.js",
-  "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress",
@@ -10,6 +12,33 @@
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
     "prepush": "npm run lint"
+  },
+  "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
+  "keywords": [
+    "audora",
+    "react",
+    "ui",
+    "ui-kit",
+    "ui-design",
+    "styled-components",
+    "react-components",
+    "components",
+    "javascript",
+    "framework",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/audora/audora-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/audora/audora-ui/issues"
+  },
+  "homepage": "https://github.com/audora/audora-ui#README",
+  "peerDependencies": {
+    "prop-types": ">=15",
+    "react": ">=16",
+    "react-dom": ">=16"
   },
   "dependencies": {
     "color": "^3.0.0",
