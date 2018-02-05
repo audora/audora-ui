@@ -13,7 +13,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/theme'),
   },
-  styleguideDir: path.join(__dirname, 'site'),
+  styleguideDir: path.join(__dirname, 'docs'),
   sections: [
     {
       name: 'Getting Started',
