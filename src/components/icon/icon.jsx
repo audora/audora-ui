@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
+import configTheme from '../../theme/config';
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 `;
+
 
 const IconComponent = styled.span`
   color: ${({ theme: { icon } }) => icon.color};
@@ -40,6 +42,8 @@ const IconComponent = styled.span`
     width: ${({ theme: { icon } }) => icon.size.lg};
   `}
 `;
+
+IconComponent.defaultProps = { theme: configTheme({}) };
 
 const Icon = ({
   name, color, style, ...props

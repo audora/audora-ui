@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import configTheme from '../../theme/config';
 
 /**
  * TODO: add tooltip and remove title on AvatarImgComponent
  */
 
 const AvatarComponent = styled.div`
+  font-family: ${({ theme }) => theme.fontFamily};
   align-items: center;
   background-color: ${({ theme: { avatar } }) => avatar.bg};
   border-radius: ${({ square, theme: { avatar } }) =>
@@ -54,6 +56,8 @@ const AvatarComponent = styled.div`
   `}
 `;
 
+AvatarComponent.defaultProps = { theme: configTheme({}) };
+
 const AvatarImgComponent = styled.div`
   height: 100%;
   width: 100%;
@@ -65,6 +69,8 @@ const AvatarImgComponent = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
+AvatarImgComponent.defaultProps = { theme: configTheme({}) };
 
 const Avatar = ({ name, img, ...props }) => (
   <AvatarComponent {...props}>

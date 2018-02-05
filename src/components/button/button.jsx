@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { lighten, darken } from '../../utils';
 import Icon from '../icon';
+import configTheme from '../../theme/config';
 
 const ButtonComponent = styled.button`
   align-items: center;
+  font-family: ${({ theme }) => theme.fontFamily};
   border-radius: ${({ theme: { btn } }) => btn.border.radius};
   border: none;
   cursor: pointer;
@@ -120,7 +122,9 @@ const ButtonComponent = styled.button`
   `}
 `;
 
-const ButtonIcon = styled(Icon)`
+ButtonComponent.defaultProps = { theme: configTheme({}) };
+
+const ButtonIconComponent = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
 
   ${({ type }) => type === 'primary' && css`
@@ -140,6 +144,8 @@ const ButtonIcon = styled(Icon)`
     margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
 `;
+
+ButtonIconComponent.defaultProps = { theme: configTheme({}) };
 
 const sizeProp = (size) => {
   if (size === 'medium') {
@@ -176,7 +182,7 @@ const Button = ({
     }}
   >
     {((icon && iconPosition === 'left') || loading) && (
-      <ButtonIcon
+      <ButtonIconComponent
         content={content}
         name={loading ? 'loader' : icon}
         position="left"
@@ -187,7 +193,7 @@ const Button = ({
     )}
     {content}
     {(icon && iconPosition === 'right' && !loading) && (
-      <ButtonIcon
+      <ButtonIconComponent
         content={content}
         name={icon}
         position="right"
