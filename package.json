@@ -11,9 +11,11 @@
     "clean": "rimraf ./dist",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress",
     "start": "npm run clean && cross-env NODE_ENV=development webpack --progress --watch",
-    "lint": "eslint src --ext .js,.jsx",
-    "lint:fix": "eslint src --ext .js,.jsx --fix",
-    "prepush": "npm run lint"
+    "lint": "eslint src --ext .js,.jsx --ignore-pattern '*.spec.jsx'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepush": "npm run lint && npm test"
   },
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "keywords": [
@@ -44,11 +46,11 @@
   },
   "dependencies": {
     "color": "^3.0.0",
-    "lodash.merge": "^4.6.0",
+    "lodash.merge": "^4.6.1",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "styled-components": "^3.1.5"
+    "react": "^16.2.0",
+    "styled-components": "^3.1.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -58,14 +60,27 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "cross-env": "^5.1.3",
-    "eslint": "^4.17.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "enzyme": "^3.3.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
+    "eslint": "^4.17.0",
     "husky": "^0.14.3",
+    "jest": "^22.1.4",
     "rimraf": "^2.6.2",
+    "sinon": "^4.2.2",
     "svg-inline-loader": "^0.8.0",
     "webpack": "^3.10.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "./scripts/test/setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

@@ -121,7 +121,7 @@ const ButtonComponent = styled.button`
   `}
 `;
 
-ButtonComponent.defaultProps = { theme: config };
+ButtonComponent.defaultProps = { theme: { btn: config.btn } };
 
 const ButtonIcon = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
@@ -146,7 +146,7 @@ const ButtonIcon = styled(Icon)`
   `}
 `;
 
-ButtonIcon.defaultProps = { theme: config };
+ButtonIcon.defaultProps = { theme: { btn: config.btn } };
 
 const sizeProp = (size) => {
   if (size === 'medium') {

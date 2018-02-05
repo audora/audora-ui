@@ -42,7 +42,7 @@ const IconComponent = styled.span`
   `}
 `;
 
-IconComponent.defaultProps = { theme: config };
+IconComponent.defaultProps = { theme: { icon: config.icon } };
 
 const Icon = ({
   name, color, style, ...props

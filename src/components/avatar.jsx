@@ -55,7 +55,7 @@ const AvatarComponent = styled.div`
   `}
 `;
 
-AvatarComponent.defaultProps = { theme: config };
+AvatarComponent.defaultProps = { theme: { avatar: config.avatar } };
 
 const AvatarImgComponent = styled.div`
   height: 100%;
@@ -69,7 +69,7 @@ const AvatarImgComponent = styled.div`
   background-size: cover;
 `;
 
-AvatarImgComponent.defaultProps = { theme: config };
+AvatarImgComponent.defaultProps = { theme: { avatar: config.avatar } };
 
 const Avatar = ({ name, img, ...props }) => (
   <AvatarComponent {...props}>

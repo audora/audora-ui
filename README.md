@@ -27,7 +27,7 @@ const MyComponent = () => (
   </div>
 );
 ```
-## Theme
+### Theme
 ```jsx
 import { Theme } from 'audora-ui';
 

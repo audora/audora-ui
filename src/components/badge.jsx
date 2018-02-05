@@ -47,13 +47,11 @@ const BadgeComponent = styled.div`
   `}
 `;
 
-BadgeComponent.defaultProps = { theme: config };
+BadgeComponent.defaultProps = { theme: { badge: config.badge } };
 
 const BadgeChildrenComponent = styled.div`
   position: relative;
 `;
-
-BadgeChildrenComponent.defaultProps = { theme: config };
 
 const Badge = ({
   value, max, children, ...props
