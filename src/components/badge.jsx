@@ -47,7 +47,7 @@ const BadgeComponent = styled.div`
   `}
 `;
 
-BadgeComponent.defaultProps = { theme: { badge: config.badge } };
+BadgeComponent.defaultProps = { theme: config };
 
 const BadgeChildrenComponent = styled.div`
   position: relative;
