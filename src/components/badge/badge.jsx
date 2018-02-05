@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { config } from '../theme';
 
 const getValue = (value, max) => {
   if (value < 0) { return '0'; }
@@ -46,8 +45,6 @@ const BadgeComponent = styled.div`
     transform: translateY(-50%) translateX(100%);
   `}
 `;
-
-BadgeComponent.defaultProps = { theme: config };
 
 const BadgeChildrenComponent = styled.div`
   position: relative;

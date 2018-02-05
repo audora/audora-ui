@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { config } from '../theme';
 
 const rotate360 = keyframes`
   from { transform: rotate(0deg); }
@@ -42,17 +41,15 @@ const IconComponent = styled.span`
   `}
 `;
 
-IconComponent.defaultProps = { theme: config };
-
 const Icon = ({
   name, color, style, ...props
 }) => (
   <IconComponent
     {...props}
     dangerouslySetInnerHTML={{
-      __html: require(`../icons/feather/${name}.svg`),
+      __html: require(`../../icons/feather/${name}.svg`),
     }}
-    style={[style, { color }]}
+    style={{ color }}
   />
 );
 

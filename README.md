@@ -32,13 +32,8 @@ const MyComponent = () => (
 import { Theme } from 'audora-ui';
 
 const themeConfig = {
-  btn: {
-    border: {
-      radius: '30px'
-    },
-    bg: {
-      primary: 'grey'
-    }
+  color: {
+    primary: '#222'
   }
 };
 

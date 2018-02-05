@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { config } from '../theme';
-import { lighten, darken } from '../utils';
-import Icon from './icon';
+import { lighten, darken } from '../../utils';
+import Icon from '../icon';
 
 const ButtonComponent = styled.button`
   align-items: center;
@@ -51,8 +50,8 @@ const ButtonComponent = styled.button`
     background-color: ${({ type, theme: { btn } }) => {
     switch (type) {
       case 'primary': return btn.bg.primary; break;
-      case 'subtle': return lighten(btn.bg.primary, 0.5); break;
-      default: return lighten(btn.bg.primary, 0.5); break;
+      case 'subtle': return lighten(btn.bg.primary, 0.8); break;
+      default: return lighten(btn.bg.primary, 0.8); break;
     }
   }};
   }
@@ -121,8 +120,6 @@ const ButtonComponent = styled.button`
   `}
 `;
 
-ButtonComponent.defaultProps = { theme: config };
-
 const ButtonIcon = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
 
@@ -136,17 +133,13 @@ const ButtonIcon = styled(Icon)`
   `}
 
   ${({ position, content }) => position === 'left' && content && css`
-    margin-left: -5px;
     margin-right: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
 
   ${({ position, content }) => position === 'right' && content && css`
-    margin-right: -5px;
     margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
   `}
 `;
-
-ButtonIcon.defaultProps = { theme: config };
 
 const sizeProp = (size) => {
   if (size === 'medium') {
@@ -209,7 +202,7 @@ Button.propTypes = {
   /**
    * Text to be rendered.
    */
-  content: PropTypes.string,
+  content: PropTypes.node,
   /**
    * Button disable.
    */
@@ -249,7 +242,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  content: '',
+  content: null,
   disabled: false,
   full: false,
   icon: '',
