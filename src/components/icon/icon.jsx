@@ -53,7 +53,7 @@ const Icon = ({
     dangerouslySetInnerHTML={{
       __html: require(`../../icons/feather/${name}.svg`),
     }}
-    style={{ color }}
+    style={{ ...style, color }}
   />
 );
 

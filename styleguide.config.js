@@ -37,6 +37,10 @@ module.exports = {
       name: 'Design',
       sections: [
         {
+          name: 'Typography',
+          content: 'docs/typography.md',
+        },
+        {
           name: 'Spacing',
           content: 'docs/spacing.md',
         },

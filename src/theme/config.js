@@ -11,7 +11,7 @@ const Config = ({
     /* --------------- */
     primary: '#217EE7',
     primaryDark: '#1565C0',
-    primaryDarken: '#104D92',
+    primaryDarker: '#104D92',
     textPrimary: '#fff',
     /* --------------- */
     defaultBackground: '#E0E1E2',
@@ -51,7 +51,8 @@ const Config = ({
   return ({
     color: colorProp,
     fontSize: fontSizeProp,
-    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',
+    codeFontFamily: '"SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Courier, monospace',
     lineHeight: 1.5,
     transition: 'all .2s',
     btn: {

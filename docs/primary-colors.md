@@ -59,14 +59,14 @@ const colorsSwatches = Object.keys(colors).map(name => {
         style={Object.assign({},
           colorBg,
           {
-            backgroundColor: colors[name].primaryDarken,
+            backgroundColor: colors[name].primaryDarker,
             borderBottomRightRadius: 4,
             borderBottomLeftRadius: 4,
           }
         )}
       >
-        <p style={{ fontWeight: '600', margin: 0 }}>{`${name}Darken`}</p>
-        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name].primaryDarken}</p>
+        <p style={{ fontWeight: '600', margin: 0 }}>{`${name}Darker`}</p>
+        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name].primaryDarker}</p>
       </div>
     </li>
   );
