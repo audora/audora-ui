@@ -9,7 +9,7 @@ import globalStyle from './global';
 import colorPrimary from './color-primary';
 
 const Theme = ({ children, config, color }) => {
-  const theme = configTheme(merge(config, { color: colorPrimary[color] }));
+  const theme = merge(configTheme({ color: colorPrimary[color] }), config);
 
   globalStyle(theme);
 

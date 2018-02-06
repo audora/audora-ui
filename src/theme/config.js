@@ -49,6 +49,7 @@ const Config = ({
   }, fontSize);
 
   return ({
+    wrapper: '1080px',
     color: colorProp,
     fontSize: fontSizeProp,
     fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',
