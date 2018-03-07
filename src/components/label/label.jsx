@@ -7,15 +7,15 @@ import configTheme from '../../theme/config';
 const Container = styled.label`
   font-weight: ${({ theme: { label } }) => label.font.weight};
   font-size: ${({ theme: { label } }) => label.font.size};
-  color: ${({ isDisabled, theme: { label } }) =>
-    (isDisabled ? lighten(label.color, 0.7) : label.color)
+  color: ${({ disabled, theme: { label } }) =>
+    (disabled ? lighten(label.color, 0.7) : label.color)
 };
 `;
 
 Container.defaultProps = { theme: configTheme({}) };
 
-const Label = ({ content, isDisabled }) => (
-  <Container isDisabled={isDisabled}>{content}</Container>
+const Label = ({ content, disabled }) => (
+  <Container disabled={disabled}>{content}</Container>
 );
 
 Label.propTypes = {
@@ -29,11 +29,11 @@ Label.propTypes = {
   /**
    * Disable label.
    */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Label.defaultProps = {
-  isDisabled: false,
+  disabled: false,
   content: null,
 };
 

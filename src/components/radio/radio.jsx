@@ -12,8 +12,8 @@ const RadioLabelContainer = styled.span`
 `;
 
 const Radio = ({
-  isDisabled,
-  isSelected,
+  disabled,
+  selected,
   label,
   name,
   onChange,
@@ -24,7 +24,7 @@ const Radio = ({
   <RadioContainer
     {...props}
     onChange={(e) => {
-      if (isDisabled) {
+      if (disabled) {
         e.preventDefault();
         return;
       }
@@ -37,8 +37,8 @@ const Radio = ({
       name={name}
       required={required}
       value={value}
-      defaultChecked={isSelected}
-      disabled={isDisabled}
+      defaultChecked={selected}
+      disabled={disabled}
     />
     <RadioLabelContainer>{label}</RadioLabelContainer>
   </RadioContainer>
@@ -71,16 +71,16 @@ Radio.propTypes = {
   /**
    * Radio disabled.
    */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * Radio default checked.
    */
-  isSelected: PropTypes.bool,
+  selected: PropTypes.bool,
 };
 
 Radio.defaultProps = {
-  isDisabled: false,
-  isSelected: false,
+  disabled: false,
+  selected: false,
   label: null,
   name: null,
   required: false,

@@ -10,17 +10,17 @@ const RadioGroupContainer = styled.div`
 `;
 
 const RadioGroup = ({
-  items, label, onChange, isDisabled, ...props
+  items, label, onChange, disabled, ...props
 }) => (
   <RadioGroupContainer {...props}>
     {label && (
-      <Label content={label} isDisabled={isDisabled} />
+      <Label content={label} disabled={disabled} />
     )}
     {items.map(radio => (
       <Radio
         key={radio.value}
         onChange={onChange}
-        isDisabled={isDisabled || radio.isDisabled}
+        disabled={disabled || radio.disabled}
         isSelected={radio.isSelected}
         label={radio.label}
         name={radio.name}
@@ -42,7 +42,7 @@ RadioGroup.propTypes = {
   /**
    * Disable all radios.
    */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * Handler to be called when change a radio.
    */
@@ -50,7 +50,7 @@ RadioGroup.propTypes = {
 };
 
 RadioGroup.defaultProps = {
-  isDisabled: false,
+  disabled: false,
   items: [],
   label: null,
   onChange: () => 0,
