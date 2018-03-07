@@ -20,9 +20,6 @@ const ButtonComponent = styled.button`
   vertical-align: middle;
   white-space: nowrap;
 
-  &:focus {
-    outline: none;
-  }
   &:hover {
     background-color: ${({ type, theme: { btn } }) => {
     switch (type) {
