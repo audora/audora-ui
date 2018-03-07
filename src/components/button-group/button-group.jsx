@@ -8,7 +8,7 @@ const ButtonGroupComponent = styled.div`
   flex-direction: row;
 `;
 
-const ButtonGroup = ({ children, compressed }) => {
+const ButtonGroup = ({ children, compressed, ...props }) => {
   const buttonStyle = (style, idx) => {
     if (compressed) {
       if (idx === children.length - 1) {
@@ -34,7 +34,7 @@ const ButtonGroup = ({ children, compressed }) => {
   };
 
   return (
-    <ButtonGroupComponent>
+    <ButtonGroupComponent {...props}>
       {Children.map(children, (child, idx) => {
         if (child === null || child === false) {
           return child;

@@ -91,10 +91,6 @@ Avatar.propTypes = {
    */
   img: PropTypes.string,
   /**
-   * Optitional style replacement.
-   */
-  style: PropTypes.object,
-  /**
    * Sets the avatar as square.
    */
   square: PropTypes.bool,
@@ -107,7 +103,6 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   name: '',
   img: '',
-  style: {},
   square: false,
   size: 'medium',
 };

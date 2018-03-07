@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup renders correctly 1`] = `
+<div
+  class="sc-htpNat dePyzG"
+>
+  <label
+    class="sc-bdVaJa hKAetY"
+  >
+    <input
+      name="color"
+      type="radio"
+      value="red"
+    />
+    <span
+      class="sc-bwzfXH drzoWa"
+    >
+      Red
+    </span>
+  </label>
+  <label
+    class="sc-bdVaJa hKAetY"
+  >
+    <input
+      name="color"
+      type="radio"
+      value="blue"
+    />
+    <span
+      class="sc-bwzfXH drzoWa"
+    >
+      Blue
+    </span>
+  </label>
+  <label
+    class="sc-bdVaJa hKAetY"
+  >
+    <input
+      name="color"
+      type="radio"
+      value="yellow"
+    />
+    <span
+      class="sc-bwzfXH drzoWa"
+    >
+      Yellow
+    </span>
+  </label>
+  <label
+    class="sc-bdVaJa hKAetY"
+  >
+    <input
+      name="color"
+      type="radio"
+      value="green"
+    />
+    <span
+      class="sc-bwzfXH drzoWa"
+    >
+      Green
+    </span>
+  </label>
+</div>
+`;

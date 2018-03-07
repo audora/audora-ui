@@ -21,8 +21,8 @@ const ButtonComponent = styled.button`
   white-space: nowrap;
 
   &:hover {
-    background-color: ${({ type, theme: { btn } }) => {
-    switch (type) {
+    background-color: ${({ appearance, theme: { btn } }) => {
+    switch (appearance) {
       case 'primary': return lighten(btn.bg.primary, 0.15); break;
       case 'subtle': return btn.bg.default; break;
       default: return darken(btn.bg.default, 0.04); break;
@@ -31,23 +31,23 @@ const ButtonComponent = styled.button`
   }
   &:active {
     svg {
-      color: ${({ type, theme: { btn } }) => {
-    switch (type) {
+      color: ${({ appearance, theme: { btn } }) => {
+    switch (appearance) {
       case 'primary': return btn.color.primary; break;
       case 'subtle': return btn.bg.primary; break;
       default: return btn.bg.primary; break;
     }
   }};
     }
-    color: ${({ type, theme: { btn } }) => {
-    switch (type) {
+    color: ${({ appearance, theme: { btn } }) => {
+    switch (appearance) {
       case 'primary': return btn.color.primary; break;
       case 'subtle': return btn.bg.primary; break;
       default: return btn.bg.primary; break;
     }
   }};
-    background-color: ${({ type, theme: { btn } }) => {
-    switch (type) {
+    background-color: ${({ appearance, theme: { btn } }) => {
+    switch (appearance) {
       case 'primary': return btn.bg.primary; break;
       case 'subtle': return lighten(btn.bg.primary, 0.8); break;
       default: return lighten(btn.bg.primary, 0.8); break;
@@ -67,20 +67,20 @@ const ButtonComponent = styled.button`
   `}
 
   /**
-   * TYPES
+   * APPEARANCEs
    */
 
-  ${({ type }) => type === 'primary' && css`
+  ${({ appearance }) => appearance === 'primary' && css`
     background-color: ${({ theme: { btn } }) => btn.bg.primary};
     color: ${({ theme: { btn } }) => btn.color.primary};
   `}
 
-  ${({ type }) => type === 'default' && css`
+  ${({ appearance }) => appearance === 'default' && css`
     background-color: ${({ theme: { btn } }) => btn.bg.default};
     color: ${({ theme: { btn } }) => btn.color.default};
   `}
 
-  ${({ type }) => type === 'subtle' && css`
+  ${({ appearance }) => appearance === 'subtle' && css`
     background-color: ${({ theme: { btn } }) => btn.bg.subtle};
     color: ${({ theme: { btn } }) => btn.color.subtle};
   `}
@@ -124,7 +124,7 @@ ButtonComponent.defaultProps = { theme: configTheme({}) };
 const ButtonIconComponent = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
 
-  ${({ type }) => type === 'primary' && css`
+  ${({ appearance }) => appearance === 'primary' && css`
     color: ${({ theme: { btn } }) => btn.color.iconPrimary};
   `}
 
@@ -156,6 +156,7 @@ const sizeProp = (size) => {
 };
 
 const Button = ({
+  appearance,
   content,
   icon,
   iconPosition,
@@ -168,6 +169,7 @@ const Button = ({
   <ButtonComponent
     {...props}
     type={type}
+    appearance={appearance}
     size={size}
     onClick={(e) => {
       if (props.disabled || loading) {
@@ -185,7 +187,7 @@ const Button = ({
         position="left"
         size={sizeProp(size)}
         spin={loading}
-        type={type}
+        appearance={appearance}
       />
     )}
     {content}
@@ -195,7 +197,7 @@ const Button = ({
         name={icon}
         position="right"
         size={sizeProp(size)}
-        type={type}
+        appearance={appearance}
       />
     )}
   </ButtonComponent>
@@ -235,16 +237,17 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /**
-   * Optitional style replacement.
-   */
-  style: PropTypes.object,
-  /**
    * Type of button.
    */
-  type: PropTypes.oneOf(['primary', 'default', 'subtle']),
+  type: PropTypes.string,
+  /**
+   * Appearances of button.
+   */
+  appearance: PropTypes.oneOf(['primary', 'default', 'subtle']),
 };
 
 Button.defaultProps = {
+  appearance: 'default',
   content: null,
   disabled: false,
   full: false,
@@ -253,8 +256,7 @@ Button.defaultProps = {
   loading: false,
   onClick: () => 0,
   size: 'medium',
-  style: {},
-  type: 'default',
+  type: 'button',
 };
 
 export default Button;
