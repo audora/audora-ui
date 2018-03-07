@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs renders correctly 1`] = `
+<div
+  class="sc-bwzfXH jIEWCi"
+>
+  <div
+    class="sc-bxivhb cDFCAd"
+  >
+    <a
+      class="sc-ifAKCX gSzACM"
+      href="#"
+    >
+      Pages
+    </a>
+  </div>
+  <div
+    class="sc-bxivhb cDFCAd"
+  >
+    <div
+      class="sc-htpNat TryqS"
+    >
+      /
+    </div>
+    <a
+      class="sc-ifAKCX gSzACM"
+      href="#"
+    >
+      Home
+    </a>
+  </div>
+  <div
+    class="sc-bxivhb cDFCAd"
+  >
+    <div
+      class="sc-htpNat TryqS"
+    >
+      /
+    </div>
+    <a
+      class="sc-ifAKCX gSzACM"
+      href="#"
+    >
+      Breadcrumbs
+    </a>
+  </div>
+</div>
+`;
