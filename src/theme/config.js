@@ -20,7 +20,7 @@ const Config = ({
     border: 'rgba(0,0,0,0.1)',
     /* --------------- */
     heading: 'rgba(0, 0, 0, 0.85)',
-    text: 'rgba(0, 0, 0, 0.60)',
+    text: '#67676f',
     textSecondary: 'rgba(0, 0, 0, 0.45)',
     /* --------------- */
     headingDark: 'rgba(255, 255, 255, 1)',
@@ -146,6 +146,23 @@ const Config = ({
       },
       font: {
         size: fontSizeProp.sm,
+      },
+    },
+    radio: {
+      bg: {
+        checked: colorProp.primary,
+        default: colorProp.defaultBackground,
+      },
+      color: colorProp.text,
+      border: {
+        color: colorProp.border,
+      },
+    },
+    label: {
+      color: colorProp.text,
+      font: {
+        size: fontSizeProp.md,
+        weight: 'bold',
       },
     },
   });

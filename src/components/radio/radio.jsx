@@ -23,7 +23,6 @@ const Radio = ({
 }) => (
   <RadioContainer
     {...props}
-    key={value}
     onChange={(e) => {
       if (isDisabled) {
         e.preventDefault();
