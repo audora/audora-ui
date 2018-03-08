@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import merge from 'lodash.merge';
 
-const ButtonGroupComponent = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: row;
 `;
@@ -34,7 +34,7 @@ const ButtonGroup = ({ children, compressed, ...props }) => {
   };
 
   return (
-    <ButtonGroupComponent {...props}>
+    <Container {...props}>
       {Children.map(children, (child, idx) => {
         if (child === null || child === false) {
           return child;
@@ -44,7 +44,7 @@ const ButtonGroup = ({ children, compressed, ...props }) => {
           style: buttonStyle(child.props.style, idx),
         });
       })}
-    </ButtonGroupComponent>
+    </Container>
   );
 };
 

@@ -1,5 +1,5 @@
 ### Default
-```js
+```jsx
 <ButtonGroup>
   <Button content="Default" />
   <Button content="Default" />
@@ -10,7 +10,7 @@
 </ButtonGroup>
 ```
 ### Compressed
-```js
+```jsx
 <ButtonGroup compressed>
   <Button content="Default" />
   <Button content="Default" />

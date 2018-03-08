@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import configTheme from '../../theme/config';
 
-const HeaderContainer = styled.div`
+const Container = styled.div`
   background-color: ${({ theme: { color } }) => color.primaryDark};
   box-sizing: border-box;
   color:${({ theme: { color } }) => color.textPrimary};
@@ -15,7 +15,7 @@ const HeaderContainer = styled.div`
   z-index: 9999;
 `;
 
-HeaderContainer.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const HeaderComponent = styled.header`
   display: flex;
@@ -28,14 +28,14 @@ const HeaderComponent = styled.header`
   max-width: ${({ full, theme: { wrapper } }) => (full ? '100%' : wrapper)};
 `;
 
-HeaderContainer.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const Header = ({ children, ...props }) => (
-  <HeaderContainer fixed={props.fixed} style={props.styleContainer}>
+  <Container fixed={props.fixed} style={props.styleContainer}>
     <HeaderComponent full={props.full} style={props.style}>
       {children}
     </HeaderComponent>
-  </HeaderContainer>
+  </Container>
 );
 
 Header.propTypes = {

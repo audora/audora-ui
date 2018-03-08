@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Radio from '../radio';
 import Label from '../label';
 
-const RadioGroupContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -12,7 +12,7 @@ const RadioGroupContainer = styled.div`
 const RadioGroup = ({
   items, label, onChange, disabled, ...props
 }) => (
-  <RadioGroupContainer {...props}>
+  <Container {...props}>
     {label && (
       <Label content={label} disabled={disabled} />
     )}
@@ -27,7 +27,7 @@ const RadioGroup = ({
         value={radio.value}
       />
     ))}
-  </RadioGroupContainer>
+  </Container>
 );
 
 RadioGroup.propTypes = {

@@ -9,7 +9,7 @@ const getValue = (value, max) => {
   return String(value);
 };
 
-const BadgeComponent = styled.div`
+const Container = styled.div`
   background-color: ${({ type, theme: { badge } }) => {
     switch (type) {
       case 'primary': return badge.bg.primary; break;
@@ -48,7 +48,7 @@ const BadgeComponent = styled.div`
   `}
 `;
 
-BadgeComponent.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const BadgeChildrenComponent = styled.div`
   position: relative;
@@ -61,14 +61,14 @@ const Badge = ({
     return (
       <BadgeChildrenComponent>
         {children}
-        <BadgeComponent {...props} hasChildren>
+        <Container {...props} hasChildren>
           {getValue(value, max)}
-        </BadgeComponent>
+        </Container>
       </BadgeChildrenComponent>
     );
   }
   return (
-    <BadgeComponent {...props}>{getValue(value, max)}</BadgeComponent>
+    <Container {...props}>{getValue(value, max)}</Container>
   );
 };
 

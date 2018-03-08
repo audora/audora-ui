@@ -7,7 +7,7 @@ import configTheme from '../../theme/config';
  * TODO: add tooltip and remove title on AvatarImgComponent
  */
 
-const AvatarComponent = styled.div`
+const Container = styled.div`
   font-family: ${({ theme }) => theme.fontFamily};
   align-items: center;
   background-color: ${({ theme: { avatar } }) => avatar.bg};
@@ -56,7 +56,7 @@ const AvatarComponent = styled.div`
   `}
 `;
 
-AvatarComponent.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const AvatarImgComponent = styled.div`
   height: 100%;
@@ -73,12 +73,12 @@ const AvatarImgComponent = styled.div`
 AvatarImgComponent.defaultProps = { theme: configTheme({}) };
 
 const Avatar = ({ name, img, ...props }) => (
-  <AvatarComponent {...props}>
+  <Container {...props}>
     {!img
       ? name.substr(0, 1).toUpperCase()
       : (<AvatarImgComponent img={img} {...props} title={name} />)
     }
-  </AvatarComponent>
+  </Container>
 );
 
 Avatar.propTypes = {

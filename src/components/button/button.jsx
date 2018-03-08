@@ -5,7 +5,7 @@ import { lighten, darken } from '../../utils';
 import Icon from '../icon';
 import configTheme from '../../theme/config';
 
-const ButtonComponent = styled.button`
+const Container = styled.button`
   align-items: center;
   font-family: ${({ theme }) => theme.fontFamily};
   border-radius: ${({ theme: { btn } }) => btn.border.radius};
@@ -119,7 +119,7 @@ const ButtonComponent = styled.button`
   `}
 `;
 
-ButtonComponent.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const ButtonIconComponent = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
@@ -166,7 +166,7 @@ const Button = ({
   type,
   ...props
 }) => (
-  <ButtonComponent
+  <Container
     {...props}
     type={type}
     appearance={appearance}
@@ -200,7 +200,7 @@ const Button = ({
         appearance={appearance}
       />
     )}
-  </ButtonComponent>
+  </Container>
 );
 
 Button.propTypes = {

@@ -9,7 +9,7 @@ const rotate360 = keyframes`
 `;
 
 
-const IconComponent = styled.span`
+const Container = styled.span`
   color: ${({ theme: { icon } }) => icon.color};
   display: inline-block;
   line-height: 1;
@@ -43,12 +43,12 @@ const IconComponent = styled.span`
   `}
 `;
 
-IconComponent.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) };
 
 const Icon = ({
   name, color, style, ...props
 }) => (
-  <IconComponent
+  <Container
     {...props}
     dangerouslySetInnerHTML={{
       __html: require(`../../icons/feather/${name}.svg`),

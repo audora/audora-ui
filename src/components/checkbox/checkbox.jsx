@@ -7,11 +7,11 @@ const Container = styled.label`
   align-items: center;
 `;
 
-const RadioLabel = styled.span`
+const CheckboxLabel = styled.span`
   margin-left: 5px;
 `;
 
-const Radio = ({
+const Checkbox = ({
   disabled,
   selected,
   label,
@@ -29,28 +29,33 @@ const Radio = ({
         return;
       }
 
-      onChange(e, { value, name, label });
+      onChange(e, {
+        value,
+        name,
+        label,
+        checked: e.target.checked,
+      });
     }}
   >
     <input
-      type="radio"
+      type="checkbox"
       name={name}
       required={required}
       value={value}
       defaultChecked={selected}
       disabled={disabled}
     />
-    <RadioLabel>{label}</RadioLabel>
+    <CheckboxLabel>{label}</CheckboxLabel>
   </Container>
 );
 
-Radio.propTypes = {
+Checkbox.propTypes = {
   /**
-   * Name of radio.
+   * Name of checkbox.
    */
   name: PropTypes.string,
   /**
-   * Value of radio.
+   * Value of checkbox.
    */
   value: PropTypes.oneOfType([
     PropTypes.string,
@@ -61,24 +66,24 @@ Radio.propTypes = {
    */
   label: PropTypes.string,
   /**
-   * Set radio required.
+   * Set checkbox required.
    */
   required: PropTypes.bool,
   /**
-   * Handler to be called when change a radio.
+   * Handler to be called when change a checkbox.
    */
   onChange: PropTypes.func,
   /**
-   * Radio disabled.
+   * Checkbox disabled.
    */
   disabled: PropTypes.bool,
   /**
-   * Radio default checked.
+   * Checkbox default checked.
    */
   selected: PropTypes.bool,
 };
 
-Radio.defaultProps = {
+Checkbox.defaultProps = {
   disabled: false,
   selected: false,
   label: null,
@@ -88,4 +93,4 @@ Radio.defaultProps = {
   onChange: () => 0,
 };
 
-export default Radio;
+export default Checkbox;
