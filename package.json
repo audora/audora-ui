@@ -4,6 +4,7 @@
   "title": "Audora UI",
   "description": "An UI design language and React-based implementation",
   "main": "dist/audora-ui.js",
+  "license": "MIT",
   "files": [
     "dist"
   ],
