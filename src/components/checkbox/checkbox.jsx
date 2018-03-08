@@ -17,7 +17,6 @@ const Checkbox = ({
   label,
   name,
   onChange,
-  required,
   value,
   ...props
 }) => (
@@ -40,7 +39,6 @@ const Checkbox = ({
     <input
       type="checkbox"
       name={name}
-      required={required}
       value={value}
       defaultChecked={selected}
       disabled={disabled}
@@ -66,10 +64,6 @@ Checkbox.propTypes = {
    */
   label: PropTypes.string,
   /**
-   * Set checkbox required.
-   */
-  required: PropTypes.bool,
-  /**
    * Handler to be called when change a checkbox.
    */
   onChange: PropTypes.func,
@@ -88,7 +82,6 @@ Checkbox.defaultProps = {
   selected: false,
   label: null,
   name: null,
-  required: false,
   value: null,
   onChange: () => 0,
 };
