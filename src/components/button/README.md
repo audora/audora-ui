@@ -1,6 +1,6 @@
 ### Primary
 ```jsx
-<Button content="Primary" type="primary" />
+<Button content="Primary" appearance="primary" />
 ```
 
 ### Default
@@ -10,7 +10,7 @@
 
 ### Subtle
 ```jsx
-<Button content="Subtle" type="subtle" />
+<Button content="Subtle" appearance="subtle" />
 ```
 
 ### Disabled
@@ -26,9 +26,9 @@
 ### Icon
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Icon Left" icon="music" type="primary" />
-  <Button content="Icon Right" iconPosition="right" icon="music" type="primary" style={{ marginLeft: 10 }} />
-  <Button icon="anchor" type="primary" style={{ marginLeft: 10 }} />
+  <Button content="Icon Left" icon="music" appearance="primary" />
+  <Button content="Icon Right" iconPosition="right" icon="music" appearance="primary" style={{ marginLeft: 10 }} />
+  <Button icon="anchor" appearance="primary" style={{ marginLeft: 10 }} />
 </div>
 ```
 
