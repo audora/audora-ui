@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<div
+  class="sc-EHOje ebXamK"
+>
+  <div
+    class="sc-bZQynM bhfddE"
+  >
+    <button
+      class="sc-gZMcBi bQbqXU sc-bxivhb giYbNp"
+      title="Item 1"
+      type="button"
+    >
+      Item 1
+    </button>
+  </div>
+</div>
+`;

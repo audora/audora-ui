@@ -16,6 +16,7 @@
     "doc:build": "styleguidist build",
     "lint": "eslint src --ext .js,.jsx --ignore-pattern '*.spec.jsx'",
     "test": "jest",
+    "test:snap": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "precommit": "npm run lint && npm test"

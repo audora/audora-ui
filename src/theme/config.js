@@ -165,6 +165,17 @@ const Config = ({
         weight: 'bold',
       },
     },
+    menu: {
+      bg: '#F4F5F7',
+      color: colorProp.text,
+      border: {},
+      font: {},
+      height: {},
+      width: {
+        sm: '62px',
+        md: '240px',
+      },
+    },
   });
 };
 
