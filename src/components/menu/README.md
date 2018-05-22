@@ -170,13 +170,6 @@
       active: true,
       onClick: (e, data) => console.log(e, data),
     }
-    {
-      key: 3,
-      name: 'item3',
-      content: 'Item 3',
-      active: true,
-      onClick: (e, data) => console.log(e, data),
-    }
   ]}
 />
 ```
