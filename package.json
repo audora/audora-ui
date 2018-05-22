@@ -1,6 +1,6 @@
 {
   "name": "audora-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Audora UI",
   "description": "An UI design language and React-based implementation",
   "main": "dist/audora-ui.js",
