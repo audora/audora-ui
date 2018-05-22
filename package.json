@@ -54,8 +54,9 @@
     "lodash.merge": "^4.6.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-content-loader": "^3.1.2",
     "react-dom": "^16.2.0",
-    "styled-components": "^3.1.6"
+    "styled-components": "^3.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

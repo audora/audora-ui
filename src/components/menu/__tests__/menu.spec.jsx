@@ -16,7 +16,7 @@ describe('Menu', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly when minimal', () => {
+  it('renders correctly when collapsed', () => {
     const wrapper = mount(<Menu
       items={[
         {
@@ -25,8 +25,8 @@ describe('Menu', () => {
           content: 'Item 1',
           onClick: (e, data) => console.log(e, data),
         }]}
-      minimal
+      collapsed
     />);
-    expect(wrapper.props().minimal).toBe(true);
+    expect(wrapper.props().collapsed).toBe(true);
   });
 });
