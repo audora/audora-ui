@@ -86,10 +86,10 @@ export default theme => {
     a:hover {
       text-decoration: underline;
     }
-    a:focus {
+    /* a:focus {
       outline: 2px solid ${theme.color.primary};
       outline-offset: 2px;
-    }
+    } */
     code {
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
