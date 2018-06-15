@@ -55,7 +55,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-content-loader": "^3.1.2",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "styled-components": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
