@@ -2,7 +2,7 @@
 
 exports[`Button renders correctly 1`] = `
 <button
-  class="sc-bwzfXH ewGTLq"
+  class="sc-bwzfXH kspYUn"
   type="button"
 >
   Primary Button

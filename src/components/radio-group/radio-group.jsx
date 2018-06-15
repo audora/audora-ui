@@ -1,21 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Radio from '../radio';
-import Label from '../label';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Radio from '../radio'
+import Label from '../label'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
-const RadioGroup = ({
-  items, label, onChange, disabled, ...props
-}) => (
+const RadioGroup = ({ items, label, onChange, disabled, ...props }) => (
   <Container {...props}>
-    {label && (
-      <Label content={label} disabled={disabled} />
-    )}
+    {label && <Label content={label} disabled={disabled} />}
     {items.map(radio => (
       <Radio
         key={radio.value}
@@ -28,7 +24,7 @@ const RadioGroup = ({
       />
     ))}
   </Container>
-);
+)
 
 RadioGroup.propTypes = {
   /**
@@ -47,13 +43,13 @@ RadioGroup.propTypes = {
    * Handler to be called when change a radio.
    */
   onChange: PropTypes.func,
-};
+}
 
 RadioGroup.defaultProps = {
   disabled: false,
   items: [],
   label: null,
   onChange: () => 0,
-};
+}
 
-export default RadioGroup;
+export default RadioGroup

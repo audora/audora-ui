@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import configTheme from '../../theme/config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import configTheme from '../../theme/config'
 
 const Container = styled.div`
   background-color: ${({ theme: { color } }) => color.primaryDark};
   box-sizing: border-box;
-  color:${({ theme: { color } }) => color.textPrimary};
+  color: ${({ theme: { color } }) => color.textPrimary};
   display: flex;
   min-height: 50px;
   justify-content: center;
   position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
   width: 100%;
   z-index: 9999;
-`;
+`
 
-Container.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) }
 
 const HeaderComponent = styled.header`
   display: flex;
@@ -26,9 +26,9 @@ const HeaderComponent = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: ${({ full, theme: { wrapper } }) => (full ? '100%' : wrapper)};
-`;
+`
 
-Container.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) }
 
 const Header = ({ children, ...props }) => (
   <Container fixed={props.fixed} style={props.styleContainer}>
@@ -36,7 +36,7 @@ const Header = ({ children, ...props }) => (
       {children}
     </HeaderComponent>
   </Container>
-);
+)
 
 Header.propTypes = {
   /**
@@ -60,13 +60,13 @@ Header.propTypes = {
    * Optitional style replacement.
    */
   style: PropTypes.object,
-};
+}
 
 Header.defaultProps = {
   style: {},
   styleContainer: {},
   fixed: false,
   full: true,
-};
+}
 
-export default Header;
+export default Header

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import ContentLoader from 'react-content-loader';
-import Avatar from '../avatar';
-import Button from '../button';
-import configTheme from '../../theme/config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
+import ContentLoader from 'react-content-loader'
+import Avatar from '../avatar'
+import Button from '../button'
+import configTheme from '../../theme/config'
 
 /**
  * TODO: add tooltip and remove title on AvatarImgComponent
@@ -21,63 +21,69 @@ const Container = styled.div`
   * SIZES
   */
 
-  ${({ collapsed }) => (collapsed ? css`
-    flex-direction: column;
-    min-width: ${({ theme: { menu } }) => menu.width.sm};
-    max-width: ${({ theme: { menu } }) => menu.width.sm};
-  ` : css`
-    flex-direction: column;
-    min-width: ${({ theme: { menu } }) => menu.width.md};
-    max-width: ${({ theme: { menu } }) => menu.width.md};
-  `)}
-`;
+  ${({ collapsed }) =>
+    collapsed
+      ? css`
+          flex-direction: column;
+          min-width: ${({ theme: { menu } }) => menu.width.sm};
+          max-width: ${({ theme: { menu } }) => menu.width.sm};
+        `
+      : css`
+          flex-direction: column;
+          min-width: ${({ theme: { menu } }) => menu.width.md};
+          max-width: ${({ theme: { menu } }) => menu.width.md};
+        `};
+`
 
-Container.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) }
 
 const MenuContent = styled.div`
   overflow-y: auto;
   padding: 5px 10px 10px 10px;
   flex: 1;
-`;
+`
 
-MenuContent.defaultProps = { theme: configTheme({}) };
+MenuContent.defaultProps = { theme: configTheme({}) }
 
 const MenuHeader = styled.div`
   padding: 10px 10px 0px 10px;
   display: flex;
   align-items: center;
-`;
+`
 
-MenuHeader.defaultProps = { theme: configTheme({}) };
+MenuHeader.defaultProps = { theme: configTheme({}) }
 
 const MenuHeaderTitle = styled.span`
   margin-left: 10px;
   font-size: 16px;
-`;
+`
 
 const MenuHeaderContent = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 const MenuHeaderButton = styled(Button)`
   padding: 5px;
   height: 42px;
   justify-content: flex-start;
-`;
+`
 
 const MenuItem = styled(Button)`
   padding: 0px 5px;
   margin-top: 5px;
   overflow: hidden;
 
-  ${({ collapsed }) => (collapsed ? css`
-    justify-content: center;
-    text-transform: uppercase;
-  ` : css`
-    justify-content: flex-start;
-  `)}
-`;
+  ${({ collapsed }) =>
+    collapsed
+      ? css`
+          justify-content: center;
+          text-transform: uppercase;
+        `
+      : css`
+          justify-content: flex-start;
+        `};
+`
 
 const renderHeader = (header, collapsed) => {
   if (typeof header === 'string') {
@@ -87,19 +93,15 @@ const renderHeader = (header, collapsed) => {
           appearance="subtle"
           full
           title={header.name}
-          content={(
+          content={
             <MenuHeaderContent>
-              <Avatar
-                style={{ cursor: 'pointer' }}
-                name={header}
-                square
-              />
+              <Avatar style={{ cursor: 'pointer' }} name={header} square />
               <MenuHeaderTitle>{header}</MenuHeaderTitle>
             </MenuHeaderContent>
-          )}
+          }
         />
       </MenuHeader>
-    );
+    )
   }
 
   return (
@@ -109,7 +111,7 @@ const renderHeader = (header, collapsed) => {
         full
         onClick={header.onClick}
         title={header.name}
-        content={(
+        content={
           <MenuHeaderContent>
             <Avatar
               style={{ cursor: 'pointer' }}
@@ -120,30 +122,26 @@ const renderHeader = (header, collapsed) => {
               background={header.background}
               square
             />
-            {!collapsed && (
-              <MenuHeaderTitle>{header.name}</MenuHeaderTitle>
-            )}
+            {!collapsed && <MenuHeaderTitle>{header.name}</MenuHeaderTitle>}
           </MenuHeaderContent>
-        )}
+        }
       />
     </MenuHeader>
-  );
-};
+  )
+}
 
 const renderContentItem = (content, icon, collapsed) => {
   if (collapsed) {
     if (icon) {
-      return '';
+      return ''
     }
 
-    return content.substr(0, 2);
+    return content.substr(0, 2)
   }
-  return content;
-};
+  return content
+}
 
-const Menu = ({
-  header, action, items, footer, loading, ...props
-}) => (
+const Menu = ({ header, action, items, footer, loading, ...props }) => (
   <Container {...props}>
     {header && renderHeader(header, props.collapsed)}
     {action && (
@@ -169,22 +167,49 @@ const Menu = ({
           primaryColor="#EAEAEA"
           secondaryColor="#E0E1E2"
         >
-          <rect x="0" y="4.8" rx="4" ry="4" width={props.collapsed ? 62 : 220} height="32" />
-          <rect x="0" y="42" rx="4" ry="4" width={props.collapsed ? 62 : 220} height="32" />
-          <rect x="0" y="79" rx="4" ry="4" width={props.collapsed ? 62 : 220} height="32" />
+          <rect
+            x="0"
+            y="4.8"
+            rx="4"
+            ry="4"
+            width={props.collapsed ? 62 : 220}
+            height="32"
+          />
+          <rect
+            x="0"
+            y="42"
+            rx="4"
+            ry="4"
+            width={props.collapsed ? 62 : 220}
+            height="32"
+          />
+          <rect
+            x="0"
+            y="79"
+            rx="4"
+            ry="4"
+            width={props.collapsed ? 62 : 220}
+            height="32"
+          />
         </ContentLoader>
-      ) : items.map(item => (
-        <MenuItem
-          key={item.key}
-          collapsed={props.collapsed}
-          icon={item.icon}
-          content={renderContentItem(item.content, item.icon, props.collapsed)}
-          title={item.content}
-          onClick={e => item.onClick(e, item)}
-          appearance={item.active ? 'default' : 'subtle'}
-          full
-        />
-      ))}
+      ) : (
+        items.map(item => (
+          <MenuItem
+            key={item.key}
+            collapsed={props.collapsed}
+            icon={item.icon}
+            content={renderContentItem(
+              item.content,
+              item.icon,
+              props.collapsed
+            )}
+            title={item.content}
+            onClick={e => item.onClick(e, item)}
+            appearance={item.active ? 'default' : 'subtle'}
+            full
+          />
+        ))
+      )}
     </MenuContent>
     {footer && (
       <div style={{ padding: '0px 10px 10px 10px' }}>
@@ -199,7 +224,7 @@ const Menu = ({
       </div>
     )}
   </Container>
-);
+)
 
 Menu.propTypes = {
   /**
@@ -229,11 +254,8 @@ Menu.propTypes = {
   /**
    * Menu Header.
    */
-  header: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
-};
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+}
 
 Menu.defaultProps = {
   loading: false,
@@ -243,6 +265,6 @@ Menu.defaultProps = {
   footer: null,
   items: null,
   collapsed: false,
-};
+}
 
-export default Menu;
+export default Menu

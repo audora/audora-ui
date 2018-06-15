@@ -23,4 +23,4 @@ export default {
     primaryDarker: '#881521',
     textPrimary: '#fff',
   },
-};
+}

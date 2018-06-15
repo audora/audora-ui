@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const Container = styled.label`
   display: flex;
   align-items: center;
-`;
+`
 
 const RadioLabel = styled.span`
   margin-left: 5px;
-`;
+`
 
 const Radio = ({
   disabled,
@@ -23,13 +23,13 @@ const Radio = ({
 }) => (
   <Container
     {...props}
-    onChange={(e) => {
+    onChange={e => {
       if (disabled) {
-        e.preventDefault();
-        return;
+        e.preventDefault()
+        return
       }
 
-      onChange(e, { value, name, label });
+      onChange(e, { value, name, label })
     }}
   >
     <input
@@ -42,7 +42,7 @@ const Radio = ({
     />
     <RadioLabel>{label}</RadioLabel>
   </Container>
-);
+)
 
 Radio.propTypes = {
   /**
@@ -52,10 +52,7 @@ Radio.propTypes = {
   /**
    * Value of radio.
    */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * Text to be rendered on label.
    */
@@ -76,7 +73,7 @@ Radio.propTypes = {
    * Radio default checked.
    */
   selected: PropTypes.bool,
-};
+}
 
 Radio.defaultProps = {
   disabled: false,
@@ -86,6 +83,6 @@ Radio.defaultProps = {
   required: false,
   value: null,
   onChange: () => 0,
-};
+}
 
-export default Radio;
+export default Radio

@@ -1,59 +1,71 @@
-import merge from 'lodash.merge';
+import merge from 'lodash.merge'
 
-const Config = ({
-  color, fontSize, radius, spacing,
-}) => {
-  const colorProp = merge({
-    danger: '#F56C6C',
-    info: '#4CB5FF',
-    success: '#67C23A',
-    warning: '#E6A23C',
-    /* --------------- */
-    primary: '#217EE7',
-    primaryDark: '#1565C0',
-    primaryDarker: '#104D92',
-    textPrimary: '#fff',
-    /* --------------- */
-    defaultBackground: '#E0E1E2',
-    /* --------------- */
-    bodyBackground: '#fff',
-    border: 'rgba(0,0,0,0.1)',
-    /* --------------- */
-    heading: 'rgba(0, 0, 0, 0.85)',
-    text: '#67676f',
-    textSecondary: 'rgba(0, 0, 0, 0.45)',
-    /* --------------- */
-    headingDark: 'rgba(255, 255, 255, 1)',
-    textDark: 'rgba(255, 255, 255, 0.85)',
-    textSecondaryDark: 'rgba(255, 255, 255, 0.65)',
-  }, color);
-  const radiusProp = merge({
-    md: '4px',
-    lg: '10px',
-    xl: '20px',
-  }, radius);
-  const spacingProp = merge({
-    xs: '8px',
-    sm: '16px',
-    md: '24px',
-    lg: '32px',
-    xl: '48px',
-    huge: '64px',
-  }, spacing);
-  const fontSizeProp = merge({
-    xs: '10px',
-    sm: '12px',
-    md: '14px',
-    lg: '16px',
-    xl: '18px',
-  }, fontSize);
+const Config = ({ color, fontSize, radius, spacing }) => {
+  const colorProp = merge(
+    {
+      danger: '#F56C6C',
+      info: '#4CB5FF',
+      success: '#67C23A',
+      warning: '#E6A23C',
+      /* --------------- */
+      primary: '#217EE7',
+      primaryDark: '#1565C0',
+      primaryDarker: '#104D92',
+      textPrimary: '#fff',
+      /* --------------- */
+      defaultBackground: '#E0E1E2',
+      /* --------------- */
+      bodyBackground: '#fff',
+      border: 'rgba(0,0,0,0.1)',
+      /* --------------- */
+      heading: 'rgba(0, 0, 0, 0.85)',
+      text: '#67676f',
+      textSecondary: 'rgba(0, 0, 0, 0.45)',
+      /* --------------- */
+      headingDark: 'rgba(255, 255, 255, 1)',
+      textDark: 'rgba(255, 255, 255, 0.85)',
+      textSecondaryDark: 'rgba(255, 255, 255, 0.65)',
+    },
+    color
+  )
+  const radiusProp = merge(
+    {
+      md: '4px',
+      lg: '10px',
+      xl: '20px',
+    },
+    radius
+  )
+  const spacingProp = merge(
+    {
+      xs: '8px',
+      sm: '16px',
+      md: '24px',
+      lg: '32px',
+      xl: '48px',
+      huge: '64px',
+    },
+    spacing
+  )
+  const fontSizeProp = merge(
+    {
+      xs: '10px',
+      sm: '12px',
+      md: '14px',
+      lg: '16px',
+      xl: '18px',
+    },
+    fontSize
+  )
 
-  return ({
+  return {
     wrapper: '1080px',
     color: colorProp,
     fontSize: fontSizeProp,
-    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',
-    codeFontFamily: '"SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Courier, monospace',
+    fontFamily:
+      '-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',
+    codeFontFamily:
+      '"SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Courier, monospace',
     lineHeight: 1.5,
     transition: 'all .2s',
     btn: {
@@ -176,7 +188,7 @@ const Config = ({
         md: '240px',
       },
     },
-  });
-};
+  }
+}
 
-export default Config;
+export default Config
