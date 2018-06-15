@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  webpackConfig: require('./webpack/config.js'),
   getComponentPathLine: componentPath => {
     let name = path.basename(componentPath, '.jsx')
 
