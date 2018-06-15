@@ -1,13 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
-const PROD = process.env.NODE_ENV === 'production';
+const PROD = process.env.NODE_ENV === 'production'
 
 const defaultPlugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
-];
+]
 
 const prodPlugins = [
   new webpack.optimize.UglifyJsPlugin({
@@ -15,9 +15,9 @@ const prodPlugins = [
     mangle: { screw_ie8: true },
     output: { comments: false, screw_ie8: true },
   }),
-];
+]
 
-const plugins = PROD ? defaultPlugins.concat(prodPlugins) : defaultPlugins;
+const plugins = PROD ? defaultPlugins.concat(prodPlugins) : defaultPlugins
 
 module.exports = {
   module: {
@@ -49,4 +49,4 @@ module.exports = {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
   },
   devtool: PROD ? 'cheap-hidden-source-map' : 'cheap-module-eval-source-map',
-};
+}

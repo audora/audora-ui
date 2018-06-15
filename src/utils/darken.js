@@ -1,3 +1,6 @@
-import Color from 'color';
+import Color from 'color'
 
-export default (base, amount) => Color(base).darken(amount).hex();
+export default (base, amount) =>
+  Color(base)
+    .darken(amount)
+    .hex()

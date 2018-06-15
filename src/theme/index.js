@@ -1,2 +1,2 @@
-export { default } from './theme';
-export { default as config } from './config';
+export { default } from './theme'
+export { default as config } from './config'

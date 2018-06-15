@@ -1,9 +1,5 @@
-import darken from './darken';
-import lighten from './lighten';
-import Portal from './portal';
+import darken from './darken'
+import lighten from './lighten'
+import Portal from './portal'
 
-export {
-  darken,
-  lighten,
-  Portal,
-};
+export { darken, lighten, Portal }

@@ -1,1 +1,1 @@
-export { default } from './checkbox-group';
+export { default } from './checkbox-group'

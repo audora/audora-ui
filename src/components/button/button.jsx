@@ -1,9 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { lighten, darken } from '../../utils';
-import Icon from '../icon';
-import configTheme from '../../theme/config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
+import { lighten, darken } from '../../utils'
+import Icon from '../icon'
+import configTheme from '../../theme/config'
+
+const getHoverContainer = (type, theme) => {
+  if (type === 'primary') {
+    return lighten(theme.bg.primary, 0.15)
+  }
+  if (type === 'subtle') {
+    return theme.bg.default
+  }
+
+  return darken(theme.bg.default, 0.04)
+}
+
+const getActiveSVGContainer = (type, theme) => {
+  if (type === 'primary') {
+    return theme.color.primary
+  }
+  if (type === 'subtle') {
+    return theme.bg.primary
+  }
+
+  return theme.bg.primary
+}
+
+const getActiveBGContainer = (type, theme) => {
+  if (type === 'primary') {
+    return theme.bg.primary
+  }
+  if (type === 'subtle') {
+    return lighten(theme.bg.primary, 0.8)
+  }
+
+  return lighten(theme.bg.primary, 0.8)
+}
 
 const Container = styled.button`
   align-items: center;
@@ -21,139 +54,147 @@ const Container = styled.button`
   white-space: nowrap;
 
   &:hover {
-    background-color: ${({ appearance, theme: { btn } }) => {
-    switch (appearance) {
-      case 'primary': return lighten(btn.bg.primary, 0.15); break;
-      case 'subtle': return btn.bg.default; break;
-      default: return darken(btn.bg.default, 0.04); break;
-    }
-  }};
+    background-color: ${({ appearance, theme: { btn } }) =>
+      getHoverContainer(appearance, btn)};
   }
   &:active {
     svg {
-      color: ${({ appearance, theme: { btn } }) => {
-    switch (appearance) {
-      case 'primary': return btn.color.primary; break;
-      case 'subtle': return btn.bg.primary; break;
-      default: return btn.bg.primary; break;
+      color: ${({ appearance, theme: { btn } }) =>
+        getActiveSVGContainer(appearance, btn)};
     }
-  }};
-    }
-    color: ${({ appearance, theme: { btn } }) => {
-    switch (appearance) {
-      case 'primary': return btn.color.primary; break;
-      case 'subtle': return btn.bg.primary; break;
-      default: return btn.bg.primary; break;
-    }
-  }};
-    background-color: ${({ appearance, theme: { btn } }) => {
-    switch (appearance) {
-      case 'primary': return btn.bg.primary; break;
-      case 'subtle': return lighten(btn.bg.primary, 0.8); break;
-      default: return lighten(btn.bg.primary, 0.8); break;
-    }
-  }};
+    color: ${({ appearance, theme: { btn } }) =>
+      getActiveSVGContainer(appearance, btn)};
+    background-color: ${({ appearance, theme: { btn } }) =>
+      getActiveBGContainer(appearance, btn)};
   }
 
-  ${({ disabled }) => disabled && css`
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: default;
-  `}
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: default;
+    `}
 
-  ${({ full }) => full && css`
-    width: 100%;
-    justify-content: center;
-  `}
+  ${({ full }) =>
+    full &&
+    css`
+      width: 100%;
+      justify-content: center;
+    `}
 
   /**
    * APPEARANCEs
    */
 
-  ${({ appearance }) => appearance === 'primary' && css`
-    background-color: ${({ theme: { btn } }) => btn.bg.primary};
-    color: ${({ theme: { btn } }) => btn.color.primary};
-  `}
+  ${({ appearance }) =>
+    appearance === 'primary' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.bg.primary};
+      color: ${({ theme: { btn } }) => btn.color.primary};
+    `}
 
-  ${({ appearance }) => appearance === 'default' && css`
-    background-color: ${({ theme: { btn } }) => btn.bg.default};
-    color: ${({ theme: { btn } }) => btn.color.default};
-  `}
+  ${({ appearance }) =>
+    appearance === 'default' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.bg.default};
+      color: ${({ theme: { btn } }) => btn.color.default};
+    `}
 
-  ${({ appearance }) => appearance === 'subtle' && css`
-    background-color: ${({ theme: { btn } }) => btn.bg.subtle};
-    color: ${({ theme: { btn } }) => btn.color.subtle};
-  `}
+  ${({ appearance }) =>
+    appearance === 'subtle' &&
+    css`
+      background-color: ${({ theme: { btn } }) => btn.bg.subtle};
+      color: ${({ theme: { btn } }) => btn.color.subtle};
+    `}
 
   /**
    * SIZES
    */
 
-  ${({ size }) => size === 'tiny' && css`
-    font-size: ${({ theme: { btn } }) => btn.font.size.sm};
-    height: ${({ theme: { btn } }) => btn.height.xs};
-    padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
-    padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
-    text-transform: uppercase;
-  `}
+  ${({ size }) =>
+    size === 'tiny' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.font.size.sm};
+      height: ${({ theme: { btn } }) => btn.height.xs};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
+      text-transform: uppercase;
+    `}
 
-  ${({ size }) => size === 'small' && css`
-    font-size: ${({ theme: { btn } }) => btn.font.size.sm};
-    height: ${({ theme: { btn } }) => btn.height.sm};
-    padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
-    padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
-  `}
+  ${({ size }) =>
+    size === 'small' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.font.size.sm};
+      height: ${({ theme: { btn } }) => btn.height.sm};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
+    `}
 
-  ${({ size }) => size === 'medium' && css`
-    font-size: ${({ theme: { btn } }) => btn.font.size.md};
-    height: ${({ theme: { btn } }) => btn.height.md};
-    padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
-    padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
-  `}
+  ${({ size }) =>
+    size === 'medium' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.font.size.md};
+      height: ${({ theme: { btn } }) => btn.height.md};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
+    `}
 
-  ${({ size }) => size === 'large' && css`
-    font-size: ${({ theme: { btn } }) => btn.font.size.lg};
-    height: ${({ theme: { btn } }) => btn.height.lg};
-    padding-left: ${({ theme: { btn } }) => btn.spacing.md};
-    padding-right: ${({ theme: { btn } }) => btn.spacing.md};
-  `}
-`;
+  ${({ size }) =>
+    size === 'large' &&
+    css`
+      font-size: ${({ theme: { btn } }) => btn.font.size.lg};
+      height: ${({ theme: { btn } }) => btn.height.lg};
+      padding-left: ${({ theme: { btn } }) => btn.spacing.md};
+      padding-right: ${({ theme: { btn } }) => btn.spacing.md};
+    `}
+`
 
-Container.defaultProps = { theme: configTheme({}) };
+Container.defaultProps = { theme: configTheme({}) }
 
 const ButtonIconComponent = styled(Icon)`
   color: ${({ theme: { btn } }) => btn.color.icon};
 
-  ${({ appearance }) => appearance === 'primary' && css`
-    color: ${({ theme: { btn } }) => btn.color.iconPrimary};
-  `}
+  ${({ appearance }) =>
+    appearance === 'primary' &&
+    css`
+      color: ${({ theme: { btn } }) => btn.color.iconPrimary};
+    `}
 
-  ${({ content }) => !content && css`
-    margin-left: -5px;
-    margin-right: -5px;
-  `}
+  ${({ content }) =>
+    !content &&
+    css`
+      margin-left: -5px;
+      margin-right: -5px;
+    `}
 
-  ${({ position, content }) => position === 'left' && content && css`
-    margin-right: ${({ theme: { btn } }) => btn.spacing.xs};
-  `}
+  ${({ position, content }) =>
+    position === 'left' &&
+    content &&
+    css`
+      margin-right: ${({ theme: { btn } }) => btn.spacing.xs};
+    `}
 
-  ${({ position, content }) => position === 'right' && content && css`
-    margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
-  `}
-`;
+  ${({ position, content }) =>
+    position === 'right' &&
+    content &&
+    css`
+      margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
+    `}
+`
 
-ButtonIconComponent.defaultProps = { theme: configTheme({}) };
+ButtonIconComponent.defaultProps = { theme: configTheme({}) }
 
-const sizeProp = (size) => {
+const sizeProp = size => {
   if (size === 'medium') {
-    return 'small';
+    return 'small'
   }
   if (size === 'large') {
-    return 'medium';
+    return 'medium'
   }
 
-  return size;
-};
+  return size
+}
 
 const Button = ({
   appearance,
@@ -171,13 +212,13 @@ const Button = ({
     type={type}
     appearance={appearance}
     size={size}
-    onClick={(e) => {
+    onClick={e => {
       if (props.disabled || loading) {
-        e.preventDefault();
-        return;
+        e.preventDefault()
+        return
       }
 
-      onClick(e, props);
+      onClick(e, props)
     }}
   >
     {((icon && iconPosition === 'left') || loading) && (
@@ -191,17 +232,19 @@ const Button = ({
       />
     )}
     {content}
-    {(icon && iconPosition === 'right' && !loading) && (
-      <ButtonIconComponent
-        content={content}
-        name={icon}
-        position="right"
-        size={sizeProp(size)}
-        appearance={appearance}
-      />
-    )}
+    {icon &&
+      iconPosition === 'right' &&
+      !loading && (
+        <ButtonIconComponent
+          content={content}
+          name={icon}
+          position="right"
+          size={sizeProp(size)}
+          appearance={appearance}
+        />
+      )}
   </Container>
-);
+)
 
 Button.propTypes = {
   /**
@@ -244,7 +287,7 @@ Button.propTypes = {
    * Appearances of button.
    */
   appearance: PropTypes.oneOf(['primary', 'default', 'subtle']),
-};
+}
 
 Button.defaultProps = {
   appearance: 'default',
@@ -257,6 +300,6 @@ Button.defaultProps = {
   onClick: () => 0,
   size: 'medium',
   type: 'button',
-};
+}
 
-export default Button;
+export default Button
