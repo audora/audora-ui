@@ -1,14 +1,15 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
-  getComponentPathLine: (componentPath) => {
-    let name = path.basename(componentPath, '.jsx');
+  getComponentPathLine: componentPath => {
+    let name = path.basename(componentPath, '.jsx')
 
-    name = name.charAt(0).toUpperCase() + name.slice(1);
+    name = name.charAt(0).toUpperCase() + name.slice(1)
     name = name.replace(/[-][a-zA-Z]/g, match =>
-      match.split('')[1].toUpperCase());
+      match.split('')[1].toUpperCase()
+    )
 
-    return `import { ${name} } from "audora-ui";`;
+    return `import { ${name} } from "audora-ui";`
   },
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/theme'),
@@ -69,4 +70,4 @@ module.exports = {
   showCode: false,
   showUsage: true,
   title: 'Audora UI',
-};
+}
