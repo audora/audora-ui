@@ -18,6 +18,7 @@ const Box = system(
     cursor: 'pointer',
     display: 'flex',
     boxSizing: 'border-box',
+    alignSelf: 'center',
     justifyContent: 'center',
     width: `${props.full ? '100%' : 'auto'}`,
     backgroundColor: `${getBg(props)}`,

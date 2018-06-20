@@ -6,11 +6,12 @@ import { getPadding } from './selectors'
 const Box = props => (
   <BoxElement
     {...getPadding(props)}
+    appearance={props.appearance}
+    disabled={props.disabled}
+    full={props.full}
     is={props.type}
     onClick={props.onClick}
-    appearance={props.appearance}
-    full={props.full}
-    disabled={props.disabled}
+    style={props.style}
   >
     {props.children || props.content}
   </BoxElement>
@@ -24,6 +25,7 @@ Box.propTypes = {
   full: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+  style: PropTypes.object,
   type: PropTypes.string,
 }
 
@@ -35,6 +37,7 @@ Box.defaultProps = {
   full: false,
   onClick: () => 0,
   size: 'medium',
+  style: {},
   type: 'button',
 }
 

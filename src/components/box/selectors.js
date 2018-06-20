@@ -55,6 +55,13 @@ export const getPadding = props => {
       fontSize: 3,
     }
   }
+  if (props.size === 'small') {
+    return {
+      py: 1,
+      px: 2,
+      fontSize: 1,
+    }
+  }
 
   return {
     py: 2,
