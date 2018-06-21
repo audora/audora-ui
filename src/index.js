@@ -1,5 +1,4 @@
 export { default as Avatar } from './components/avatar'
-export { default as Box } from './components/box'
 export { default as Badge } from './components/badge'
 export { default as Breadcrumbs } from './components/breadcrumbs'
 export { default as Button } from './components/button'

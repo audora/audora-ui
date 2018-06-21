@@ -19,8 +19,7 @@
     "test": "jest",
     "test:snap": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "precommit": "npm run lint && npm test"
+    "test:coverage": "jest --coverage"
   },
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "keywords": [
