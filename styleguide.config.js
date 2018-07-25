@@ -51,10 +51,6 @@ module.exports = {
           content: 'docs/border-radius.md',
         },
         {
-          name: 'Primary Colors',
-          content: 'docs/primary-colors.md',
-        },
-        {
           name: 'Status Colors',
           content: 'docs/status-colors.md',
         },

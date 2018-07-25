@@ -1,52 +1,6 @@
 import { themeGet } from 'styled-system'
 import chroma from 'chroma-js'
 
-export const getBg = props => {
-  if (props.appearance === 'primary') {
-    return themeGet('colors.primary')(props)
-  }
-  if (props.appearance === 'subtle') {
-    return themeGet('colors.transparent')(props)
-  }
-
-  return themeGet('colors.default')(props)
-}
-
-export const getBorderColor = props => {
-  if (props.appearance === 'primary') {
-    return themeGet('colors.darken.primary')(props)
-  }
-  if (props.appearance === 'subtle') {
-    return themeGet('colors.transparent')(props)
-  }
-
-  return themeGet('colors.darken.default')(props)
-}
-
-export const getColor = props => {
-  if (props.appearance === 'primary') {
-    return themeGet('colors.white')(props)
-  }
-  if (props.appearance === 'subtle') {
-    return themeGet('colors.grey')(props)
-  }
-
-  return themeGet('colors.grey')(props)
-}
-
-export const getHoverBg = props => {
-  if (props.appearance === 'primary') {
-    return chroma(themeGet('colors.primary')(props))
-      .darken()
-      .hex()
-  }
-  if (props.appearance === 'subtle') {
-    return themeGet('colors.default')(props)
-  }
-
-  return themeGet('colors.darken.default')(props)
-}
-
 export const getPadding = props => {
   if (props.size === 'large') {
     return {
@@ -67,5 +21,77 @@ export const getPadding = props => {
     py: 2,
     px: 3,
     fontSize: 2,
+  }
+}
+
+export const getColor = props => {
+  if (props.appearance === 'subtle') {
+    return {
+      color: themeGet('colors.grey')(props),
+      backgroundColor: themeGet('colors.transparent')(props),
+      borderColor: themeGet('colors.transparent')(props),
+      '&:hover': {
+        backgroundColor: themeGet('colors.default')(props),
+      },
+      '&:focus': {
+        zIndex: 1,
+        boxShadow: `${chroma(themeGet('colors.primary')(props))
+          .alpha(0.4)
+          .css()} 0 0 0 3px`,
+      },
+    }
+  }
+
+  if (props.appearance === 'primary') {
+    return {
+      color: themeGet('colors.white')(props),
+      backgroundColor: themeGet('colors.primary')(props),
+      borderColor: themeGet('colors.dark.primary')(props),
+      '&:hover': {
+        backgroundColor: themeGet('colors.dark.primary')(props),
+      },
+      '&:focus': {
+        zIndex: 1,
+        boxShadow: `${chroma(themeGet('colors.primary')(props))
+          .alpha(0.4)
+          .css()} 0 0 0 3px`,
+      },
+    }
+  }
+
+  if (props.appearance === 'danger') {
+    return {
+      color: themeGet('colors.danger')(props),
+      backgroundColor: themeGet('colors.default')(props),
+      borderColor: themeGet('colors.dark.default')(props),
+      '&:hover': {
+        color: themeGet('colors.white')(props),
+        borderColor: themeGet('colors.dark.danger')(props),
+        backgroundColor: themeGet('colors.danger')(props),
+      },
+      '&:focus': {
+        zIndex: 1,
+        boxShadow: `${chroma(themeGet('colors.danger')(props))
+          .alpha(0.4)
+          .css()} 0 0 0 3px`,
+      },
+    }
+  }
+
+  return {
+    color: themeGet('colors.grey')(props),
+    backgroundColor: themeGet('colors.default')(props),
+    borderColor: themeGet('colors.dark.default')(props),
+    '&:hover': {
+      borderColor: themeGet('colors.darken.default')(props),
+      backgroundColor: themeGet('colors.dark.default')(props),
+    },
+    '&:focus': {
+      zIndex: 1,
+      borderColor: themeGet('colors.darken.default')(props),
+      boxShadow: `${chroma(themeGet('colors.primary')(props))
+        .alpha(0.4)
+        .css()} 0 0 0 3px`,
+    },
   }
 }

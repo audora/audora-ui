@@ -21,7 +21,7 @@ Button.propTypes = {
   /**
    * Appearances of button.
    */
-  appearance: PropTypes.oneOf(['default', 'primary', 'subtle']),
+  appearance: PropTypes.oneOf(['default', 'primary', 'subtle', 'danger']),
   /**
    * Text to be rendered.
    */

@@ -14,6 +14,14 @@
 </div>
 ```
 
+### Danger
+```jsx
+<div style={{ display: 'flex' }}>
+  <Button content="Button" appearance="danger" style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="danger" disabled />
+</div>
+```
+
 ### Subtle
 ```jsx
 <div style={{ display: 'flex' }}>
@@ -26,6 +34,8 @@
 ```jsx
 <div style={{ display: 'flex' }}>
   <Button content="Disabled" appearance="default" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="subtle" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="danger" disabled style={{ marginRight: 10 }} />
   <Button content="Disabled" appearance="primary" disabled />
 </div>
 ```
@@ -34,6 +44,7 @@
 ```jsx
 <Button content="Full" appearance="primary" full style={{ marginBottom: 10 }} />
 <Button content="Full" full style={{ marginBottom: 10 }} />
+<Button content="Full" appearance="danger" full style={{ marginBottom: 10 }} />
 <Button content="Full" appearance="subtle" full />
 ```
 
@@ -43,6 +54,11 @@
   <Button content="Small" size="small" style={{ marginRight: 10 }} />
   <Button content="Medium" style={{ marginRight: 10 }} />
   <Button content="Large" size="large" />
+</div>
+<div style={{ display: 'flex', marginBottom: 10 }}>
+  <Button appearance="danger" content="Small" size="small" style={{ marginRight: 10 }} />
+  <Button appearance="danger" content="Medium" style={{ marginRight: 10 }} />
+  <Button appearance="danger" content="Large" size="large" />
 </div>
 <div style={{ display: 'flex', marginBottom: 10 }}>
   <Button appearance="primary" content="Small" size="small" style={{ marginRight: 10 }} />

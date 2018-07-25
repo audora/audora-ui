@@ -1,14 +1,13 @@
 import system from 'system-components'
-import chroma from 'chroma-js'
-import { themeGet } from 'styled-system'
-import { getBg, getBorderColor, getColor, getHoverBg } from './selectors'
+import { getColor } from './selectors'
 
-const Box = system(
+const Button = system(
   {
     is: 'button',
     fontFamily: 'sans',
     m: 0,
     borderRadius: 3,
+    fontWeight: 'normal',
     fontSize: 2,
     border: 1,
   },
@@ -21,9 +20,8 @@ const Box = system(
     alignSelf: 'center',
     justifyContent: 'center',
     width: `${props.full ? '100%' : 'auto'}`,
-    backgroundColor: `${getBg(props)}`,
-    color: `${getColor(props)}`,
-    borderColor: `${getBorderColor(props)}`,
+
+    ...getColor(props),
 
     '&:disabled': {
       opacity: 0.5,
@@ -31,18 +29,12 @@ const Box = system(
       cursor: 'default',
     },
 
-    '&:hover': {
-      backgroundColor: `${getHoverBg(props)}`,
-    },
-
-    '&:focus': {
-      boxShadow: `${chroma(themeGet('colors.primary')(props))
-        .alpha(0.4)
-        .css()} 0 0 0 3px`,
+    '&:active': {
+      boxShadow: 'none',
     },
   })
 )
 
-Box.displayName = 'Box'
+Button.displayName = 'Button'
 
-export default Box
+export default Button
