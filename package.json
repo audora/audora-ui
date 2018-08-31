@@ -13,7 +13,7 @@
     "build:doc": "styleguidist build",
     "dev": "webpack --config webpack/dev.config.js --watch",
     "dev:doc": "styleguidist server",
-    "lint": "eslint src --ext .js,.jsx --ignore-pattern '*.spec.jsx'",
+    "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "npm run lint --fix",
     "lint:watch": "npm run lint --watch"
   },

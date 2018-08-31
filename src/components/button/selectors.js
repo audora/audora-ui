@@ -1,15 +1,15 @@
 import { themeGet } from 'styled-system'
 import chroma from 'chroma-js'
 
-export const getPadding = props => {
-  if (props.size === 'large') {
+export const getPadding = size => {
+  if (size === 'large') {
     return {
       py: 3,
       px: 4,
       fontSize: 3,
     }
   }
-  if (props.size === 'small') {
+  if (size === 'small') {
     return {
       py: 1,
       px: 2,

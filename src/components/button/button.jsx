@@ -3,17 +3,27 @@ import PropTypes from 'prop-types'
 import ButtonElement from './element'
 import { getPadding } from './selectors'
 
-const Button = props => (
+const Button = ({
+  appearance,
+  children,
+  content,
+  disabled,
+  full,
+  onClick,
+  style,
+  type,
+  size,
+}) => (
   <ButtonElement
-    {...getPadding(props)}
-    appearance={props.appearance}
-    disabled={props.disabled}
-    full={props.full}
-    is={props.type}
-    onClick={props.onClick}
-    style={props.style}
+    {...getPadding(size)}
+    appearance={appearance}
+    disabled={disabled}
+    full={full}
+    is={type}
+    onClick={onClick}
+    style={style}
   >
-    {props.children || props.content}
+    {children || content}
   </ButtonElement>
 )
 

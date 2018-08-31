@@ -22,9 +22,9 @@ const getContent = (name, img) => {
   return getName(name)
 }
 
-const Avatar = props => (
-  <AvatarElement size={props.size} square={props.square} style={props.style}>
-    {getContent(props.name, props.img)}
+const Avatar = ({ size, square, style, name, img }) => (
+  <AvatarElement size={size} square={square} style={style}>
+    {getContent(name, img)}
   </AvatarElement>
 )
 
