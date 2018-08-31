@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Avatar renders correctly 1`] = `
-<div
-  class="sc-bwzfXH jYmbZe"
->
-  J
-</div>
-`;

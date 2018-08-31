@@ -1,43 +1,73 @@
 ### Primary
 ```jsx
-<Button content="Primary" appearance="primary" />
+<div style={{ display: 'flex' }}>
+  <Button content="Button" appearance="primary" style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="primary" disabled />
+</div>
 ```
 
 ### Default
 ```jsx
-<Button content="Default" />
+<div style={{ display: 'flex' }}>
+  <Button content="Button" appearance="default" style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="default" disabled />
+</div>
+```
+
+### Danger
+```jsx
+<div style={{ display: 'flex' }}>
+  <Button content="Button" appearance="danger" style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="danger" disabled />
+</div>
 ```
 
 ### Subtle
 ```jsx
-<Button content="Subtle" appearance="subtle" />
+<div style={{ display: 'flex' }}>
+  <Button content="Subtle" appearance="subtle" />
+  <Button content="Subtle" appearance="subtle" disabled />
+</div>
 ```
 
 ### Disabled
 ```jsx
-<Button content="Disabled" disabled />
-```
-
-### Loading
-```jsx
-<Button content="Loading" loading />
-```
-
-### Icon
-```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Icon Left" icon="music" appearance="primary" />
-  <Button content="Icon Right" iconPosition="right" icon="music" appearance="primary" style={{ marginLeft: 10 }} />
-  <Button icon="anchor" appearance="primary" style={{ marginLeft: 10 }} />
+  <Button content="Disabled" appearance="default" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="subtle" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="danger" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" appearance="primary" disabled />
 </div>
+```
+
+### Full
+```jsx
+<Button content="Full" appearance="primary" full style={{ marginBottom: 10 }} />
+<Button content="Full" full style={{ marginBottom: 10 }} />
+<Button content="Full" appearance="danger" full style={{ marginBottom: 10 }} />
+<Button content="Full" appearance="subtle" full />
 ```
 
 ### Sizes
 ```jsx
-<div style={{ display: 'flex' }}>
-  <Button content="Tiny" size="tiny" style={{ marginRight: 10 }} />
+<div style={{ display: 'flex', marginBottom: 10 }}>
   <Button content="Small" size="small" style={{ marginRight: 10 }} />
   <Button content="Medium" style={{ marginRight: 10 }} />
   <Button content="Large" size="large" />
+</div>
+<div style={{ display: 'flex', marginBottom: 10 }}>
+  <Button appearance="danger" content="Small" size="small" style={{ marginRight: 10 }} />
+  <Button appearance="danger" content="Medium" style={{ marginRight: 10 }} />
+  <Button appearance="danger" content="Large" size="large" />
+</div>
+<div style={{ display: 'flex', marginBottom: 10 }}>
+  <Button appearance="primary" content="Small" size="small" style={{ marginRight: 10 }} />
+  <Button appearance="primary" content="Medium" style={{ marginRight: 10 }} />
+  <Button appearance="primary" content="Large" size="large" />
+</div>
+<div style={{ display: 'flex' }}>
+  <Button appearance="subtle" content="Small" size="small" style={{ marginRight: 10 }} />
+  <Button appearance="subtle" content="Medium" style={{ marginRight: 10 }} />
+  <Button appearance="subtle" content="Large" size="large" />
 </div>
 ```

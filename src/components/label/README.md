@@ -1,3 +1,0 @@
-```jsx
-  <Label content="Label" />
-```

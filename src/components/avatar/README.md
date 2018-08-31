@@ -1,56 +1,65 @@
 ### Circle
+
 ```jsx
-<Avatar
-  name="Groot"
-/>
+<Avatar name="Groot" />
 ```
 
 ### Square
+
+```jsx
+<Avatar name="Groot" square />
+```
+
+### Image
+
 ```jsx
 <Avatar
-  square
-  img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
   name="Groot"
+  img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
 />
 ```
 
-## Size
-### Tiny
-```jsx
-<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
-  <Avatar size="tiny" name="Groot" />
-  <Avatar size="tiny" style={{ marginLeft: 10 }} square name="Groot" />
-</div>
-```
+### Sizes
 
-### Small
 ```jsx
-<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
-  <Avatar size="small" name="Groot" />
-  <Avatar size="small" style={{ marginLeft: 10 }} square name="Groot" />
-</div>
-```
-
-### Medium
-```jsx
-<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
-  <Avatar size="medium" name="Groot" />
-  <Avatar size="medium" style={{ marginLeft: 10 }} square name="Groot" />
-</div>
-```
-
-### Large
-```jsx
-<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
-  <Avatar size="large" name="Groot" />
-  <Avatar size="large" style={{ marginLeft: 10 }} square name="Groot" />
-</div>
-```
-
-### Huge
-```jsx
-<div style={{ display: 'flex', paddingLeft: 8, paddingTop: 8 }}>
-  <Avatar size="huge" name="Groot" />
-  <Avatar size="huge" style={{ marginLeft: 10 }} square name="Groot" />
+<div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div style={{ display: 'flex', marginBottom: 20 }}>
+    <Avatar size="tiny" name="Tiny" style={{ marginRight: 10 }} />
+    <Avatar size="small" name="Small" style={{ marginRight: 10 }} />
+    <Avatar size="medium" name="Medium" style={{ marginRight: 10 }} />
+    <Avatar size="large" name="Large" style={{ marginRight: 10 }} />
+    <Avatar size="huge" name="Huge" />
+  </div>
+  <div style={{ display: 'flex' }}>
+    <Avatar
+      img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
+      size="tiny"
+      name="Tiny"
+      style={{ marginRight: 10 }}
+    />
+    <Avatar
+      img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
+      size="small"
+      name="Small"
+      style={{ marginRight: 10 }}
+    />
+    <Avatar
+      img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
+      size="medium"
+      name="Medium"
+      style={{ marginRight: 10 }}
+    />
+    <Avatar
+      img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
+      size="large"
+      name="Large"
+      style={{ marginRight: 10 }}
+    />
+    <Avatar
+      img="https://i.pinimg.com/736x/e8/c1/4e/e8c14ecc4d4c7849abb60d738c6b76c9.jpg"
+      size="huge"
+      name="Huge"
+    />
+  </div>
 </div>
 ```

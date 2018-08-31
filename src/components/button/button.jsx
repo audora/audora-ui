@@ -1,276 +1,53 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
-import { lighten, darken } from '../../utils'
-import Icon from '../icon'
-import configTheme from '../../theme/config'
-
-const getHoverContainer = (type, theme) => {
-  if (type === 'primary') {
-    return lighten(theme.bg.primary, 0.15)
-  }
-  if (type === 'subtle') {
-    return theme.bg.default
-  }
-
-  return darken(theme.bg.default, 0.04)
-}
-
-const getActiveSVGContainer = (type, theme) => {
-  if (type === 'primary') {
-    return theme.color.primary
-  }
-  if (type === 'subtle') {
-    return theme.bg.primary
-  }
-
-  return theme.bg.primary
-}
-
-const getActiveBGContainer = (type, theme) => {
-  if (type === 'primary') {
-    return theme.bg.primary
-  }
-  if (type === 'subtle') {
-    return lighten(theme.bg.primary, 0.8)
-  }
-
-  return lighten(theme.bg.primary, 0.8)
-}
-
-const Container = styled.button`
-  align-items: center;
-  font-family: ${({ theme }) => theme.fontFamily};
-  border-radius: ${({ theme: { btn } }) => btn.border.radius};
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: ${({ theme: { btn } }) => btn.font.weight};
-  transition: background-color .1s;
-  position: relative;
-  touch-action: manipulation;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-
-  &:hover {
-    background-color: ${({ appearance, theme: { btn } }) =>
-      getHoverContainer(appearance, btn)};
-  }
-  &:active {
-    svg {
-      color: ${({ appearance, theme: { btn } }) =>
-        getActiveSVGContainer(appearance, btn)};
-    }
-    color: ${({ appearance, theme: { btn } }) =>
-      getActiveSVGContainer(appearance, btn)};
-    background-color: ${({ appearance, theme: { btn } }) =>
-      getActiveBGContainer(appearance, btn)};
-  }
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      opacity: 0.5;
-      pointer-events: none;
-      cursor: default;
-    `}
-
-  ${({ full }) =>
-    full &&
-    css`
-      width: 100%;
-      justify-content: center;
-    `}
-
-  /**
-   * APPEARANCEs
-   */
-
-  ${({ appearance }) =>
-    appearance === 'primary' &&
-    css`
-      background-color: ${({ theme: { btn } }) => btn.bg.primary};
-      color: ${({ theme: { btn } }) => btn.color.primary};
-    `}
-
-  ${({ appearance }) =>
-    appearance === 'default' &&
-    css`
-      background-color: ${({ theme: { btn } }) => btn.bg.default};
-      color: ${({ theme: { btn } }) => btn.color.default};
-    `}
-
-  ${({ appearance }) =>
-    appearance === 'subtle' &&
-    css`
-      background-color: ${({ theme: { btn } }) => btn.bg.subtle};
-      color: ${({ theme: { btn } }) => btn.color.subtle};
-    `}
-
-  /**
-   * SIZES
-   */
-
-  ${({ size }) =>
-    size === 'tiny' &&
-    css`
-      font-size: ${({ theme: { btn } }) => btn.font.size.sm};
-      height: ${({ theme: { btn } }) => btn.height.xs};
-      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
-      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
-      text-transform: uppercase;
-    `}
-
-  ${({ size }) =>
-    size === 'small' &&
-    css`
-      font-size: ${({ theme: { btn } }) => btn.font.size.sm};
-      height: ${({ theme: { btn } }) => btn.height.sm};
-      padding-left: ${({ theme: { btn } }) => btn.spacing.xs};
-      padding-right: ${({ theme: { btn } }) => btn.spacing.xs};
-    `}
-
-  ${({ size }) =>
-    size === 'medium' &&
-    css`
-      font-size: ${({ theme: { btn } }) => btn.font.size.md};
-      height: ${({ theme: { btn } }) => btn.height.md};
-      padding-left: ${({ theme: { btn } }) => btn.spacing.sm};
-      padding-right: ${({ theme: { btn } }) => btn.spacing.sm};
-    `}
-
-  ${({ size }) =>
-    size === 'large' &&
-    css`
-      font-size: ${({ theme: { btn } }) => btn.font.size.lg};
-      height: ${({ theme: { btn } }) => btn.height.lg};
-      padding-left: ${({ theme: { btn } }) => btn.spacing.md};
-      padding-right: ${({ theme: { btn } }) => btn.spacing.md};
-    `}
-`
-
-Container.defaultProps = { theme: configTheme({}) }
-
-const ButtonIconComponent = styled(Icon)`
-  color: ${({ theme: { btn } }) => btn.color.icon};
-
-  ${({ appearance }) =>
-    appearance === 'primary' &&
-    css`
-      color: ${({ theme: { btn } }) => btn.color.iconPrimary};
-    `}
-
-  ${({ content }) =>
-    !content &&
-    css`
-      margin-left: -5px;
-      margin-right: -5px;
-    `}
-
-  ${({ position, content }) =>
-    position === 'left' &&
-    content &&
-    css`
-      margin-right: ${({ theme: { btn } }) => btn.spacing.xs};
-    `}
-
-  ${({ position, content }) =>
-    position === 'right' &&
-    content &&
-    css`
-      margin-left: ${({ theme: { btn } }) => btn.spacing.xs};
-    `}
-`
-
-ButtonIconComponent.defaultProps = { theme: configTheme({}) }
-
-const sizeProp = size => {
-  if (size === 'medium') {
-    return 'small'
-  }
-  if (size === 'large') {
-    return 'medium'
-  }
-
-  return size
-}
+import ButtonElement from './element'
+import { getPadding } from './selectors'
 
 const Button = ({
   appearance,
+  children,
   content,
-  icon,
-  iconPosition,
-  loading,
+  disabled,
+  full,
   onClick,
-  size,
+  style,
   type,
-  ...props
+  size,
 }) => (
-  <Container
-    {...props}
-    type={type}
+  <ButtonElement
+    {...getPadding(size)}
     appearance={appearance}
-    size={size}
-    onClick={e => {
-      if (props.disabled || loading) {
-        e.preventDefault()
-        return
-      }
-
-      onClick(e, props)
-    }}
+    disabled={disabled}
+    full={full}
+    is={type}
+    onClick={onClick}
+    style={style}
   >
-    {((icon && iconPosition === 'left') || loading) && (
-      <ButtonIconComponent
-        content={content}
-        name={loading ? 'loader' : icon}
-        position="left"
-        size={sizeProp(size)}
-        spin={loading}
-        appearance={appearance}
-      />
-    )}
-    {content}
-    {icon &&
-      iconPosition === 'right' &&
-      !loading && (
-        <ButtonIconComponent
-          content={content}
-          name={icon}
-          position="right"
-          size={sizeProp(size)}
-          appearance={appearance}
-        />
-      )}
-  </Container>
+    {children || content}
+  </ButtonElement>
 )
 
 Button.propTypes = {
   /**
+   * Appearances of button.
+   */
+  appearance: PropTypes.oneOf(['default', 'primary', 'subtle', 'danger']),
+  /**
    * Text to be rendered.
    */
-  content: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /**
-   * Button disable.
+   * Text to be rendered.
+   */
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /**
+   * Button disabled.
    */
   disabled: PropTypes.bool,
   /**
    * Width 100%.
    */
   full: PropTypes.bool,
-  /**
-   * Adds an icon to the button.
-   */
-  icon: PropTypes.string,
-  /**
-   * Chooce the side of the icon.
-   */
-  iconPosition: PropTypes.oneOf(['left', 'right']),
-  /**
-   * Button loading.
-   */
-  loading: PropTypes.bool,
   /**
    * Handler to be called when the button is clicked.
    */
@@ -280,25 +57,24 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /**
+   * Props of theme provided by `Themer`.
+   */
+  style: PropTypes.object,
+  /**
    * Type of button.
    */
   type: PropTypes.string,
-  /**
-   * Appearances of button.
-   */
-  appearance: PropTypes.oneOf(['primary', 'default', 'subtle']),
 }
 
 Button.defaultProps = {
   appearance: 'default',
+  children: null,
   content: null,
   disabled: false,
   full: false,
-  icon: '',
-  iconPosition: 'left',
-  loading: false,
   onClick: () => 0,
   size: 'medium',
+  style: {},
   type: 'button',
 }
 
