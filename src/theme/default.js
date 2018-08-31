@@ -1,23 +1,21 @@
-import chroma from 'chroma-js'
+// http://www.0to255.com
 
 const colorSystem = {
   danger: '#b5202c',
-  primary: '#217EE7',
   default: '#ebedf0',
+  primary: '#217EE7',
 }
 
-const colorSystemdark = {
+const colorSystemDark = {
   dark: {
-    primary: chroma(colorSystem.primary)
-      .darken()
-      .hex(),
-    danger: chroma(colorSystem.danger)
-      .darken()
-      .hex(),
-    default: '#ddd',
+    danger: '#981b25', // -2 of b5202c
+    default: '#d8dce1', // -2 of #ebedf0
+    primary: '#166dd0', // -2 of #217EE7
   },
   darken: {
-    default: '#ccc',
+    danger: '#7b161e', // -4 of b5202c
+    default: '#c4cad3', // -4 of #ebedf0
+    primary: '#135db1', // -4 of #217EE7
   },
 }
 
@@ -31,9 +29,9 @@ export default {
   },
   colors: {
     ...colorSystem,
-    ...colorSystemdark,
+    ...colorSystemDark,
     transparent: 'transparent',
-    grey: '#666',
+    grey: '#667388', // -14 of #ebedf0
     black: '#111',
     white: '#fff',
   },
