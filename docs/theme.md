@@ -15,27 +15,3 @@ const MyApplication = () => (
     />
   </Theme>
 );
-```
-or you can use a primary color
-
-```js static
-import { Theme } from 'audora-ui';
-
-/*
- * @colors
- *
- * blue
- * green
- * navy
- * red
- */
-
-const MyApplication = () => (
-  <Theme color="red">
-    <Button
-      content="Click"
-      onClick={() => alert("Button was clicked!")}
-    />
-  </Theme>
-);
-```

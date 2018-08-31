@@ -36,27 +36,6 @@ module.exports = {
       ],
     },
     {
-      name: 'Design',
-      sections: [
-        {
-          name: 'Typography',
-          content: 'docs/typography.md',
-        },
-        {
-          name: 'Spacing',
-          content: 'docs/spacing.md',
-        },
-        {
-          name: 'Border Radius',
-          content: 'docs/border-radius.md',
-        },
-        {
-          name: 'Status Colors',
-          content: 'docs/status-colors.md',
-        },
-      ],
-    },
-    {
       name: 'Components',
       components: 'src/components/**/*.jsx',
     },
