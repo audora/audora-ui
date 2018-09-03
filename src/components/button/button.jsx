@@ -4,7 +4,7 @@ import ButtonElement from './element'
 import { getPadding } from './selectors'
 
 const Button = ({
-  appearance,
+  variant,
   children,
   content,
   disabled,
@@ -16,7 +16,7 @@ const Button = ({
 }) => (
   <ButtonElement
     {...getPadding(size)}
-    appearance={appearance}
+    variant={variant}
     disabled={disabled}
     full={full}
     is={type}
@@ -29,9 +29,9 @@ const Button = ({
 
 Button.propTypes = {
   /**
-   * Appearances of button.
+   * variants of button.
    */
-  appearance: PropTypes.oneOf(['default', 'primary', 'subtle', 'danger']),
+  variant: PropTypes.oneOf(['default', 'primary', 'subtle', 'danger']),
   /**
    * Text to be rendered.
    */
@@ -67,7 +67,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  appearance: 'default',
+  variant: 'default',
   children: null,
   content: null,
   disabled: false,

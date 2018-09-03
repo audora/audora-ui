@@ -25,7 +25,7 @@ export const getPadding = size => {
 }
 
 export const getColor = props => {
-  if (props.appearance === 'subtle') {
+  if (props.variant === 'subtle') {
     return {
       color: themeGet('colors.grey')(props),
       backgroundColor: themeGet('colors.transparent')(props),
@@ -42,7 +42,7 @@ export const getColor = props => {
     }
   }
 
-  if (props.appearance === 'primary') {
+  if (props.variant === 'primary') {
     return {
       color: themeGet('colors.white')(props),
       backgroundColor: themeGet('colors.primary')(props),
@@ -59,7 +59,7 @@ export const getColor = props => {
     }
   }
 
-  if (props.appearance === 'danger') {
+  if (props.variant === 'danger') {
     return {
       color: themeGet('colors.danger')(props),
       backgroundColor: themeGet('colors.default')(props),
