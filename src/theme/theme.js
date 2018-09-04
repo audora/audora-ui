@@ -7,6 +7,8 @@ import themeDefault from './default'
 const Theme = ({ children, theme }) => {
   const themeConfig = merge(themeDefault, theme)
 
+  console.log(JSON.stringify(themeConfig))
+
   return <ThemeProvider theme={themeConfig}>{children}</ThemeProvider>
 }
 
