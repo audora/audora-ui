@@ -31,11 +31,11 @@ export const getColor = props => {
       backgroundColor: themeGet('colors.transparent')(props),
       borderColor: themeGet('colors.transparent')(props),
       '&:hover': {
-        backgroundColor: themeGet('colors.default')(props),
+        backgroundColor: themeGet('colors.default.normal')(props),
       },
       '&:focus': {
         zIndex: 1,
-        boxShadow: `${chroma(themeGet('colors.primary')(props))
+        boxShadow: `${chroma(themeGet('colors.primary.normal')(props))
           .alpha(0.4)
           .css()} 0 0 0 3px`,
       },
@@ -45,14 +45,14 @@ export const getColor = props => {
   if (props.variant === 'primary') {
     return {
       color: themeGet('colors.white')(props),
-      backgroundColor: themeGet('colors.primary')(props),
-      borderColor: themeGet('colors.dark.primary')(props),
+      backgroundColor: themeGet('colors.primary.normal')(props),
+      borderColor: themeGet('colors.primary.dark')(props),
       '&:hover': {
-        backgroundColor: themeGet('colors.dark.primary')(props),
+        backgroundColor: themeGet('colors.primary.dark')(props),
       },
       '&:focus': {
         zIndex: 1,
-        boxShadow: `${chroma(themeGet('colors.primary')(props))
+        boxShadow: `${chroma(themeGet('colors.primary.normal')(props))
           .alpha(0.4)
           .css()} 0 0 0 3px`,
       },
@@ -61,17 +61,17 @@ export const getColor = props => {
 
   if (props.variant === 'danger') {
     return {
-      color: themeGet('colors.danger')(props),
-      backgroundColor: themeGet('colors.default')(props),
-      borderColor: themeGet('colors.dark.default')(props),
+      color: themeGet('colors.danger.normal')(props),
+      backgroundColor: themeGet('colors.default.normal')(props),
+      borderColor: themeGet('colors.default.dark')(props),
       '&:hover': {
         color: themeGet('colors.white')(props),
-        borderColor: themeGet('colors.dark.danger')(props),
-        backgroundColor: themeGet('colors.danger')(props),
+        borderColor: themeGet('colors.danger.dark')(props),
+        backgroundColor: themeGet('colors.danger.normal')(props),
       },
       '&:focus': {
         zIndex: 1,
-        boxShadow: `${chroma(themeGet('colors.danger')(props))
+        boxShadow: `${chroma(themeGet('colors.danger.normal')(props))
           .alpha(0.4)
           .css()} 0 0 0 3px`,
       },
@@ -80,16 +80,16 @@ export const getColor = props => {
 
   return {
     color: themeGet('colors.grey')(props),
-    backgroundColor: themeGet('colors.default')(props),
-    borderColor: themeGet('colors.dark.default')(props),
+    backgroundColor: themeGet('colors.default.normal')(props),
+    borderColor: themeGet('colors.default.dark')(props),
     '&:hover': {
-      borderColor: themeGet('colors.darken.default')(props),
-      backgroundColor: themeGet('colors.dark.default')(props),
+      borderColor: themeGet('colors.default.darken')(props),
+      backgroundColor: themeGet('colors.default.dark')(props),
     },
     '&:focus': {
       zIndex: 1,
-      borderColor: themeGet('colors.darken.default')(props),
-      boxShadow: `${chroma(themeGet('colors.primary')(props))
+      borderColor: themeGet('colors.default.darken')(props),
+      boxShadow: `${chroma(themeGet('colors.primary.normal')(props))
         .alpha(0.4)
         .css()} 0 0 0 3px`,
     },

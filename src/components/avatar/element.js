@@ -20,8 +20,8 @@ const Avatar = system(
     alignItems: 'center',
     justifyContent: 'center',
     color: themeGet('colors.grey')(props),
-    backgroundColor: themeGet('colors.default')(props),
-    borderColor: themeGet('colors.dark.default')(props),
+    backgroundColor: themeGet('colors.default.normal')(props),
+    borderColor: themeGet('colors.default.dark')(props),
     ...getSize(props),
   })
 )

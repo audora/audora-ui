@@ -36,6 +36,19 @@ module.exports = {
       ],
     },
     {
+      name: 'Design',
+      sections: [
+        {
+          name: 'Typography',
+          content: 'docs/typography.md',
+        },
+        {
+          name: 'Colors',
+          content: 'docs/colors.md',
+        },
+      ],
+    },
+    {
       name: 'Components',
       components: 'src/components/**/*.jsx',
     },
