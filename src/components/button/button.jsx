@@ -55,7 +55,7 @@ Button.propTypes = {
   /**
    * Sizes of buttons.
    */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   /**
    * Props of theme provided by `Themer`.
    */
