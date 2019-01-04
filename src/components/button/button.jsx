@@ -1,62 +1,63 @@
-import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import ButtonElement from './element'
-import { getPadding } from './selectors'
-
-const Button = ({
+import {
+  fontFamily,
+  borders,
+  borderRadius,
+  buttonStyle,
   variant,
-  children,
-  content,
-  disabled,
-  full,
-  size,
-  ...rest
-}) => {
-  const buttonProps = {
-    variant,
-    disabled,
-    full,
-    ...getPadding(size),
-    ...rest,
-  }
+} from 'styled-system'
+import Box from '../box'
+import { themed } from '../../utils'
 
-  return <ButtonElement {...buttonProps}>{children || content}</ButtonElement>
-}
+const buttonSize = variant({
+  key: 'buttonSizes',
+  prop: 'size',
+})
+
+const Button = styled(Box)(
+  props => ({
+    appearance: 'none',
+    outline: 'none',
+    display: 'inline-block',
+    textAlign: 'center',
+    lineHeight: 'inherit',
+    textDecoration: 'none',
+    fontWeight: 'normal',
+    cursor: 'pointer',
+    width: props.full ? '100%' : 'auto',
+    '&:disabled': {
+      opacity: 0.5,
+      pointerEvents: 'none',
+      cursor: 'default',
+    },
+  }),
+  fontFamily,
+  borders,
+  borderRadius,
+  buttonStyle,
+  buttonSize,
+  themed('Button')
+)
 
 Button.propTypes = {
-  /**
-   * variants of button.
-   */
-  variant: PropTypes.oneOf(['default', 'primary', 'subtle', 'danger']),
-  /**
-   * Text to be rendered.
-   */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Text to be rendered.
-   */
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Button disabled.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Width 100%.
-   */
-  full: PropTypes.bool,
-  /**
-   * Sizes of buttons.
-   */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  ...borders.propTypes,
+  ...fontFamily.propTypes,
+  ...borderRadius.propTypes,
+  ...buttonStyle.propTypes,
 }
 
 Button.defaultProps = {
+  as: 'button',
+  fontFamily: 'sans',
   variant: 'default',
-  children: null,
-  content: null,
-  disabled: false,
-  full: false,
-  size: 'medium',
+  fontSize: 'inherit',
+  m: 0,
+  px: 3,
+  py: 2,
+  border: 0,
+  borderRadius: 4,
 }
 
 export default Button

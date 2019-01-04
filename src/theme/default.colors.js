@@ -18,7 +18,7 @@ export default {
     darken: '#7b161e', // -4
   },
   transparent: 'transparent',
-  grey: '#667388', // -14 of #ebedf0
-  black: '#111',
+  grey: ['#576374'],
+  black: '#000',
   white: '#fff',
 }

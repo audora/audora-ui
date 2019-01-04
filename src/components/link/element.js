@@ -1,4 +1,4 @@
-import system from 'system-components'
+import system from '@rebass/components'
 import { themeGet } from 'styled-system'
 
 const Input = system(

@@ -1,4 +1,4 @@
-import system from 'system-components'
+import system from '@rebass/components'
 import { getColor } from './selectors'
 
 const Input = system(
