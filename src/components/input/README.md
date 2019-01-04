@@ -30,7 +30,7 @@
 
 ```jsx
 <div style={{ display: 'flex', marginBottom: 10 }}>
-  <Input placeholder="E-mail" style={{ marginRight: 10 }} />
+  <Input placeholder="E-mail" value="email@example.com" style={{ marginRight: 10 }} />
   <Input placeholder="Password" type="password" style={{ marginRight: 10 }} />
   <Button content="Login" variant="primary" />
 </div>
