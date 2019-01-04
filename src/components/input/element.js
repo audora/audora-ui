@@ -28,10 +28,6 @@ const Input = system(
       pointerEvents: 'none',
       cursor: 'default',
     },
-
-    '&:active': {
-      boxShadow: 'none',
-    },
   })
 )
 
