@@ -22,11 +22,15 @@ const getContent = (name, img) => {
   return getName(name)
 }
 
-const Avatar = ({ size, square, style, name, img }) => (
-  <AvatarElement size={size} square={square} style={style}>
-    {getContent(name, img)}
-  </AvatarElement>
-)
+const Avatar = ({ size, square, style, name, img, ...rest }) => {
+  const avatarProps = {
+    size,
+    square,
+    ...rest,
+  }
+
+  return <AvatarElement {...avatarProps}>{getContent(name, img)}</AvatarElement>
+}
 
 Avatar.propTypes = {
   /**
@@ -45,10 +49,6 @@ Avatar.propTypes = {
    * Avatar size.
    */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'huge']),
-  /**
-   * Props of theme provided by `Themer`.
-   */
-  style: PropTypes.object,
 }
 
 Avatar.defaultProps = {
@@ -56,7 +56,6 @@ Avatar.defaultProps = {
   name: '',
   size: 'medium',
   square: false,
-  style: {},
 }
 
 export default Avatar

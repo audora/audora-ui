@@ -1,7 +1,7 @@
 ### Primary
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Button" variant="primary" style={{ marginRight: 10 }} />
+  <Button content="Button" variant="primary" mr={10} />
   <Button content="Disabled" variant="primary" disabled />
 </div>
 ```
@@ -9,7 +9,7 @@
 ### Default
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Button" variant="default" style={{ marginRight: 10 }} />
+  <Button content="Button" variant="default" mr={10} />
   <Button content="Disabled" variant="default" disabled />
 </div>
 ```
@@ -17,7 +17,7 @@
 ### Danger
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Button" variant="danger" style={{ marginRight: 10 }} />
+  <Button content="Button" variant="danger" mr={10} />
   <Button content="Disabled" variant="danger" disabled />
 </div>
 ```
@@ -33,41 +33,41 @@
 ### Disabled
 ```jsx
 <div style={{ display: 'flex' }}>
-  <Button content="Disabled" variant="default" disabled style={{ marginRight: 10 }} />
-  <Button content="Disabled" variant="subtle" disabled style={{ marginRight: 10 }} />
-  <Button content="Disabled" variant="danger" disabled style={{ marginRight: 10 }} />
+  <Button content="Disabled" variant="default" disabled mr={10} />
+  <Button content="Disabled" variant="subtle" disabled mr={10} />
+  <Button content="Disabled" variant="danger" disabled mr={10} />
   <Button content="Disabled" variant="primary" disabled />
 </div>
 ```
 
 ### Full
 ```jsx
-<Button content="Full" variant="primary" full style={{ marginBottom: 10 }} />
-<Button content="Full" full style={{ marginBottom: 10 }} />
-<Button content="Full" variant="danger" full style={{ marginBottom: 10 }} />
+<Button content="Full" variant="primary" full mb={10} />
+<Button content="Full" full mb={10} />
+<Button content="Full" variant="danger" full mb={10} />
 <Button content="Full" variant="subtle" full />
 ```
 
 ### Sizes
 ```jsx
 <div style={{ display: 'flex', marginBottom: 10 }}>
-  <Button content="Small" size="small" style={{ marginRight: 10 }} />
-  <Button content="Medium" style={{ marginRight: 10 }} />
+  <Button content="Small" size="small" mr={10} />
+  <Button content="Medium" mr={10} />
   <Button content="Large" size="large" />
 </div>
 <div style={{ display: 'flex', marginBottom: 10 }}>
-  <Button variant="danger" content="Small" size="small" style={{ marginRight: 10 }} />
-  <Button variant="danger" content="Medium" style={{ marginRight: 10 }} />
+  <Button variant="danger" content="Small" size="small" mr={10} />
+  <Button variant="danger" content="Medium" mr={10} />
   <Button variant="danger" content="Large" size="large" />
 </div>
 <div style={{ display: 'flex', marginBottom: 10 }}>
-  <Button variant="primary" content="Small" size="small" style={{ marginRight: 10 }} />
-  <Button variant="primary" content="Medium" style={{ marginRight: 10 }} />
+  <Button variant="primary" content="Small" size="small" mr={10} />
+  <Button variant="primary" content="Medium" mr={10} />
   <Button variant="primary" content="Large" size="large" />
 </div>
 <div style={{ display: 'flex' }}>
-  <Button variant="subtle" content="Small" size="small" style={{ marginRight: 10 }} />
-  <Button variant="subtle" content="Medium" style={{ marginRight: 10 }} />
+  <Button variant="subtle" content="Small" size="small" mr={10} />
+  <Button variant="subtle" content="Medium" mr={10} />
   <Button variant="subtle" content="Large" size="large" />
 </div>
 ```

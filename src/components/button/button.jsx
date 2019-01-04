@@ -9,23 +9,19 @@ const Button = ({
   content,
   disabled,
   full,
-  onClick,
-  style,
-  type,
   size,
-}) => (
-  <ButtonElement
-    {...getPadding(size)}
-    variant={variant}
-    disabled={disabled}
-    full={full}
-    is={type}
-    onClick={onClick}
-    style={style}
-  >
-    {children || content}
-  </ButtonElement>
-)
+  ...rest
+}) => {
+  const buttonProps = {
+    variant,
+    disabled,
+    full,
+    ...getPadding(size),
+    ...rest,
+  }
+
+  return <ButtonElement {...buttonProps}>{children || content}</ButtonElement>
+}
 
 Button.propTypes = {
   /**
@@ -49,21 +45,9 @@ Button.propTypes = {
    */
   full: PropTypes.bool,
   /**
-   * Handler to be called when the button is clicked.
-   */
-  onClick: PropTypes.func,
-  /**
    * Sizes of buttons.
    */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Props of theme provided by `Themer`.
-   */
-  style: PropTypes.object,
-  /**
-   * Type of button.
-   */
-  type: PropTypes.string,
 }
 
 Button.defaultProps = {
@@ -72,10 +56,7 @@ Button.defaultProps = {
   content: null,
   disabled: false,
   full: false,
-  onClick: () => 0,
   size: 'medium',
-  style: {},
-  type: 'button',
 }
 
 export default Button
