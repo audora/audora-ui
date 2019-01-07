@@ -13,7 +13,6 @@ const Button = styled(Flex)(
   props => ({
     appearance: 'none',
     outline: 'none',
-    justifyContent: 'center',
     alignSelf: 'center',
     textDecoration: 'none',
     fontWeight: 'normal',
@@ -43,6 +42,7 @@ Button.defaultProps = {
   as: 'button',
   fontFamily: 'sans',
   variant: 'default',
+  justifyContent: 'center',
   fontSize: 'inherit',
   m: 0,
   px: 3,

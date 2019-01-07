@@ -1,9 +1,13 @@
 import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
-import ListElement from './element'
+import styled from 'styled-components'
+import Flex from '../flex'
 import Button from '../button'
+import { themed } from '../../utils'
 
-const List = ({ children, size, is, ...rest }) => (
+const ListElement = styled(Flex)({ flexDirection: 'column' }, themed('List'))
+
+const List = ({ children, size, as, ...rest }) => (
   <ListElement {...rest}>
     {Children.map(children, (child, idx) => {
       if (child === null || child === false) {
@@ -14,7 +18,7 @@ const List = ({ children, size, is, ...rest }) => (
         key: idx,
         mt: idx === 0 ? 0 : 2,
         size,
-        is,
+        as,
         justifyContent: 'space-between',
       })
     })}
@@ -33,21 +37,21 @@ List.propTypes = {
   /**
    * Items to be rendered.
    */
-  is: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 List.defaultProps = {
   children: '',
   size: 'medium',
-  is: 'a',
+  as: 'a',
 }
 
-List.Item = ({ children, content, variant, count, selected, ...rest }) => {
+List.Item = ({ children, variant, count, selected, ...rest }) => {
   const variantProp = selected ? 'primary' : 'subtle'
 
   return (
     <Button variant={variantProp} full {...rest}>
-      {children || content}
+      <Flex>{children}</Flex>
       {count && <b>{count}</b>}
     </Button>
   )
