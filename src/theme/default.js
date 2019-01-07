@@ -54,6 +54,29 @@ export default {
       fontSize: fontSizes[3],
     },
   },
+  inputSizes: {
+    small: {
+      paddingTop: space[1],
+      paddingBottom: space[1],
+      paddingLeft: space[2],
+      paddingRight: space[2],
+      fontSize: fontSizes[1],
+    },
+    medium: {
+      paddingTop: space[2],
+      paddingBottom: space[2],
+      paddingLeft: space[3],
+      paddingRight: space[3],
+      fontSize: fontSizes[2],
+    },
+    large: {
+      paddingTop: space[3],
+      paddingBottom: space[3],
+      paddingLeft: space[4],
+      paddingRight: space[4],
+      fontSize: fontSizes[3],
+    },
+  },
   buttons: {
     default: {
       color: colors.grey[0],

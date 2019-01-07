@@ -11,7 +11,7 @@
 ### Inverted
 
 ```jsx
-<List inverted bg="black" p={10} borderRadius={3}>
+<List inverted bg="black" p={10} borderRadius={10}>
   <List.Item href="#list" count={30} selected>First</List.Item>
   <List.Item href="#list" count={20}>Second</List.Item>
   <List.Item href="#list" count={10}>Third</List.Item>

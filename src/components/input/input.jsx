@@ -1,64 +1,60 @@
-import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import InputElement from './element'
-import { getPadding } from './selectors'
+import { variant } from 'styled-system'
+import chroma from 'chroma-js'
+import Flex from '../flex'
+import { themed } from '../../utils'
 
-const Input = ({ disabled, full, required, size, ...rest }) => {
-  const inputProps = {
-    required,
-    disabled,
-    full,
-    ...getPadding(size),
-    ...rest,
-  }
+const inputSize = variant({
+  key: 'inputSizes',
+  prop: 'size',
+})
 
-  return <InputElement {...inputProps} />
-}
+const Input = styled(Flex)(
+  props => ({
+    appearance: 'none',
+    outline: 'none',
+    alignSelf: 'center',
+    textDecoration: 'none',
+    fontWeight: 'normal',
+    fontFamily: 'inherit',
+    border: 1,
+    borderStyle: 'solid',
+    borderRadius: 4,
+    paddingTop: props.theme.space[2],
+    paddingBottom: props.theme.space[2],
+    paddingLeft: props.theme.space[3],
+    paddingRight: props.theme.space[3],
+    fontSize: props.theme.fontSizes[2],
+    color: props.theme.colors.black,
+    backgroundColor: props.theme.colors.white,
+    borderColor: props.theme.colors.default[1],
+    width: props.full ? '100%' : 'auto',
+    '&:disabled': {
+      opacity: 0.5,
+      pointerEvents: 'none',
+    },
+    '&:hover': {
+      borderColor: props.theme.colors.default[2],
+    },
+    '&:focus': {
+      zIndex: 1,
+      borderColor: props.theme.colors.primary[1],
+      boxShadow: `${chroma(props.theme.colors.primary[0])
+        .alpha(0.4)
+        .css()} 0 0 0 ${props.theme.space[1]}px`,
+    },
+  }),
+  inputSize,
+  themed('Input')
+)
 
 Input.propTypes = {
-  /**
-   * Input placeholder.
-   */
-  placeholder: PropTypes.string,
-  /**
-   * Input disabled.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Input required.
-   */
-  required: PropTypes.bool,
-  /**
-   * Width 100%.
-   */
-  full: PropTypes.bool,
-  /**
-   * Handler to be called when the input is modified.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Sizes of inputs.
-   */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Props of theme provided by `Themer`.
-   */
-  style: PropTypes.object,
-  /**
-   * Type of input.
-   */
-  type: PropTypes.string,
 }
 
 Input.defaultProps = {
-  placeholder: '',
-  disabled: false,
-  full: false,
-  required: false,
-  onChange: () => 0,
-  size: 'medium',
-  style: {},
-  type: 'text',
+  as: 'input',
 }
 
 export default Input

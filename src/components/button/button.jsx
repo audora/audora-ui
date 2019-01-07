@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { fontFamily, buttonStyle, variant } from 'styled-system'
+import { buttonStyle, variant } from 'styled-system'
+import chroma from 'chroma-js'
 import Flex from '../flex'
 import { themed } from '../../utils'
 
@@ -17,6 +18,12 @@ const Button = styled(Flex)(
     textDecoration: 'none',
     fontWeight: 'normal',
     cursor: 'pointer',
+    fontFamily: 'inherit',
+    paddingTop: props.theme.space[2],
+    paddingBottom: props.theme.space[2],
+    paddingLeft: props.theme.space[3],
+    paddingRight: props.theme.space[3],
+    fontSize: props.theme.fontSizes[2],
     border: 0,
     borderRadius: 4,
     width: props.full ? '100%' : 'auto',
@@ -25,8 +32,24 @@ const Button = styled(Flex)(
       pointerEvents: 'none',
       cursor: 'default',
     },
+    color: props.theme.colors.grey[0],
+    backgroundColor: props.theme.colors.default[0],
+    borderColor: props.theme.colors.default[1],
+    '&:hover': {
+      borderColor: props.theme.colors.default[2],
+      backgroundColor: props.theme.colors.default[1],
+    },
+    '&:focus': {
+      zIndex: 1,
+      borderColor: props.theme.colors.default[2],
+      boxShadow: `${chroma(props.theme.colors.primary[0])
+        .alpha(0.4)
+        .css()} 0 0 0 ${props.theme.space[1]}px`,
+    },
+    '&:active': {
+      boxShadow: 'none',
+    },
   }),
-  fontFamily,
   buttonStyle,
   buttonSize,
   themed('Button')
@@ -34,19 +57,14 @@ const Button = styled(Flex)(
 
 Button.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  ...fontFamily.propTypes,
   ...buttonStyle.propTypes,
 }
 
 Button.defaultProps = {
   as: 'button',
-  fontFamily: 'sans',
   variant: 'default',
   justifyContent: 'center',
-  fontSize: 'inherit',
   m: 0,
-  px: 3,
-  py: 2,
 }
 
 export default Button
