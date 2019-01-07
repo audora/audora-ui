@@ -1,41 +1,26 @@
-import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import LinkElement from './element'
+import { fontFamily } from 'styled-system'
+import { themed } from '../../utils'
+import Box from '../box'
 
-const Link = ({ href, underline, children, content, ...rest }) => {
-  const linkProps = {
-    href,
-    underline,
-    ...rest,
-  }
-
-  return <LinkElement {...linkProps}>{children || content}</LinkElement>
-}
+const Link = styled(Box)(
+  props => ({
+    textDecoration: props.underline ? 'underline' : 'none',
+  }),
+  fontFamily,
+  themed('Link')
+)
 
 Link.propTypes = {
-  /**
-   * Text to be rendered.
-   */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Text to be rendered.
-   */
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Link underline.
-   */
   underline: PropTypes.bool,
-  /**
-   * Href of link.
-   */
-  href: PropTypes.string,
+  ...fontFamily.propTypes,
 }
 
 Link.defaultProps = {
-  children: '',
-  content: '',
-  href: '',
-  underline: false,
+  as: 'a',
+  color: 'primary.normal',
+  fontFamily: 'sans',
 }
 
 export default Link
