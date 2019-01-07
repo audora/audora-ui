@@ -42,14 +42,14 @@ const colorsSwatches = Object.keys(colorsMap).map(name => {
           colorBg,
           name === 'default' ? { color: colors.grey } : {},
           {
-            backgroundColor: colors[name].normal,
+            backgroundColor: colors[name][0],
             borderTopRightRadius: 4,
             borderTopLeftRadius: 4,
           }
         )}
       >
         <p style={{ fontWeight: '600', margin: 0 }}>{name}</p>
-        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name].normal}</p>
+        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name][0]}</p>
       </div>
       <div
         style={Object.assign(
@@ -57,12 +57,12 @@ const colorsSwatches = Object.keys(colorsMap).map(name => {
           colorBg,
           name === 'default' ? { color: colors.grey } : {},
           {
-            backgroundColor: colors[name].dark,
+            backgroundColor: colors[name][1],
           }
         )}
       >
         <p style={{ fontWeight: '600', margin: 0 }}>{`${name}Dark`}</p>
-        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name].dark}</p>
+        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name][1]}</p>
       </div>
       <div
         style={Object.assign(
@@ -70,14 +70,14 @@ const colorsSwatches = Object.keys(colorsMap).map(name => {
           colorBg,
           name === 'default' ? { color: colors.grey } : {},
           {
-            backgroundColor: colors[name].darken,
+            backgroundColor: colors[name][2],
             borderBottomRightRadius: 4,
             borderBottomLeftRadius: 4,
           }
         )}
       >
         <p style={{ fontWeight: '600', margin: 0 }}>{`${name}Darken`}</p>
-        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name].darken}</p>
+        <p style={{ fontSize: '12px', margin: 0 }}>{colors[name][2]}</p>
       </div>
     </li>
   )

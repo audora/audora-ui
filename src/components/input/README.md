@@ -30,9 +30,9 @@
 
 ```jsx
 <div style={{ display: 'flex', marginBottom: 10 }}>
-  <Input placeholder="E-mail" value="email@example.com" mr={10} />
+  <Input placeholder="E-mail" defaultValue="email@example.com" mr={10} />
   <Input placeholder="Password" type="password" mr={10} />
-  <Button content="Login" variant="primary" />
+  <Button variant="primary">Login</Button>
 </div>
 ```
 
@@ -42,6 +42,6 @@
 <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10, width: 300 }}>
   <Input placeholder="First Name" mb={10} full />
   <Input placeholder="Last Name" mb={10} full />
-  <Button content="Create" variant="primary" full />
+  <Button variant="primary" full>Create</Button>
 </div>
 ```

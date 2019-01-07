@@ -1,12 +1,7 @@
 import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import merge from 'lodash.merge'
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`
+import Flex from '../flex'
 
 const ButtonGroup = ({ children, compressed, ...rest }) => {
   const buttonStyle = (style, idx) => {
@@ -40,7 +35,7 @@ const ButtonGroup = ({ children, compressed, ...rest }) => {
   }
 
   return (
-    <Container {...rest}>
+    <Flex {...rest}>
       {Children.map(children, (child, idx) => {
         if (child === null || child === false) {
           return child
@@ -50,7 +45,7 @@ const ButtonGroup = ({ children, compressed, ...rest }) => {
           style: buttonStyle(child.props.style, idx),
         })
       })}
-    </Container>
+    </Flex>
   )
 }
 

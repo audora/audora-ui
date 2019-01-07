@@ -1,11 +1,11 @@
 ### Default
 
 ```jsx
-<Link href="#link" content="Link" />
+<Link href="#link">Link</Link>
 ```
 
 ### Underline
 
 ```jsx
-<Link href="#link" content="Underline" underline />
+<Link href="#link" underline>Underline</Link>
 ```
