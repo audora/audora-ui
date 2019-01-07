@@ -1,16 +1,16 @@
 ### Default
 ```jsx
 <ButtonGroup>
-  <Button content="Default" />
-  <Button content="Default" />
-  <Button content="Default" />
+  <Button>Default</Button>
+  <Button>Default</Button>
+  <Button>Default</Button>
 </ButtonGroup>
 ```
 ### Compressed
 ```jsx
 <ButtonGroup compressed>
-  <Button content="Default" />
-  <Button content="Default" />
-  <Button content="Default" />
+  <Button>Default</Button>
+  <Button>Default</Button>
+  <Button>Default</Button>
 </ButtonGroup>
 ```

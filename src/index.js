@@ -1,5 +1,6 @@
 export { default as Avatar } from './components/avatar'
 export { default as Box } from './components/box'
+export { default as Flex } from './components/flex'
 export { default as Button } from './components/button'
 export { default as ButtonGroup } from './components/button-group'
 export { default as Input } from './components/input'

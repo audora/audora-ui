@@ -1,13 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {
-  fontFamily,
-  borders,
-  borderRadius,
-  buttonStyle,
-  variant,
-} from 'styled-system'
-import Box from '../box'
+import { fontFamily, buttonStyle, variant } from 'styled-system'
+import Flex from '../flex'
 import { themed } from '../../utils'
 
 const buttonSize = variant({
@@ -15,16 +9,17 @@ const buttonSize = variant({
   prop: 'size',
 })
 
-const Button = styled(Box)(
+const Button = styled(Flex)(
   props => ({
     appearance: 'none',
     outline: 'none',
-    display: 'inline-block',
-    textAlign: 'center',
-    lineHeight: 'inherit',
+    justifyContent: 'center',
+    alignSelf: 'center',
     textDecoration: 'none',
     fontWeight: 'normal',
     cursor: 'pointer',
+    border: 0,
+    borderRadius: 4,
     width: props.full ? '100%' : 'auto',
     '&:disabled': {
       opacity: 0.5,
@@ -33,8 +28,6 @@ const Button = styled(Box)(
     },
   }),
   fontFamily,
-  borders,
-  borderRadius,
   buttonStyle,
   buttonSize,
   themed('Button')
@@ -42,9 +35,7 @@ const Button = styled(Box)(
 
 Button.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  ...borders.propTypes,
   ...fontFamily.propTypes,
-  ...borderRadius.propTypes,
   ...buttonStyle.propTypes,
 }
 
@@ -56,8 +47,6 @@ Button.defaultProps = {
   m: 0,
   px: 3,
   py: 2,
-  border: 0,
-  borderRadius: 4,
 }
 
 export default Button

@@ -17,9 +17,16 @@ export default {
   },
   buttonSizes: {
     small: {
-      py: 1,
-      px: 2,
-      fontSize: 2,
+      padding: '4px 8px',
+      fontSize: 14,
+    },
+    medium: {
+      padding: '8px 16px',
+      fontSize: 16,
+    },
+    large: {
+      padding: '16px 32px',
+      fontSize: 20,
     },
   },
   buttons: {
