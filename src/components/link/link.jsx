@@ -19,7 +19,7 @@ Link.propTypes = {
 
 Link.defaultProps = {
   as: 'a',
-  color: 'primary.normal',
+  color: 'primary.0',
   fontFamily: 'sans',
 }
 
