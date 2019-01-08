@@ -2,13 +2,13 @@
 import { Theme } from 'audora-ui';
 
 const themeConfig = {
-  color: {
-    primary: '#222'
+  colors: {
+    primary: ['#333', '#222', '#111']
   }
 };
 
 const MyApplication = () => (
-  <Theme config={themeConfig}>
+  <Theme theme={themeConfig}>
     <Button
       content="Click"
       onClick={() => alert("Button was clicked!")}
