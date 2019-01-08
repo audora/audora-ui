@@ -10,6 +10,12 @@
 <Input placeholder="Disabled input" disabled />
 ```
 
+### Error
+
+```jsx
+<Input placeholder="Error input" error />
+```
+
 ### Full
 
 ```jsx

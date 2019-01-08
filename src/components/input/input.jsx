@@ -28,21 +28,45 @@ const Input = styled(Flex)(
     fontSize: props.theme.fontSizes[2],
     color: props.theme.colors.black,
     backgroundColor: props.theme.colors.white,
-    borderColor: props.theme.colors.default[1],
+    borderColor: props.error
+      ? chroma(props.theme.colors.danger[0])
+          .alpha(0.4)
+          .css()
+      : props.theme.colors.default[1],
     width: props.full ? '100%' : 'auto',
+    '&::placeholder': {
+      color: props.error
+        ? chroma(props.theme.colors.danger[0])
+            .alpha(0.4)
+            .css()
+        : props.theme.colors.default[2],
+    },
     '&:disabled': {
       opacity: 0.5,
       pointerEvents: 'none',
     },
     '&:hover': {
-      borderColor: props.theme.colors.default[2],
+      borderColor: props.error
+        ? props.theme.colors.danger[1]
+        : props.theme.colors.default[2],
     },
     '&:focus': {
       zIndex: 1,
-      borderColor: props.theme.colors.primary[1],
-      boxShadow: `${chroma(props.theme.colors.primary[0])
+      borderColor: props.error
+        ? props.theme.colors.danger[1]
+        : props.theme.colors.primary[1],
+      boxShadow: `${chroma(
+        props.error
+          ? props.theme.colors.danger[0]
+          : props.theme.colors.primary[0]
+      )
         .alpha(0.4)
         .css()} 0 0 0 ${props.theme.space[1]}px`,
+      '&::placeholder': {
+        color: props.error
+          ? props.theme.colors.danger[0]
+          : props.theme.colors.grey[0],
+      },
     },
   }),
   inputSize,
