@@ -1,7 +1,9 @@
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { variant } from 'styled-system'
 import chroma from 'chroma-js'
+import Box from '../box'
 import Flex from '../flex'
 import { themed } from '../../utils'
 
@@ -12,11 +14,7 @@ const inputSize = variant({
 
 const Input = styled(Flex)(
   props => ({
-    appearance: 'none',
     outline: 'none',
-    alignSelf: 'center',
-    textDecoration: 'none',
-    fontWeight: 'normal',
     fontFamily: 'inherit',
     border: 1,
     borderStyle: 'solid',
@@ -78,7 +76,38 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
+  alignSelf: 'center',
   as: 'input',
 }
 
-export default Input
+const Label = styled(Box)(
+  props => ({
+    fontWeight: 'bold',
+    fontFamily: 'inherit',
+    fontSize: props.theme.fontSizes[1],
+    color: props.theme.colors.grey[0],
+    flexDirection: 'column',
+  }),
+  themed('Input')
+)
+
+Label.defaultProps = {
+  as: 'label',
+}
+
+export default ({ label, ...props }) => {
+  const inputProps = label
+    ? {
+        ...props,
+        alignSelf: 'start',
+        mt: 2,
+      }
+    : { ...props }
+
+  return (
+    <Label as={label ? 'label' : Fragment}>
+      {label}
+      <Input {...inputProps} />
+    </Label>
+  )
+}

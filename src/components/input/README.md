@@ -4,6 +4,12 @@
 <Input placeholder="Standard input" />
 ```
 
+### Label
+
+```jsx
+<Input label="Username" placeholder="Username" />
+```
+
 ### Disabled
 
 ```jsx
@@ -25,29 +31,24 @@
 ### Sizes
 
 ```jsx
-<div style={{ display: 'flex', marginBottom: 10 }}>
-  <Input placeholder="Small input" size="small" mr={10} />
-  <Input placeholder="Medium input" mr={10} />
-  <Input placeholder="Large input" size="large" mr={10} />
-</div>
+<Flex>
+  <Input placeholder="Small input" size="small" />
+  <Input placeholder="Medium input" mx={10} />
+  <Input placeholder="Large input" size="large" />
+</Flex>
 ```
 
 ### Login
 
 ```jsx
-<div style={{ display: 'flex', marginBottom: 10 }}>
-  <Input placeholder="E-mail" defaultValue="email@example.com" mr={10} />
-  <Input placeholder="Password" type="password" mr={10} />
-  <Button variant="primary">Login</Button>
-</div>
-```
-
-### Form
-
-```jsx
-<div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10, width: 300 }}>
-  <Input placeholder="First Name" mb={10} full />
-  <Input placeholder="Last Name" mb={10} full />
-  <Button variant="primary" full>Create</Button>
-</div>
+<Flex flexDirection="column" width={300} alignItems="flex-end">
+  <Input placeholder="Username" mb={10} full />
+  <Input placeholder="Password" type="password" full />
+  <Link href="#link" my={20}>
+    I forgot the password
+  </Link>
+  <Button variant="primary" full>
+    Login
+  </Button>
+</Flex>
 ```

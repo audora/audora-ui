@@ -6,6 +6,9 @@ import Box from '../box'
 const Link = styled(Box)(
   props => ({
     textDecoration: props.underline ? 'underline' : 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
   }),
   themed('Link')
 )
