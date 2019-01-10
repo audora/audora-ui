@@ -7,7 +7,18 @@
 ### Label
 
 ```jsx
-<Input label="Username" placeholder="Username" />
+<Input label="Username" name="username" placeholder="Username" />
+```
+
+### Info
+
+```jsx
+<Input
+  label="Email"
+  name="email"
+  placeholder="Email"
+  info="Your account email"
+/>
 ```
 
 ### Disabled

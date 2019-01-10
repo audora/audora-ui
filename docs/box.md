@@ -1,3 +1,5 @@
+Componente de layout de caixa-modelo responsivo.
+
 ### Default
 
 ```jsx

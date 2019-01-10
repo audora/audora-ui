@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { variant } from 'styled-system'
-import chroma from 'chroma-js'
-import Box from '../box'
-import Flex from '../flex'
-import { themed } from '../../utils'
+import Box from './box'
+import Flex from './flex'
+import { themed } from '../utils'
 
 const inputSize = variant({
   key: 'inputSizes',
@@ -27,16 +26,12 @@ const Input = styled(Flex)(
     color: props.theme.colors.black,
     backgroundColor: props.theme.colors.white,
     borderColor: props.error
-      ? chroma(props.theme.colors.danger[0])
-          .alpha(0.4)
-          .css()
+      ? `${props.theme.colors.danger[0]}66`
       : props.theme.colors.default[1],
     width: props.full ? '100%' : 'auto',
     '&::placeholder': {
       color: props.error
-        ? chroma(props.theme.colors.danger[0])
-            .alpha(0.4)
-            .css()
+        ? `${props.theme.colors.danger[0]}66`
         : props.theme.colors.default[2],
     },
     '&:disabled': {
@@ -53,13 +48,11 @@ const Input = styled(Flex)(
       borderColor: props.error
         ? props.theme.colors.danger[1]
         : props.theme.colors.primary[1],
-      boxShadow: `${chroma(
+      boxShadow: `${
         props.error
           ? props.theme.colors.danger[0]
           : props.theme.colors.primary[0]
-      )
-        .alpha(0.4)
-        .css()} 0 0 0 ${props.theme.space[1]}px`,
+      }66 0 0 0 ${props.theme.space[1]}px`,
       '&::placeholder': {
         color: props.error
           ? props.theme.colors.danger[0]
@@ -86,7 +79,6 @@ const Label = styled(Box)(
     fontFamily: 'inherit',
     fontSize: props.theme.fontSizes[1],
     color: props.theme.colors.grey[0],
-    flexDirection: 'column',
   }),
   themed('Input')
 )
@@ -95,19 +87,31 @@ Label.defaultProps = {
   as: 'label',
 }
 
-export default ({ label, ...props }) => {
-  const inputProps = label
-    ? {
-        ...props,
-        alignSelf: 'start',
-        mt: 2,
-      }
-    : { ...props }
+const Info = styled(Box)(
+  props => ({
+    fontWeight: 'normal',
+    fontFamily: 'inherit',
+    fontSize: props.theme.fontSizes[0],
+    color: props.theme.colors.grey[0],
+  }),
+  themed('Input')
+)
 
-  return (
-    <Label as={label ? 'label' : Fragment}>
-      {label}
-      <Input {...inputProps} />
-    </Label>
-  )
+Info.defaultProps = {
+  as: 'span',
 }
+
+export default ({ label, name, info, flexProps, ...props }) =>
+  label || info ? (
+    <Flex flexDirection="column" {...flexProps}>
+      {label && (
+        <Label htmlFor={name} mb={2}>
+          {label}
+        </Label>
+      )}
+      <Input alignSelf="start" name={name} id={name} {...props} />
+      {info && <Info mt={1}>{info}</Info>}
+    </Flex>
+  ) : (
+    <Input name={name} id={name} {...props} />
+  )

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { height, borderRadius } from 'styled-system'
-import { themed } from '../../utils'
-import Box from '../box'
+import { height } from 'styled-system'
+import { themed } from '../utils'
+import Box from './box'
 
 const Image = styled(Box)(
   {
@@ -9,13 +9,11 @@ const Image = styled(Box)(
     height: 'auto',
   },
   height,
-  borderRadius,
   themed('Image')
 )
 
 Image.propTypes = {
   ...height.propTypes,
-  ...borderRadius.propTypes,
 }
 
 Image.defaultProps = {

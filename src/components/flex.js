@@ -5,8 +5,8 @@ import {
   alignItems,
   justifyContent,
 } from 'styled-system'
-import Box from '../box'
-import { themed } from '../../utils'
+import Box from './box'
+import { themed } from '../utils'
 
 const Flex = styled(Box)(
   {

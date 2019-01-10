@@ -1,13 +1,12 @@
 import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
-import merge from 'lodash.merge'
-import Flex from '../flex'
+import Flex from './flex'
 
 const ButtonGroup = ({ children, compressed, ...rest }) => {
   const buttonStyle = (style, idx) => {
     if (compressed) {
       if (idx === children.length - 1) {
-        return merge(
+        return Object.assign(
           {
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
@@ -16,7 +15,7 @@ const ButtonGroup = ({ children, compressed, ...rest }) => {
         )
       }
       if (idx === 0) {
-        return merge(
+        return Object.assign(
           {
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0,
@@ -25,10 +24,10 @@ const ButtonGroup = ({ children, compressed, ...rest }) => {
         )
       }
 
-      return merge({ borderRadius: 0 }, style)
+      return Object.assign({ borderRadius: 0 }, style)
     }
     if (idx !== 0) {
-      return merge({ marginLeft: 10 }, style)
+      return Object.assign({ marginLeft: 10 }, style)
     }
 
     return style

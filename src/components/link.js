@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { themed } from '../../utils'
-import Box from '../box'
+import { themed } from '../utils'
+import Box from './box'
 
 const Link = styled(Box)(
   props => ({

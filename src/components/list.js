@@ -1,16 +1,11 @@
 import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { borderRadius } from 'styled-system'
-import Flex from '../flex'
-import Button from '../button'
-import { themed } from '../../utils'
+import Flex from './flex'
+import Button from './button'
+import { themed } from '../utils'
 
-const ListElement = styled(Flex)(
-  { flexDirection: 'column' },
-  borderRadius,
-  themed('List')
-)
+const ListElement = styled(Flex)({ flexDirection: 'column' }, themed('List'))
 
 const List = ({ children, size, as, ...rest }) => (
   <ListElement {...rest}>
@@ -32,7 +27,6 @@ const List = ({ children, size, as, ...rest }) => (
 )
 
 List.propTypes = {
-  ...borderRadius.propTypes,
   /**
    * Items to be rendered.
    */
