@@ -1,1 +1,0 @@
-An UI design language and React-based implementation, created with [Styled-System](https://github.com/jxnblk/styled-system).

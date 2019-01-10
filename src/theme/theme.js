@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.primary.normal};
+    color: ${({ theme }) => theme.colors.primary[0]};
     font-size: inherit;
   }
   body {

@@ -128,7 +128,7 @@ const Button = styled(Flex)(
     textDecoration: 'none',
     fontWeight: 'normal',
     cursor: 'pointer',
-    fontFamily: 'inherit',
+    fontFamily: props.theme.fonts.sans,
     border: 0,
     borderRadius: 4,
     width: props.full ? '100%' : 'auto',

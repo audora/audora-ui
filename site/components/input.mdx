@@ -1,0 +1,76 @@
+---
+name: Input
+menu: Components
+route: /components/input
+---
+
+# Input
+
+import { Playground } from 'docz'
+import { Input, Flex, Link, Button } from '../../src'
+
+## Default 
+
+<Playground>
+  <Input placeholder="Standard input" />
+</Playground>
+
+## Label 
+
+<Playground>
+  <Input label="Username" name="username" placeholder="Username" />
+</Playground>
+
+## Info 
+
+<Playground>
+  <Input
+    label="Email"
+    name="email"
+    placeholder="Email"
+    info="Your account email"
+  />
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Input placeholder="Disabled input" disabled />
+</Playground>
+
+## Error
+
+<Playground>
+  <Input placeholder="Error input" error />
+</Playground>
+
+## Full
+
+<Playground>
+  <Input placeholder="Full input" full />
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Flex>
+    <Input placeholder="Small input" size="small" />
+    <Input placeholder="Medium input" mx={10} />
+    <Input placeholder="Large input" size="large" />
+  </Flex>
+</Playground>
+
+## Login
+
+<Playground>
+  <Flex flexDirection="column" width={300} alignItems="flex-end">
+    <Input placeholder="Username" mb={10} full />
+    <Input placeholder="Password" type="password" full />
+    <Link href="#link" my={20}>
+      I forgot the password
+    </Link>
+    <Button variant="primary" full>
+      Login
+    </Button>
+  </Flex>
+</Playground>

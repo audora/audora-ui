@@ -1,0 +1,30 @@
+---
+name: List
+menu: Components
+route: /components/list
+---
+
+# List
+
+import { Playground } from 'docz'
+import { List } from '../../src'
+
+## Default 
+
+<Playground>
+  <List>
+    <List.Item href="#list" count={30} selected>First</List.Item>
+    <List.Item href="#list" count={20}>Second</List.Item>
+    <List.Item href="#list" count={10}>Third</List.Item>
+  </List>
+</Playground>
+
+## Inverted 
+
+<Playground>
+  <List inverted bg="black" p={10} borderRadius={10}>
+    <List.Item href="#list" count={30} selected>First</List.Item>
+    <List.Item href="#list" count={20}>Second</List.Item>
+    <List.Item href="#list" count={10}>Third</List.Item>
+  </List>
+</Playground>
