@@ -5,4 +5,5 @@ export default {
   dest: 'docs',
   wrapper: 'site/wrapper.js',
   base: process.env.NODE_ENV === 'production' ? '/audora-ui/' : '/',
+  hashRouter: true,
 }
